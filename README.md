@@ -12,42 +12,46 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 
 | Tecnología | Logo | Guía Principal | Estado | Categoría |
 | :--- | :---: | :--- | :---: | :--- |
-| **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo | Herramientas |
-| **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completo | Herramientas |
-| **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo | Testing |
-| **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo | Testing |
-| **Redis** | <img src="./assets/redis_logo.svg" alt="Redis Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./base-de-datos/Redis.md) | Completado | Bases de Datos |
+| **Jetpack Compose** | <img src="./assets/compose_logo" alt="Compose Logo" height="25"> | [Principios y Componibles Esenciales](./frontend/Jetpack-Compose.md) | Completado | Frontend |
 | **GraphQL** | <img src="./assets/graphQL_logo.svg" alt="GraphQL Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./framework/GraphQL.md) | Completado | Framework |
 | **Kotlin (Básico)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Sintaxis y Conceptos Fundamentales](./backend/kotlin/01-Fundamentos_Sintaxis.md) | Completado | Backend |
 | **Kotlin (Intermedio)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Funciones de Orden Superior y POO](./backend/kotlin/02-Colecciones_POO.md) | Completado | Backend |
 | **Kotlin (Avanzado)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Coroutines y DSLs](./backend/kotlin/03-Funcional_Concurrencia.md) | Completado | Backend |
+| **Redis** | <img src="./assets/redis_logo.svg" alt="Redis Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./base-de-datos/Redis.md) | Completado | Bases de Datos |
+| **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completado | Testing |
+| **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completado | Testing |
+| **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completado | Herramientas |
+| **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completado | Herramientas |
 
 ---
 
 ## 📂 2. Estructura Detallada del Repositorio
 
-### 2.1. Frameworks (`/framework`)
+### Frontend (`/frontend`)
+Apuntes sobre tecnologías para la construcción de interfaces de usuario.
+* Jetpack Compose
+
+### Frameworks (`/framework`)
 Guías sobre sistemas de gestión de framework.
 * GraphQL
 
+### Backend(`/backend`)
+Apuntes de sintaxis, conceptos y patrones específicos de lenguajes.
+* Kotlin (Básico, Intermedio, Avanzado)
 
-### 2.2. Bases de Datos (`/base-de-datos`)
+### Bases de Datos (`/base-de-datos`)
 Guías sobre sistemas de gestión de bases de datos relacionales y NoSQL.
 * Redis
 
-### 2.3. Testing (`/testing`)
+### Testing (`/testing`)
 Herramientas y metodologías de prueba.
 * JUnit
 * Mockito
 
-### 2.4. Herramientas y DevOps (`/herramientas`)
+### Herramientas y DevOps (`/herramientas`)
 Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Git
 * Maven
-
-### 2.5. Lenguajes de backend(`/backend`)
-Apuntes de sintaxis, conceptos y patrones específicos de lenguajes.
-* Kotlin (Básico, Intermedio, Avanzado)
 
 ---
 
