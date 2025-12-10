@@ -17,6 +17,9 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | **Kotlin (Básico)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Sintaxis y Conceptos Fundamentales](./backend/kotlin/01-Fundamentos_Sintaxis.md) | Completado | Backend |
 | **Kotlin (Intermedio)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Funciones de Orden Superior y POO](./backend/kotlin/02-Colecciones_POO.md) | Completado | Backend |
 | **Kotlin (Avanzado)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Coroutines y DSLs](./backend/kotlin/03-Funcional_Concurrencia.md) | Completado | Backend |
+| **Java (Básico)** | <img src="./assets/java_logo.svg" alt="Java Logo" height="25"> | [Sintaxis y Conceptos Fundamentales](./backend/java/01-Fundametos_Sintaxis.md) | Completado | Backend |
+| **Java (Intermedio)** | <img src="./assets/java_logo.svg" alt="Java Logo" height="25"> | [Programación Orientada a Objetos y Colecciones](./backend/java/02-Colecciones_POO.md) | Completado | Backend |
+| **Java (Avanzado)** | <img src="./assets/java_logo.svg" alt="Java Logo" height="25"> | [Multithreading y API Streams](./backend/java/03-Funcional_Concurrencias_Moderno.md) | Completado | Backend |
 | **Redis** | <img src="./assets/redis_logo.svg" alt="Redis Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./base-de-datos/Redis.md) | Completado | Bases de Datos |
 | **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completado | Testing |
 | **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completado | Testing |
@@ -38,6 +41,7 @@ Guías sobre sistemas de gestión de framework.
 ### Backend(`/backend`)
 Apuntes de sintaxis, conceptos y patrones específicos de lenguajes.
 * Kotlin (Básico, Intermedio, Avanzado)
+* Java (Básico, Intermedio, Avanzado)
 
 ### Bases de Datos (`/base-de-datos`)
 Guías sobre sistemas de gestión de bases de datos relacionales y NoSQL.
