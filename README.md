@@ -1,1 +1,23 @@
-# manual-referencia-tecnica
+# 📚 Manual de Referencia Técnica
+
+**Descripción corta:** Apuntes de desarrollador y guías rápidas de referencia. Notas de conceptos, comandos y sintaxis de multiples tecnologías.
+Este repositorio actúa como mi **Base de Conocimiento Personal** y **Manual de Consulta Rápida** sobre diversas tecnologías clave en el desarrollo de software. Aquí se consolidan conceptos, sintaxis, comandos, configuraciones y ejemplos prácticos.
+---
+
+## ⚙️ 2. Inicio y Contribución (Uso Personal)
+Para usar este manual localmente en tu máquina:
+1.  **Clonar el Repositorio:**
+    ```bash
+    git clone [https://github.com/tu-usuario/manual-referencia-tecnica.git](https://github.com/tu-usuario/manual-referencia-tecnica.git)
+    ```
+2.  **Actualizar:** Para obtener los últimos apuntes.
+    ```bash
+    git pull origin main
+    ```
+---
+
+## 🔒 3. Licencia
+**Este repositorio no tiene una licencia explícita.**
+Esto significa que, por defecto, **todos los derechos de autor están reservados** por el creador.
+* No se permite copiar, modificar o distribuir el contenido sin permiso expreso del autor.
+---
