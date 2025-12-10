@@ -17,7 +17,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo | Testing |
 | **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo | Testing |
 | **Redis** | <img src="./assets/redis_logo.svg" alt="Redis Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./base-de-datos/Redis.md) | Completado | Bases de Datos |
-| **GraphQL** | <img src="./assets/graphQL_logo.svg" alt="GraphQL Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./framework/GraphQL.md) | Completado | Bases de Datos |
+| **GraphQL** | <img src="./assets/graphQL_logo.svg" alt="GraphQL Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./framework/GraphQL.md) | Completado | Framework |
 
 ---
 
