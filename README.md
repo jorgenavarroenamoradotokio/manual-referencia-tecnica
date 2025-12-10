@@ -13,6 +13,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | Tecnología | Logo | Guía Principal | Estado |
 | :--- | :---: | :--- | :---: |
 | **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo |
+| **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completo |
 | **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo |
 | **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo |
 
@@ -27,7 +28,8 @@ Herramientas y metodologías de prueba.
 
 ### 2.2. Herramientas y DevOps (`/herramientas`)
 Herramientas auxiliares y flujos de trabajo de desarrollo.
-* Git (Comandos, Flujos)
+* Git
+* Maven
 
 ---
 
