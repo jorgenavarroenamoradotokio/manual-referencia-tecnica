@@ -12,7 +12,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 
 | Tecnología | Logo | Guía Principal | Estado |
 | :--- | :---: | :--- | :---: |
-| **Git** | <img src="./assets/git_logo.png" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo |
+| **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo |
 
 ---
 
