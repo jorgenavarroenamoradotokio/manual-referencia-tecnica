@@ -14,6 +14,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | :--- | :---: | :--- | :---: |
 | **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo |
 | **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo |
+| **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo |
 
 ---
 
@@ -22,6 +23,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 ### 2.1. Testing (`/testing`)
 Herramientas y metodologías de prueba.
 * JUnit
+* Mockito
 
 ### 2.2. Herramientas y DevOps (`/herramientas`)
 Herramientas auxiliares y flujos de trabajo de desarrollo.
