@@ -12,7 +12,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 
 | Tecnología | Logo | Guía Principal | Estado | Categoría |
 | :--- | :---: | :--- | :---: | :--- |
-| **Jetpack Compose** | <img src="./assets/compose_logo" alt="Compose Logo" height="25"> | [Principios y Componibles Esenciales](./frontend/Jetpack-Compose.md) | Completado | Frontend |
+| **Jetpack Compose** | <img src="./assets/compose_logo.svg" alt="Compose Logo" height="25"> | [Principios y Componibles Esenciales](./frontend/Jetpack-Compose.md) | Completado | Frontend |
 | **GraphQL** | <img src="./assets/graphQL_logo.svg" alt="GraphQL Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./framework/GraphQL.md) | Completado | Framework |
 | **Kotlin (Básico)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Sintaxis y Conceptos Fundamentales](./backend/kotlin/01-Fundamentos_Sintaxis.md) | Completado | Backend |
 | **Kotlin (Intermedio)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Funciones de Orden Superior y POO](./backend/kotlin/02-Colecciones_POO.md) | Completado | Backend |
