@@ -10,23 +10,27 @@ Este repositorio actúa como mi **Base de Conocimiento Personal** y **Manual de 
 
 Para una referencia rápida, haz clic en la tecnología o herramienta deseada. Recuerda que los logos están almacenados localmente en la carpeta `assets/`.
 
-| Tecnología | Logo | Guía Principal | Estado |
-| :--- | :---: | :--- | :---: |
-| **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo |
-| **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completo |
-| **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo |
-| **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo |
-
+| Tecnología | Logo | Guía Principal | Estado | Categoría |
+| :--- | :---: | :--- | :---: | :--- |
+| **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo | Herramientas |
+| **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completo | Herramientas |
+| **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo | Testing |
+| **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo | Testing |
+| **Redis** | <img src="./assets/redis_logo.svg" alt="Redis Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./base-de-datos/Redis.md) | Completado | Bases de Datos |
 ---
 
 ## 📂 2. Estructura Detallada del Repositorio
 
-### 2.1. Testing (`/testing`)
+### 2.1. Bases de Datos (`/base-de-datos`)
+Guías sobre sistemas de gestión de bases de datos relacionales y NoSQL.
+* Redis
+
+### 2.2. Testing (`/testing`)
 Herramientas y metodologías de prueba.
 * JUnit
 * Mockito
 
-### 2.2. Herramientas y DevOps (`/herramientas`)
+### 2.3. Herramientas y DevOps (`/herramientas`)
 Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Git
 * Maven
