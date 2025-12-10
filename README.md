@@ -25,6 +25,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completado | Testing |
 | **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completado | Herramientas |
 | **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completado | Herramientas |
+| **Jenkins** | <img src="./assets/jenkins_logo.svg" alt="Jenkins Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Jenkins.md) | Completado | Herramientas |
 
 ---
 
@@ -56,6 +57,7 @@ Herramientas y metodologías de prueba.
 Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Git
 * Maven
+* Jenkins
 
 ---
 
