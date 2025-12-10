@@ -13,12 +13,17 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | Tecnología | Logo | Guía Principal | Estado |
 | :--- | :---: | :--- | :---: |
 | **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completo |
+| **JUnit** | <img src="./assets/JUnit_logo.svg" alt="JUnit Logo" height="25"> | [Guía Rápida de Pruebas Unitarias](./testing/JUnit.md) | Completo |
 
 ---
 
 ## 📂 2. Estructura Detallada del Repositorio
 
-### 2.1. Herramientas y DevOps (`/herramientas`)
+### 2.1. Testing (`/testing`)
+Herramientas y metodologías de prueba.
+* JUnit
+
+### 2.2. Herramientas y DevOps (`/herramientas`)
 Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Git (Comandos, Flujos)
 
