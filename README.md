@@ -18,6 +18,9 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | **Mockito** | <img src="./assets/Mockito_logo.png" alt="Mockito Logo" height="25"> | [Guía Rápida de Framework Mock para pruebas Unitarias](./testing/Mockito.md) | Completo | Testing |
 | **Redis** | <img src="./assets/redis_logo.svg" alt="Redis Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./base-de-datos/Redis.md) | Completado | Bases de Datos |
 | **GraphQL** | <img src="./assets/graphQL_logo.svg" alt="GraphQL Logo" height="25"> | [Comandos Esenciales y Tipos de Datos](./framework/GraphQL.md) | Completado | Framework |
+| **Kotlin (Básico)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Sintaxis y Conceptos Fundamentales](./backend/kotlin/01-Fundamentos_Sintaxis.md) | Completado | Backend |
+| **Kotlin (Intermedio)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Funciones de Orden Superior y POO](./backend/kotlin/02-Colecciones_POO.md) | Completado | Backend |
+| **Kotlin (Avanzado)** | <img src="./assets/kotlin_logo.svg" alt="Kotlin Logo" height="25"> | [Coroutines y DSLs](./backend/kotlin/03-Funcional_Concurrencia.md) | Completado | Backend |
 
 ---
 
@@ -32,15 +35,19 @@ Guías sobre sistemas de gestión de framework.
 Guías sobre sistemas de gestión de bases de datos relacionales y NoSQL.
 * Redis
 
-### 2.2. Testing (`/testing`)
+### 2.3. Testing (`/testing`)
 Herramientas y metodologías de prueba.
 * JUnit
 * Mockito
 
-### 2.3. Herramientas y DevOps (`/herramientas`)
+### 2.4. Herramientas y DevOps (`/herramientas`)
 Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Git
 * Maven
+
+### 2.5. Lenguajes de backend(`/backend`)
+Apuntes de sintaxis, conceptos y patrones específicos de lenguajes.
+* Kotlin (Básico, Intermedio, Avanzado)
 
 ---
 
