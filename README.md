@@ -26,7 +26,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | **Git** | <img src="./assets/git_logo.svg" alt="Git Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Git.md) | Completado | Herramientas |
 | **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completado | Herramientas |
 | **Jenkins** | <img src="./assets/jenkins_logo.svg" alt="Jenkins Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Jenkins.md) | Completado | Herramientas |
-
+| **Docker** | <img src="./assets/docker.svg" alt="Docker Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Docker.md) | Completado | Herramientas |
 ---
 
 ## 📂 2. Estructura Detallada del Repositorio
@@ -58,6 +58,7 @@ Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Git
 * Maven
 * Jenkins
+* Docker
 
 ---
 
