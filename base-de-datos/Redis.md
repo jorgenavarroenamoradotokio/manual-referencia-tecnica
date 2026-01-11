@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/redis_logo.svg">
+  <img src="../assets/redis_logo.svg"  width="200" alt="Logo de Redis">
 </div>
 
 ## Índice

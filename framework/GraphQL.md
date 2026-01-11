@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/graphQL_logo.svg">
+  <img src="../assets/graphQL_logo.svg"  width="200" alt="Logo de GraphQL">
 </div>
 
 ## Índice

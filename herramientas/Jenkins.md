@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/jenkins_logo.svg">
+  <img src="../assets/jenkins_logo.svg"  width="200" alt="Logo de Jenkins">
 </div>
 
 
