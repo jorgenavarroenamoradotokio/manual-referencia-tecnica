@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/compose_logo.svg">
+  <img src="../assets/compose_logo.svg" width="200" alt="Logo de compose">
 </div>
 
 ## Índice

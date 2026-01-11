@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/git_logo.svg">
+  <img src="../assets/git_logo.svg"  width="200" alt="Logo de Git">
 </div>
 
 ## Índice
@@ -7,6 +7,7 @@
   - [Características](#características)
   - [Conceptos básicos](#conceptos-básicos)
 - [Funcionamiento](#funcionamiento)
+- [Funcionamiento](#funcionamiento-1)
 - [Ciclo de vida de los archivos en Git](#ciclo-de-vida-de-los-archivos-en-git)
 - [Ramas y bifurcaciones de código](#ramas-y-bifurcaciones-de-código)
   - [GitFlow que es y sus comandos](#gitflow-que-es-y-sus-comandos)
