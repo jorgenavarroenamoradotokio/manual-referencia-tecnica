@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/maven_logo.svg">
+  <img src="../assets/maven_logo.svg"  width="200" alt="Logo de Maven">
 </div>
 
 ## Índice

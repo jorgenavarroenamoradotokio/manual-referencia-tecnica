@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../../assets/kotlin_logo.svg">
+  <img src="../../assets/kotlin_logo.svg"  width="200" alt="Logo de Kotlin">
 </div>
 
 ## Índice

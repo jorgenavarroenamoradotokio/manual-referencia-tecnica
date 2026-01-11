@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../../assets/java_logo.svg">
+  <img src="../../assets/java_logo.svg"  width="200" alt="Logo de Java">
 </div>
 
 # Índice

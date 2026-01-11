@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/Mockito_logo.png">
+  <img src="../assets/Mockito_logo.png"  width="200" alt="Logo de Mockito">
 </div>
 
 ## Índice

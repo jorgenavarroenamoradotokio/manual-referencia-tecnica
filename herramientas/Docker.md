@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/docker.svg">
+  <img src="../assets/docker.svg" width="200" alt="Logo de Docker">
 </div>
 
 ## Índice
@@ -8,16 +8,18 @@
   - [Docker y DevOps](#docker-y-devops)
   - [Docker y CI/CD](#docker-y-cicd)
 - [Instalación de Docker](#instalación-de-docker)
-  - [Instalación en Windows](#instalación-en-windows)
+  - [Windows](#windows)
   - [Instalación en macOS](#instalación-en-macos)
-  - [Instalación en Linux (Ubuntu/Debian)](#instalación-en-linux-ubuntudebian)
-- [Arquitectura de docker](#arquitectura-de-docker)
+  - [Linux (Ubuntu/Debian)](#linux-ubuntudebian)
+- [Arquitectura de Docker](#arquitectura-de-docker)
   - [Docker Client](#docker-client)
   - [Docker Daemon (dockerd)](#docker-daemon-dockerd)
   - [Docker Objects (Objetos)](#docker-objects-objetos)
   - [Docker Registry](#docker-registry)
   - [Arquitectura interna (Linux)](#arquitectura-interna-linux)
   - [Docker vs Máquinas Virtuales](#docker-vs-máquinas-virtuales)
+  - [Docker y Orquestación](#docker-y-orquestación)
+- [EXPOSE vs ports](#expose-vs-ports)
 - [Imagen](#imagen)
   - [Características](#características)
   - [Imagen vs. Contenedor](#imagen-vs-contenedor)
@@ -29,11 +31,11 @@
       - [Estructura básica de un Dockerfile](#estructura-básica-de-un-dockerfile)
       - [CMD VS ENTRYPOINT](#cmd-vs-entrypoint)
     - [A partir de un contenedor existente](#a-partir-de-un-contenedor-existente)
-- [Containers/Contenedores](#containerscontenedores)
+- [Contenedores](#contenedores)
   - [Características](#características-1)
   - [Ciclo de vida de un contenedor](#ciclo-de-vida-de-un-contenedor)
   - [Comandos](#comandos-1)
-  - [Variables de docker run](#variables-de-docker-run)
+  - [Variables de Docker run](#variables-de-docker-run)
 - [Volumen](#volumen)
   - [Contenedor vs Volumen](#contenedor-vs-volumen)
   - [Tipos de almacenamiento](#tipos-de-almacenamiento)
@@ -45,41 +47,50 @@
   - [Tipo](#tipo)
   - [Comandos](#comandos-4)
 - [Docker compose](#docker-compose)
+  - [Instalación](#instalación)
+    - [Windows](#windows-1)
+    - [macOS](#macos)
+    - [Linux](#linux)
+  - [Docker Compose moderno vs legacy](#docker-compose-moderno-vs-legacy)
   - [Diferencias entre Docker CLI y Docker Compose](#diferencias-entre-docker-cli-y-docker-compose)
   - [Estructura de un docker-compose.yml](#estructura-de-un-docker-composeyml)
+  - [.env y variables de entorno](#env-y-variables-de-entorno)
+  - [depends\_on y healthcheck](#depends_on-y-healthcheck)
   - [Comandos](#comandos-5)
+- [Archivos clave](#archivos-clave)
+  - [.dockerignore](#dockerignore)
 
 # Introducción
 
 Docker es una plataforma de **virtualización ligera basada en contenedores** que permite desarrollar, empaquetar y ejecutar aplicaciones de forma consistente en cualquier entorno.
 
 Un **contenedor** incluye:
-- Código de la aplicación
+- Código
 - Dependencias
 - Librerías
 - Variables de entorno
-- Runtime necesario
+- Runtime
 
-> A diferencia de una máquina virtual, Docker **comparte el kernel del sistema**, lo que lo hace más rápido y eficiente.
+> Nota: Docker comparte el kernel del sistema, lo que lo hace más rápido y eficiente que una máquina virtual.
 
 ## Conceptos Clave
 
 | Concepto | Descripción |
 |--------|------------|
-| Imagen | Plantilla inmutable para crear contenedores |
-| Contenedor | Instancia en ejecución de una imagen |
-| Dockerfile | Archivo con instrucciones para crear una imagen |
+| Imagen | Plantilla inmutable |
+| Contenedor | Imagen en ejecución |
+| Dockerfile | Define cómo crear imágenes |
 | Volumen | Persistencia de datos |
-| Red | Comunicación entre contenedores |
-| Registry | Repositorio de imágenes (Docker Hub, GitHub, ECR…) |
+| Network | Comunicación |
+| Registry | Repositorio de imágenes |
 
 ## Docker y DevOps
 
-Docker es una pieza clave dentro de **DevOps**, ya que permite:
+Docker permite:
 - Entornos reproducibles
-- Automatización de despliegues
+- Automatización
 - Escalabilidad
-- Reducción de errores por diferencias entre entornos
+- Menos errores entre entornos
 
 ## Docker y CI/CD
 
@@ -96,10 +107,10 @@ Commit → Build imagen → Test → Push registry → Deploy
 
 # Instalación de Docker
 
-## Instalación en Windows
+## Windows
 
 Requisitos
-- Windows 10/11 Pro, Enterprise o Education
+- Windows 10/11
 - Virtualización habilitada en BIOS
 - WSL2 habilitado (recomendado)
 
@@ -132,7 +143,7 @@ docker -v
 docker info
 ```
 
-## Instalación en Linux (Ubuntu/Debian)
+## Linux (Ubuntu/Debian)
 
 Pasos
 - Actualizar el sistema:
@@ -177,7 +188,7 @@ docker -v
 docker run hello-world
 ```
 
-# Arquitectura de docker
+# Arquitectura de Docker
 
 La arquitectura de Docker describe cómo están organizados y cómo interactúan los componentes que permiten crear, distribuir y ejecutar contenedores. A alto nivel, Docker sigue un modelo cliente–servidor.
 
@@ -187,21 +198,7 @@ Docker se compone principalmente de:
 - Docker Objects (images, containers, networks, volumes)
 - Docker Registry
 
-+-------------------+
-|   Docker Client   |
-+-------------------+
-          |
-          | REST API
-          v
-+-------------------+
-|  Docker Daemon    |
-+-------------------+
-   |      |      |
- Images Containers Networks
-          |
-          v
-   Docker Registry
-
+Cliente → Daemon → Objetos → Registry
 
 ## Docker Client
 
@@ -262,6 +259,19 @@ Docker se apoya en funcionalidades del kernel:
 | Arranque rápido           | Arranque lento          |
 | Ideal para microservicios | Ideal para SO completos |
 
+
+## Docker y Orquestación
+
+- Docker Swarm (nativo)
+- Kubernetes (estándar de la industria)
+
+# EXPOSE vs ports
+
+| EXPOSE    | ports   |
+| --------- | ------- |
+| Documenta | Publica |
+| Imagen    | Runtime |
+
 # Imagen
 
 Una imagen Docker es una plantilla inmutable que contiene todo lo necesario para ejecutar una aplicación dentro de un contenedor.
@@ -302,7 +312,7 @@ Es común confundirlos, pero la diferencia es sencilla
 
 ## Comandos
 
-- ver imagenes (Muestra el repository, el tag, image id y el size)
+- ver imágenes (Muestra el repository, el tag, image id y el size)
 ```bash
 docker images
 docker image ls
@@ -328,7 +338,7 @@ docker rmi 3f2c1a
 docker rmi -f miapp:1.0
 docker image prune
 ```
-> docker image prune Elimina imágenes no utilizadas.
+> Nota: docker image prune Elimina imágenes no utilizadas.
 > Útil para limpieza local, pero cuidado en entornos compartidos.
 - Inspeccionar una imagen: Muestra las capas, variables de entorno, CMD/ENTRYPOINT y arquitectura
 ```bash
@@ -375,7 +385,7 @@ Con un Dockerfile puedes:
 - Si una capa no cambia → se reutiliza de la caché
 - Al final, se genera una imagen Docker
 
-> Si una instrucción cambia, todas las capas siguientes se reconstruyen.
+> Nota: Si una instrucción cambia, todas las capas siguientes se reconstruyen.
 
 #### Estructura básica de un Dockerfile
 
@@ -469,9 +479,9 @@ CMD ["node", "app.js"]
 ```bash
 docker commit contenedor imagen_nueva
 ```
-> No recomendado en producción (poco reproducible).
+> Nota: No recomendado en producción (poco reproducible).
 
-# Containers/Contenedores
+# Contenedores
 
 Un contenedor Docker es una instancia en ejecución de una imagen.
 Es un proceso aislado en tu sistema operativo que se comporta como una máquina independiente, pero compartiendo el núcleo (kernel) del host.
@@ -481,7 +491,7 @@ Sus 3 pilares:
 - Eficiencia: Se inicia en segundos porque no arranca un sistema operativo completo (como las máquinas virtuales).
 - Volatilidad: Por defecto, si borras el contenedor, los datos creados dentro desaparecen (a menos que uses volúmenes).
 
-> Imagen = plantilla (estática, no se ejecuta)
+> Nota: Imagen = plantilla (estática, no se ejecuta)
 > Contenedor = imagen + ejecución + estado
 
 Un contenedor:
@@ -508,7 +518,7 @@ Un contenedor:
   - Capas de solo lectura (imagen)
   - Capa writable (del contenedor)
 
-> Los cambios se pierden al eliminar el contenedor (salvo volúmenes).
+> Nota: Los cambios se pierden al eliminar el contenedor (salvo volúmenes).
 
 ## Ciclo de vida de un contenedor
 
@@ -561,7 +571,7 @@ docker rm -f mi_nginx
 docker container prune
 ```
 
-> docker container prune: elimina todos los contenedores detenidos, cuidado en entornos compartidos
+> Nota: docker container prune elimina todos los contenedores detenidos, cuidado en entornos compartidos
 
 - Ver consumo de recursos: Muestra CPU, RAM, Red, I/O
 ```bash
@@ -577,12 +587,12 @@ docker cp mi_nginx:/tmp/archivo.txt .
 docker pause mi_nginx
 docker unpause mi_nginx
 ```
-- Contenedores efimeros
+- Contenedores efímeros
 ```bash
 docker run --rm alpine echo "Hola Docker"
 ```
 
-## Variables de docker run
+## Variables de Docker run
 
 | Opción   | Descripción          |
 | -------- | -------------------- |
@@ -594,7 +604,7 @@ docker run --rm alpine echo "Hola Docker"
 | `-e`     | Variables de entorno |
 | `--rm`   | Elimina al detenerse |
 
-> `--rm` elimina automáticamente el contenedor al detenerse. Ideal para pruebas o tareas temporales.
+> Nota: `--rm` elimina automáticamente el contenedor al detenerse. Ideal para pruebas o tareas temporales.
 
 # Volumen
 
@@ -642,7 +652,7 @@ docker volume rm mi_volumen
 docker volume prune
 ```
 
-> Esto elimina datos de forma irreversible.
+> Nota: Esto elimina datos de forma irreversible.
 
 - Asociar un volumen al contenedor
 ```bash
@@ -659,7 +669,7 @@ docker run -d \
   nginx
 ```
 
-> Docker creará un volumen anónimo en /var/lib/docker/volumes si no existe un nombre
+> Nota: Docker creará un volumen anónimo en /var/lib/docker/volumes si no existe un nombre
 
 - Bind mount (host → contenedor)
 ```bash
@@ -696,6 +706,7 @@ Características:
 | **macvlan** | Asigna dirección MAC y IP propia al contenedor             | Integración con red física existente       |
 
 ## Comandos
+
 - Listar redes: NETWORK ID, NAME, DRIVER (bridge, host, overlay), SCOPE
 ```bash
 docker network ls
@@ -715,7 +726,7 @@ docker run -d --name web nginx
 docker network connect mi_red web
 ```
 
-> Ahora web puede comunicarse con otros contenedores en mi_red.
+> Nota: Ahora web puede comunicarse con otros contenedores en mi_red.
 
 - Desconectar un contenedor de una red
 ```bash
@@ -726,7 +737,7 @@ docker network disconnect mi_red mi_contenedor
 docker network rm mi_red
 ```
 
-> Solo se puede eliminar si no hay contenedores conectados.
+> Nota: Solo se puede eliminar si no hay contenedores conectados.
 
 - Exposición de puertos al host
 ```bash
@@ -746,7 +757,6 @@ El flujo de trabajo se basa en tres acciones principales:
 
 El concepto de "Tagging" (Etiquetado)
 Para subir una imagen a un registro, el nombre de la imagen debe seguir un formato específico para que Docker sepa a dónde enviarla: [usuario_o_url_servidor]/[nombre_imagen]:[etiqueta]
-
 
 ## Tipo
 
@@ -825,6 +835,78 @@ docker-compose up
 docker-compose down
 ```
 
+
+## Instalación
+
+### Windows
+
+Requisitos
+- Windows 10/11 Pro, Enterprise o Education
+- Docker Desktop instalado (recomendado con WSL2)
+
+Pasos
+- Docker Compose viene incluido en Docker Desktop. Solo necesitas:
+  - Abrir PowerShell o CMD.
+  - Verificar versión:
+```bash
+docker-compose --version
+docker compose version
+```
+
+> Nota: No es necesario instalar Compose por separado en Windows si se usa Docker Desktop.
+
+### macOS
+
+Requisitos
+- macOS 11 o superior
+- Docker Desktop instalado (Intel o Apple Silicon)
+
+Pasos
+- Docker Compose viene incluido en Docker Desktop. Solo necesitas:
+  - Abrir PowerShell o CMD.
+  - Verificar versión:
+```bash
+docker-compose --version
+docker compose version
+```
+
+> Nota: Si se prefiere instalar Compose de forma independiente, se puede descargar desde el repositorio oficial de GitHub siguiendo los mismos pasos que en Linux.
+
+### Linux
+
+Requisitos
+ - Docker instalado (ver sección [Instalación en Linux](#linux-ubuntudebian)).
+
+Pasos
+- Descargar la versión más reciente de Docker Compose
+```bash
+sudo apt install -y docker-compose-plugin
+```
+- Verificar instalación
+```bash
+docker compose version
+```
+
+> Nota: En algunas distribuciones (Ubuntu/Debian recientes), Docker Compose se instala automáticamente como plugin (docker compose) al instalar Docker, y se puede usar con docker compose en lugar de docker-compose.
+
+- En versiones antiguas de docker se recomienda instalarlo así
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
+```
+
+## Docker Compose moderno vs legacy
+
+| Legacy         | Moderno        |
+| -------------- | -------------- |
+| docker-compose | docker compose |
+| Binario        | Plugin         |
+| Obsoleto       | Recomendado    |
+
+
 ## Diferencias entre Docker CLI y Docker Compose
 
 | Docker CLI                          | Docker Compose                                 |
@@ -857,7 +939,9 @@ services:
       - ./web:/usr/share/nginx/html
     networks:
       - app_net
-
+  depends_on:
+    db:
+      condition: service_healthy
   db:
     image: mysql:8
     environment:
@@ -866,52 +950,77 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - app_net
-
 volumes:
   db_data:
 
 networks:
   app_net:
+  
 ```
+
+## .env y variables de entorno
+
+Docker Compose permite usar un archivo `.env` para centralizar configuraciones.
+Ejemplo `.env`:
+```env
+MYSQL_ROOT_PASSWORD=secret
+APP_PORT=8080
+```
+
+## depends_on y healthcheck
+
+- depends_on: controla orden de arranque
+- healthcheck: verifica estado real del servicio
 
 ## Comandos
 
 - Levantar la aplicación
 ```bash
-docker-compose up
-docker-compose up -d
+docker compose up
+docker compose up -d
 ```
 - Detener y eliminar contenedores, redes y volúmenes creados
 ```bash
-docker-compose down
-docker-compose down -v
+docker compose down
+docker compose down -v
 ```
 - Construir imágenes
 ```bash
-docker-compose build
+docker compose build
 ```
 - Reiniciar servicios
 ```bash
-docker-compose restart
+docker compose restart
 ```
 - Parar servicios
 ```bash
-docker-compose stop
+docker compose stop
 ```
 - Listar contenedores de Compose
 ```bash
-docker-compose ps
+docker compose ps
 ```
 - Ejecutar comandos dentro de un contenedor
 ```bash
-docker-compose exec web bash
+docker compose exec web bash
 ```
 - Ver logs
 ```bash
-docker-compose logs
-docker-compose logs -f   # logs en tiempo real
+docker compose logs
+docker compose logs -f   # logs en tiempo real
 ```
 - Escalar servicios
 ```bash
-docker-compose up -d --scale web=3
+docker compose up -d --scale web=3
+```
+
+# Archivos clave
+## .dockerignore
+
+Evita copiar archivos innecesarios al build.
+
+```dockerignore
+node_modules
+.git
+.env
 ```
