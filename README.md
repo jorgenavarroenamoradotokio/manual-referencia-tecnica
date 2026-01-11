@@ -27,6 +27,7 @@ Para una referencia rápida, haz clic en la tecnología o herramienta deseada. R
 | **Maven** | <img src="./assets/maven_logo.svg" alt="Maven Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Maven.md) | Completado | Herramientas |
 | **Jenkins** | <img src="./assets/jenkins_logo.svg" alt="Jenkins Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Jenkins.md) | Completado | Herramientas |
 | **Docker** | <img src="./assets/docker.svg" alt="Docker Logo" height="25"> | [Comandos Esenciales y Flujos de Trabajo](./herramientas/Docker.md) | Completado | Herramientas |
+| **Linux** | <img src="./assets/linux.svg" alt="Linux Logo" height="25"> | [Comandos Esenciales y funcionamiento del entrorno](./so/Linux.md) | Parcial | SO |
 ---
 
 ## 📂 2. Estructura Detallada del Repositorio
@@ -59,6 +60,10 @@ Herramientas auxiliares y flujos de trabajo de desarrollo.
 * Maven
 * Jenkins
 * Docker
+
+### Sistema operativo (`/so`)
+Sistemas operativos para el desarrollo y mantenimiento.
+* Linux
 
 ---
 
