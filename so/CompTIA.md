@@ -95,6 +95,106 @@
   - [Acceso a Escritorio Remoto](#acceso-a-escritorio-remoto)
   - [Shell Seguro (SSH)](#shell-seguro-ssh)
   - [Gestión Fuera de Banda (OOB) y Servidores de Salto](#gestión-fuera-de-banda-oob-y-servidores-de-salto)
+- [Infraestructura en la Nube (Tema 6)](#infraestructura-en-la-nube-tema-6)
+  - [Modelos de Despliegue en la Nube](#modelos-de-despliegue-en-la-nube)
+  - [Modelos de Servicio en la Nube (XaaS)](#modelos-de-servicio-en-la-nube-xaas)
+  - [Matriz de Responsabilidades](#matriz-de-responsabilidades)
+  - [Computación Centralizada vs. Descentralizada](#computación-centralizada-vs-descentralizada)
+    - [Computación Centralizada](#computación-centralizada)
+    - [Computación Descentralizada](#computación-descentralizada)
+  - [Arquitectura Resiliente y Replicación](#arquitectura-resiliente-y-replicación)
+  - [Virtualización de Aplicaciones y Contenedores](#virtualización-de-aplicaciones-y-contenedores)
+  - [Arquitecturas Modernas y Automatización](#arquitecturas-modernas-y-automatización)
+    - [Computación Sin Servidor (Serverless / FaaS)](#computación-sin-servidor-serverless--faas)
+    - [Infraestructura como Código (IaC)](#infraestructura-como-código-iac)
+    - [Escalado Automático (Autoscaling)](#escalado-automático-autoscaling)
+  - [Redes Definidas por Software (SDN)](#redes-definidas-por-software-sdn)
+    - [Los Tres Planos de la Red (Crucial para Examen)](#los-tres-planos-de-la-red-crucial-para-examen)
+    - [APIs de Comunicación](#apis-de-comunicación)
+    - [Virtualización de Funciones de Red (NFV)](#virtualización-de-funciones-de-red-nfv)
+  - [Sistemas Integrados (Embedded Systems)](#sistemas-integrados-embedded-systems)
+    - [Sistemas Operativos en Tiempo Real (RTOS)](#sistemas-operativos-en-tiempo-real-rtos)
+  - [Sistemas de Control Industrial (ICS) y SCADA](#sistemas-de-control-industrial-ics-y-scada)
+    - [Arquitectura de Componentes de un ICS](#arquitectura-de-componentes-de-un-ics)
+    - [La Tríada AIC (Inversión de CIA)](#la-tríada-aic-inversión-de-cia)
+  - [Internet de las Cosas (IoT)](#internet-de-las-cosas-iot)
+  - [Desperimetrización y Confianza Cero (Zero Trust)](#desperimetrización-y-confianza-cero-zero-trust)
+    - [Desperimetrización](#desperimetrización)
+    - [Arquitectura de Confianza Cero (ZTA - Zero Trust Architecture)](#arquitectura-de-confianza-cero-zta---zero-trust-architecture)
+    - [Componentes de Seguridad Esenciales en una ZTA](#componentes-de-seguridad-esenciales-en-una-zta)
+  - [Tecnologías de Seguridad Avanzadas en la Nube y Redes](#tecnologías-de-seguridad-avanzadas-en-la-nube-y-redes)
+    - [SASE (Secure Access Service Edge)](#sase-secure-access-service-edge)
+    - [SD-WAN (Software-Defined WAN)](#sd-wan-software-defined-wan)
+- [Gestión de Activos y Estrategias de Redundancia (Tema 7)](#gestión-de-activos-y-estrategias-de-redundancia-tema-7)
+  - [Gestión de Activos](#gestión-de-activos)
+    - [Seguimiento de Activos (Asset Tracking)](#seguimiento-de-activos-asset-tracking)
+  - [Copias de Seguridad de Datos (Backup Strategies)](#copias-de-seguridad-de-datos-backup-strategies)
+    - [Tipos de Copias de Seguridad (Esencial para Examen)](#tipos-de-copias-de-seguridad-esencial-para-examen)
+    - [Regla del 3-2-1 para Backups](#regla-del-3-2-1-para-backups)
+  - [Protección Avanzada de Datos](#protección-avanzada-de-datos)
+    - [Prevención de Pérdida de Datos (DLP - Data Loss Prevention)](#prevención-de-pérdida-de-datos-dlp---data-loss-prevention)
+    - [Cifrado de Datos y Gestión de Claves](#cifrado-de-datos-y-gestión-de-claves)
+  - [Destrucción Segura de Datos (Data Sanitization)](#destrucción-segura-de-datos-data-sanitization)
+  - [Estrategias de Redundancia](#estrategias-de-redundancia)
+    - [Continuidad de las Operaciones (COOP)](#continuidad-de-las-operaciones-coop)
+  - [Alta Disponibilidad (High Availability - HA) y Redundancia de Sistemas](#alta-disponibilidad-high-availability---ha-y-redundancia-de-sistemas)
+    - [Tolerancia a Fallos en Almacenamiento (RAID)](#tolerancia-a-fallos-en-almacenamiento-raid)
+  - [Agrupamiento o Clustering](#agrupamiento-o-clustering)
+  - [Redundancia de Energía](#redundancia-de-energía)
+    - [Componentes Clave de Redundancia:](#componentes-clave-de-redundancia)
+  - [Diversidad de Plataformas y Defensa en Profundidad](#diversidad-de-plataformas-y-defensa-en-profundidad)
+    - [Diversidad de Plataformas:](#diversidad-de-plataformas)
+    - [Defensa en Profundidad:](#defensa-en-profundidad)
+  - [Tecnologías de Engaño y Disrupción](#tecnologías-de-engaño-y-disrupción)
+    - [Herramientas de Engaño:](#herramientas-de-engaño)
+    - [Estrategias de Disrupción (Ofuscación):](#estrategias-de-disrupción-ofuscación)
+  - [Pruebas de Resiliencia](#pruebas-de-resiliencia)
+    - [Métodos de Prueba](#métodos-de-prueba)
+    - [Documentación y Terceros](#documentación-y-terceros)
+  - [Fundamentos de Seguridad Física](#fundamentos-de-seguridad-física)
+    - [Fundamentos de Control de Acceso Físico](#fundamentos-de-control-de-acceso-físico)
+  - [Diseño Ambiental, Rejas e Iluminación](#diseño-ambiental-rejas-e-iluminación)
+    - [CPTED (Seguridad Física a través del Diseño Ambiental)](#cpted-seguridad-física-a-través-del-diseño-ambiental)
+    - [Elementos de Diseño de Seguridad](#elementos-de-diseño-de-seguridad)
+  - [Puertas, Cerraduras y Controles de Entrada](#puertas-cerraduras-y-controles-de-entrada)
+    - [Tipos de Cerraduras:](#tipos-de-cerraduras)
+    - [Dispositivos de Control de Acceso de Alta Seguridad:](#dispositivos-de-control-de-acceso-de-alta-seguridad)
+  - [Vigilancia y Guardias de Seguridad](#vigilancia-y-guardias-de-seguridad)
+    - [Guardias de Seguridad Humanos](#guardias-de-seguridad-humanos)
+    - [Videovigilancia (CCTV)](#videovigilancia-cctv)
+  - [Sistemas de Alarmas y Sensores](#sistemas-de-alarmas-y-sensores)
+    - [Tipos de Alarmas](#tipos-de-alarmas)
+    - [Tipos de Sensores de Movimiento](#tipos-de-sensores-de-movimiento)
+- [Vulnerabilidades de Dispositivos, Sistemas Operativos, Aplicaciones y Nube (Tema 8)](#vulnerabilidades-de-dispositivos-sistemas-operativos-aplicaciones-y-nube-tema-8)
+  - [Vulnerabilidades del Sistema Operativo](#vulnerabilidades-del-sistema-operativo)
+    - [Características y Vectores por Plataforma](#características-y-vectores-por-plataforma)
+  - [Tipos de Vulnerabilidad y Explotación](#tipos-de-vulnerabilidad-y-explotación)
+    - [Sistemas Heredados (*Legacy*) y de Fin de Vida (*EOL - End of Life*):](#sistemas-heredados-legacy-y-de-fin-de-vida-eol---end-of-life)
+    - [Vulnerabilidades en Virtualización y Nube](#vulnerabilidades-en-virtualización-y-nube)
+  - [Vulnerabilidades de Día Cero (*Zero-Day*) (8.1.3)](#vulnerabilidades-de-día-cero-zero-day-813)
+  - [Vulnerabilidades de Configuración Errónea](#vulnerabilidades-de-configuración-errónea)
+  - [Vulnerabilidades Criptográficas](#vulnerabilidades-criptográficas)
+    - [Principales Debilidades](#principales-debilidades)
+  - [Sideloading, Rooting y Jailbreaking](#sideloading-rooting-y-jailbreaking)
+  - [Vulnerabilidades de Aplicación](#vulnerabilidades-de-aplicación)
+    - [Condición de Carrera (*Race Condition*) y TOCTOU](#condición-de-carrera-race-condition-y-toctou)
+    - [Vulnerabilidades de la Cadena de Suministro (*Supply Chain Attacks*)](#vulnerabilidades-de-la-cadena-de-suministro-supply-chain-attacks)
+  - [8. Alcance de la Evaluación (*Assessment Scope*)](#8-alcance-de-la-evaluación-assessment-scope)
+    - [Perspectiva del Pentester (Auditor de Seguridad)](#perspectiva-del-pentester-auditor-de-seguridad)
+    - [Perspectiva del Atacante (Actor de Amenazas)](#perspectiva-del-atacante-actor-de-amenazas)
+  - [Ataques a las Aplicaciones Web](#ataques-a-las-aplicaciones-web)
+    - [Conceptos Clave y Vectores](#conceptos-clave-y-vectores)
+  - [Ataques a Aplicaciones Basadas en la Nube](#ataques-a-aplicaciones-basadas-en-la-nube)
+    - [Desafíos de Seguridad en la Nube](#desafíos-de-seguridad-en-la-nube)
+    - [Solución Tecnológica: CASB (Cloud Access Security Broker)](#solución-tecnológica-casb-cloud-access-security-broker)
+      - [Modos de Implementación de un CASB](#modos-de-implementación-de-un-casb)
+  - [Vulnerabilidades en la Cadena de Suministro](#vulnerabilidades-en-la-cadena-de-suministro)
+    - [Vectores de Compromiso](#vectores-de-compromiso)
+    - [Herramientas de Mitigación y Gestión](#herramientas-de-mitigación-y-gestión)
+  - [Métodos e Identificación de Vulnerabilidades](#métodos-e-identificación-de-vulnerabilidades)
+    - [Feeds de Amenazas (*Threat Feeds*)](#feeds-de-amenazas-threat-feeds)
+    - [Escaneo de Vulnerabilidades](#escaneo-de-vulnerabilidades)
+    - [Análisis e Identificación Avanzada](#análisis-e-identificación-avanzada)
   
 
 # Conceptos Fundamentales de Seguridad (Tema 1)
@@ -1015,3 +1115,719 @@ Técnicas para administrar la infraestructura de forma aislada del tráfico de p
 - Gestión en Banda (In-band): El tráfico administrativo comparte la misma red que los usuarios. Debe estar cifrado (SSH, TLS, RDP).
 - Gestión Fuera de Banda (OOB): Utiliza una red dedicada físicamente o conexiones serie/módem para administrar dispositivos. Es más seguro y funciona incluso si la red principal falla.
 - Servidor de Salto (Jump Server/Bastion Host): Es un host ultra-protegido que sirve como único punto de entrada para administrar otros servidores. Los administradores se conectan primero al servidor de salto y, desde allí, acceden a la red de gestión.
+
+# Infraestructura en la Nube (Tema 6) 
+
+Comprender la infraestructura en la nube es vital para los profesionales de la seguridad, 
+no solo para proteger los activos, sino para entender el **Modelo de Responsabilidad 
+Compartida**, mitigar vulnerabilidades específicas de la nube y cumplir con los 
+requisitos reglamentarios de retención y privacidad de datos.
+
+## Modelos de Despliegue en la Nube
+
+Clasifican **cómo se posee, gestiona y provee** la infraestructura de nube. 
+Cada modelo altera drásticamente la superficie de ataque de la organización.
+
+* **Público (Multiusuario / Multi-tenant):**
+    * **Definición:** Recursos de computación y almacenamiento que un Proveedor de Servicios en la Nube (CSP) ofrece a múltiples clientes a través de Internet de forma compartida.
+    * **Mecanismo:** El aislamiento de datos se logra lógicamente mediante software (hipervisores, VPC, cifrado) en lugar de aislamiento físico.
+    * **Ejemplo:** Instancias EC2 en AWS, almacenamiento en Google Cloud.
+    * **Riesgo de examen:** El mayor riesgo en la nube pública es el *Data Bleed* (fuga de datos) o ataques de escape de máquina virtual (*VM Escape*), donde un atacante en la misma infraestructura física intenta saltar al entorno de otro inquilino.
+* **Privado:**
+    * **Definición:** Infraestructura de uso exclusivo para una sola organización.
+    * **Privado Alojado (Hosted Private):** La infraestructura física es propiedad de un tercero y está alojada en su centro de datos, pero dedicada exclusivamente a un solo cliente (no se comparte hardware). Es más costoso pero garantiza el rendimiento.
+    * **Privado Propio (On-premises / In situ):** La infraestructura se encuentra físicamente en las instalaciones de la organización.
+        * *Ventaja:* Control absoluto y físico de los datos (ideal para cumplimiento estricto como datos militares o bancarios).
+        * *Desventaja:* Altísimos costes de capital (CapEx), mantenimiento, refrigeración y escalabilidad limitada.
+* **Híbrido:**
+    * **Definición:** Combinación de nubes públicas y privadas unidas por tecnología que permite compartir datos y aplicaciones entre ellas.
+    * **Ejemplo:** Una empresa aloja su base de datos confidencial de clientes en su nube privada local (para cumplir con la regulación de datos), pero despliega la interfaz web de la aplicación en la nube pública de AWS para escalar según el tráfico.
+    * **Complejidad de Seguridad:** Introduce retos de sincronización segura, problemas de latencia y la necesidad de cifrar todos los datos en tránsito entre el entorno local y la nube (usualmente a través de VPNs IPsec o conexiones dedicadas como AWS Direct Connect).
+* **Multicloud (Multinube):**
+    * **Definición:** El uso de dos o más proveedores de servicios en la nube pública (por ejemplo, usar AWS para procesamiento y Azure para bases de datos/Active Directory).
+    * **Propósito:** Evitar la dependencia del proveedor (*vendor lock-in*) y aumentar la redundancia. Si un CSP sufre una caída global, el servicio puede seguir funcionando en el otro.
+
+## Modelos de Servicio en la Nube (XaaS)
+
+Los modelos de servicio se diferencian por el nivel de administración que el cliente debe realizar frente al nivel de preconfiguración que ofrece el proveedor.
+
+| Modelo de Servicio | Lo que administra el Proveedor (CSP) | Lo que administra el Cliente | Ejemplo Práctico |
+| :--- | :--- | :--- | :--- |
+| **IaaS** *(Infraestructura)* | Hardware físico, redes físicas, almacenamiento físico, hipervisor de virtualización. | Sistema Operativo (SO), parches, software intermedio (middleware), bases de datos, datos y aplicaciones. | Instancias AWS EC2, Azure VMs. El cliente instala su propio Linux/Windows. |
+| **PaaS** *(Plataforma)* | Todo lo de IaaS + el Sistema Operativo, motores de bases de datos y entornos de ejecución (runtime). | El código de la aplicación y las configuraciones de acceso. | AWS Elastic Beanstalk, Heroku. Los desarrolladores solo suben su código (ej. Python, Node.js). |
+| **SaaS** *(Software)* | Absolutamente toda la infraestructura, el SO, la plataforma y el propio software/aplicación. | Configuraciones del usuario y la gestión del acceso (quién puede entrar). | Microsoft Office 365, Salesforce, Google Workspace. |
+
+## Matriz de Responsabilidades
+
+Un dogma fundamental de CompTIA: **La responsabilidad de la seguridad en la nube nunca se transfiere por completo al CSP; se comparte.**
+
+* **Regla de oro:** El CSP es responsable de la **seguridad DE LA nube** (proteger el hardware físico, la seguridad perimetral de los centros de datos y los hipervisores). El cliente es responsable de la **seguridad EN LA nube** (proteger sus propios datos, identidades, parches del sistema operativo invitado y cifrado).
+* **Análisis por modelo:**
+    * En **SaaS**, la división es simple: el proveedor asegura la aplicación casi al 100%. El cliente solo es responsable de los datos que introduce y de gestionar las cuentas (identidades/IAM) de sus empleados.
+    * En **IaaS**, la responsabilidad del cliente es máxima. Si una máquina virtual de IaaS es hackeada porque el cliente no instaló los parches de seguridad de Windows Server, la culpa es enteramente del **cliente**, no del proveedor de la nube.
+
+## Computación Centralizada vs. Descentralizada
+
+### Computación Centralizada
+
+Toda la computación, procesamiento y almacenamiento de datos se produce en una ubicación física o lógica centralizada (ej. un *mainframe* o un único servidor central).
+* **Ventaja:** Control estricto, facilidad de administración de políticas y auditorías sencillas.
+* **Desventaja:** Representa un **Punto Único de Fallo (SPOF)**. Si el servidor central cae, toda la organización se paraliza.
+
+### Computación Descentralizada
+
+La carga de trabajo, procesamiento y almacenamiento de datos se distribuye entre múltiples nodos independientes.
+
+* **Blockchain:** Base de datos/registro descentralizado y distribuido. No depende de una entidad central; cada transacción es verificada por consenso entre nodos y es inmutable (resistente a la manipulación).
+* **Redes P2P (Peer-to-Peer):** Distribuyen archivos y procesamiento directamente entre los usuarios finales sin pasar por un servidor.
+* **Redes de Distribución de Contenido (CDN):**
+    * *Funcionamiento:* Una red de servidores distribuidos geográficamente (servidores proxy perimetrales o *edge servers*). Cuando un usuario solicita una página web, la CDN le sirve los datos estáticos desde el servidor más cercano físicamente.
+    * *Beneficio de Seguridad:* Además de reducir la latencia, las CDNs ayudan a mitigar ataques de **Denegación de Servicio Distribuido (DDoS)** al absorber el tráfico masivo a lo largo de su red global de servidores perimetrales.
+* **Tor (The Onion Router):** Enruta el tráfico cifrado de internet a través de una red descentralizada de nodos voluntarios para ocultar la dirección IP origen del usuario, garantizando el anonimato.
+
+## Arquitectura Resiliente y Replicación
+
+La resiliencia garantiza que la infraestructura de la nube pueda resistir y recuperarse rápidamente de fallas de hardware, de red o desastres naturales.
+
+* **Alta Disponibilidad (HA):** Asegura que el almacenamiento y los servicios tengan un tiempo de actividad mínimo del **99.99% (los "cuatro nueves")**. Se logra eliminando puntos únicos de fallo mediante redundancia de hardware (controladoras de disco duales, fuentes de alimentación redundantes).
+* **Tipos de Replicación de Almacenamiento:**
+    * **Replicación Local:** Copia los datos tres veces dentro del **mismo centro de datos físico**. Protege contra la falla de un rack de discos, pero si el centro de datos sufre un incendio, los datos se pierden.
+    * **Replicación Regional (Redundancia de Zona / ZRS):** Copia los datos en múltiples centros de datos (Zonas de Disponibilidad) independientes dentro de la **misma región geográfica**. Cada zona tiene su propia red, suministro eléctrico y refrigeración. Si un centro de datos se inunda, el servicio continúa de inmediato desde otra zona.
+    * **Almacenamiento Georredundante (GRS):** Replica los datos de forma asíncrona en una **región geográfica completamente distinta y lejana** (a cientos de kilómetros de la primaria). Protege los datos contra desastres naturales extremos a escala regional (ej. terremotos o huracanes).
+
+## Virtualización de Aplicaciones y Contenedores
+
+Dos métodos para aislar entornos de software, pero con diferencias críticas en arquitectura y rendimiento:
+
+* **Virtualización de Aplicaciones:**
+    * Es una versión ligera de la Infraestructura de Escritorio Virtual (VDI). En lugar de enviar un sistema operativo de escritorio completo al usuario, solo se transmite la aplicación específica (ej. SAP, un software contable) que se procesa en el servidor remoto.
+    * **Clientless (Sin cliente):** Se implementa comúnmente a través de navegadores web utilizando **HTML5**. No requiere instalar agentes de software en la computadora local del usuario, lo que reduce la superficie de ataque en dispositivos finales.
+* **Contenedorización (Containers):**
+    * **Mecanismo:** En lugar de virtualizar el hardware físico (como las máquinas virtuales), los contenedores **comparten el kernel del Sistema Operativo del host**.
+    * Empaquetan la aplicación, sus bibliotecas (*bins/libs*) y configuraciones necesarias en una imagen ligera y portable.
+    * **Ventaja:** Arrancan en milisegundos, usan una fracción de los recursos de una VM y eliminan los problemas de "en mi máquina sí funciona".
+    * **Herramienta líder:** *Docker* sirve para crear y ejecutar contenedores individuales; *Kubernetes* se usa para orquestar (gestionar a gran escala) miles de contenedores.
+    * **Riesgo de seguridad de examen:** Debido a que todos los contenedores comparten el mismo kernel del host, si un atacante logra comprometer el kernel del sistema operativo subyacente, podría obtener acceso a todos los contenedores que se ejecutan en esa máquina.
+
+## Arquitecturas Modernas y Automatización
+
+### Computación Sin Servidor (Serverless / FaaS)
+
+* **Concepto:** El cliente no aprovisiona, gestiona ni escala servidores (físicos o virtuales). El CSP se encarga del aprovisionamiento dinámico de la infraestructura.
+* **Modelo de ejecución:** Funciona en base a **eventos**. Una función de código específica se ejecuta (se "despierta") solo cuando un evento lo requiere (ej. un usuario sube una foto, la función se activa, redimensiona la foto y se destruye inmediatamente).
+* **Facturación:** Solo se paga por los milisegundos exactos que tarda en ejecutarse la función. No hay cargos por servidores inactivos.
+* **Ejemplo:** AWS Lambda, Azure Functions.
+
+### Infraestructura como Código (IaC)
+
+* **Definición:** La práctica de definir, aprovisionar y gestionar infraestructuras de TI (redes, firewalls, balanceadores, VMs) mediante **archivos de configuración legibles por máquina**, en lugar de hacerlo de manera manual mediante clics en portales web.
+* **Formatos estándar:** Archivos de texto estructurados en **YAML, JSON o HCL (HashiCorp Configuration Language)**.
+* **Impacto en la Seguridad:**
+    1.  **Evita el desvío de configuración (*Configuration Drift*):** Asegura que todos los entornos (Desarrollo, Pruebas, Producción) sean idénticos, eliminando configuraciones erróneas humanas que abran puertos no deseados.
+    2.  **Auditoría y Control de Versiones:** Permite guardar los archivos en repositorios Git. Si ocurre un fallo de seguridad, se puede auditar exactamente quién autorizó el cambio de código en la infraestructura y revertirlo rápidamente.
+
+### Escalado Automático (Autoscaling)
+
+* **Concepto:** Ajuste automático y elástico de la cantidad de recursos asignados a un servicio basándose en la carga de trabajo real.
+* *Escalado Horizontal:* Añade o elimina instancias (VMs) de manera automática detrás de un balanceador de carga cuando el uso de CPU supera un umbral (ej. al 80%).
+* *Escalado Vertical:* Añade más recursos (CPU, RAM) a una sola instancia existente.
+
+## Redes Definidas por Software (SDN)
+
+En entornos de nube masivos, configurar switches y routers de forma física o manual es imposible. SDN separa el software de control del hardware de red físico.
+
+### Los Tres Planos de la Red (Crucial para Examen)
+
+1.  **Plano de Gestión (Management Plane):** La interfaz donde los humanos o los scripts configuran políticas de red y monitorean el estado de salud de la infraestructura de red.
+2.  **Plano de Control (Control Plane):** El "cerebro" lógico. Toma las decisiones estratégicas de enrutamiento y decide hacia dónde se debe enviar el tráfico, cómo priorizarlo y qué políticas de seguridad aplicar.
+3.  **Plano de Datos (Data Plane / Forwarding Plane):** El "músculo". Ejecuta físicamente el reenvío de paquetes, la conmutación y la imposición de las listas de control de acceso (ACLs) y reglas de firewall en base a las instrucciones dadas por el plano de control.
+
+### APIs de Comunicación
+
+* **API Northbound (Dirección Norte):** Conecta las aplicaciones de red y la interfaz de gestión con el Controlador SDN (comunica el Plano de Gestión con el Plano de Control).
+* **API Southbound (Dirección Sur):** Conecta el Controlador SDN con los switches y routers físicos o virtuales (comunica el Plano de Control con el Plano de Datos, ej. protocolo *OpenFlow*).
+
+### Virtualización de Funciones de Red (NFV)
+
+* **Concepto:** Consiste en sustituir los dispositivos físicos de hardware de red dedicados (como firewalls físicos, routers Cisco o balanceadores de carga propietarios) por **instancias de software virtuales** (VMs) ejecutándose en servidores estándar de propósito general.
+* **Beneficios:** Reducción drástica de costes de adquisición de hardware, y aprovisionamiento casi instantáneo de medidas de protección perimetral (puedes desplegar un firewall virtual en la red de tu nube en segundos mediante IaC).
+
+## Sistemas Integrados (Embedded Systems)
+
+Los sistemas integrados son soluciones de computación diseñadas para realizar funciones dedicadas o específicas dentro de un sistema mecánico o eléctrico más grande.
+
+* **Definición:** Combinaciones de hardware y software (a menudo firmware) diseñadas con un propósito específico (a diferencia de una computadora de propósito general).
+* **Ejemplos Clave:**
+    * *Electrodomésticos:* Refrigeradores, lavadoras, cafeteras inteligentes.
+    * *Dispositivos Médicos:* Marcapasos, bombas de insulina, monitores de glucosa (controlan funciones críticas y transmiten datos vitales).
+    * *Sistemas Automotrices:* Unidades de control del motor (ECU), sistemas de frenos ABS, airbags, infoentretenimiento.
+    * *Aeroespacial y Defensa:* Sistemas de navegación de aeronaves, satélites, guiado de misiles.
+
+### Sistemas Operativos en Tiempo Real (RTOS)
+
+* **Concepto:** Un RTOS (Real-Time Operating System) es un sistema operativo diseñado para procesar datos y eventos de entrada sin retrasos de búfer (latencia insignificante). El tiempo de respuesta es crítico y predecible (medido en microsegundos).
+* **Aplicación típica:** Control de procesos industriales, robots de montaje, equipos médicos automatizados (ej. administración de medicamentos de precisión) y aviación.
+* **Riesgos de Seguridad asociados a RTOS:**
+    * *Complejidad:* Son sistemas altamente especializados y complejos, lo que dificulta la identificación y parcheo de vulnerabilidades tradicionales.
+    * *Gravedad del impacto:* Si un atacante compromete un RTOS, puede interrumpir procesos físicos críticos en tiempo real. En dispositivos médicos o de control industrial, una vulneración puede resultar directamente en **daños físicos a personas o destrucción de costosa maquinaria**.
+
+## Sistemas de Control Industrial (ICS) y SCADA
+
+Los sistemas de automatización industrial controlan infraestructuras críticas nacionales como el suministro de energía, el agua, la manufactura y el transporte.
+
+* **Conceptos Clave:**
+    * **ICS (Industrial Control System):** Término general que abarca los sistemas utilizados para supervisar y controlar procesos físicos.
+    * **DCS (Distributed Control System):** Un ICS que administra la automatización de procesos dentro de un **único sitio físico** (como una planta de producción o fábrica).
+    * **SCADA (Supervisory Control and Data Acquisition):** Diseñado para el control y adquisición de datos a gran escala a lo largo de **múltiples ubicaciones geográficas** distantes (ej. redes de gasoductos, distribución eléctrica nacional).
+
+### Arquitectura de Componentes de un ICS
+
+1.  **PLC (Controlador Lógico Programable):** Computadoras industriales robustecidas que reciben entradas de sensores, procesan la lógica programada y envían instrucciones a los actuadores.
+2.  **Sensores y Actuadores:** Los *sensores* miden variables físicas (temperatura, presión, caudal); los *actuadores* ejecutan acciones físicas (abrir válvulas, arrancar motores, activar interruptores). Están vinculados mediante redes seriales de **Tecnología Operativa (OT)** o Ethernet industrial.
+3.  **HMI (Human-Machine Interface):** Panel de control local o software que permite a los operadores humanos monitorizar el estado del proceso y modificar configuraciones en los PLCs.
+4.  **Bucle de Control (Control Loop):** El ciclo continuo de retroalimentación donde el sensor mide, el PLC decide basándose en esa lectura, y el actuador altera el estado físico para mantener las condiciones deseadas.
+
+### La Tríada AIC (Inversión de CIA)
+
+* En el entorno de TI corporativo tradicional, la prioridad es la Confidencialidad (C-I-A).
+* En los entornos industriales de Tecnología Operativa (OT), **la vida humana y la continuidad de servicio son lo primero**. Por lo tanto, se invierte la tríada dando máxima prioridad a la **Disponibilidad y la Integridad sobre la Confidencialidad (A-I-C)**.
+
+## Internet de las Cosas (IoT)
+
+El IoT describe la red global de dispositivos físicos interconectados que recopilan, procesan y comparten datos a través de Internet.
+
+* **Ecosistema:** Los dispositivos IoT utilizan sensores locales para medir su entorno, actuadores para realizar tareas físicas, y se comunican a menudo con **infraestructuras en la nube pública** que proporcionan la capacidad de cómputo para procesar el Big Data generado.
+* **El problema de seguridad en IoT (Riesgos de examen):**
+    * *Falta de madurez de seguridad:* Muchos fabricantes de dispositivos domésticos inteligentes priorizan el tiempo de lanzamiento al mercado antes que la seguridad, lanzando productos con firmware vulnerable.
+    * *Falta de conciencia:* Los usuarios raramente cambian las **contraseñas 
+    predeterminadas** de fábrica (credenciales por defecto) ni actualizan el firmware, lo 
+    que facilita que los atacantes los recluten en redes de bots de spam o ataques DDoS 
+    (como la famosa botnet *Mirai*).
+* **Marcos de Buenas Prácticas (Best Practices):**
+    * *IoTSF* (Internet of Things Security Foundation).
+    * *Industrial Internet Consortium (IIC)* Security Framework.
+    * *CSA* (Cloud Security Alliance) IoT Security Controls.
+    * *ETSI* IoT Security Standards.
+
+## Desperimetrización y Confianza Cero (Zero Trust)
+
+Tradicionalmente, las organizaciones confiaban en la seguridad perimetral clásica ("modelo 
+del castillo y el foso"): si estabas dentro de la red corporativa/VPN, eras de confianza; si 
+estabas fuera, no. 
+
+### Desperimetrización
+
+La adopción de BYOD (traiga su propio dispositivo), fuerzas de trabajo remotas que se 
+conectan desde redes Wi-Fi públicas vulnerables y arquitecturas híbridas/multicloud ha 
+destruido el perímetro tradicional. **Ya no existe un "adentro" seguro**.
+
+### Arquitectura de Confianza Cero (ZTA - Zero Trust Architecture)
+
+* **Principio Fundamental:** **"Nunca confiar, siempre verificar"**. No se asume que un 
+usuario, dispositivo o servicio es confiable por el simple hecho de estar en la red interna.
+* **Conceptos Clave de ZTA:**
+    1.  **Identidad Adaptativa:** La verificación de la identidad del usuario no es un 
+    evento único. Es continua y contextual, analizando factores en tiempo real como la 
+    ubicación geográfica, la hora de conexión, el comportamiento del usuario y el 
+    dispositivo utilizado.
+    2.  **Reducción del Alcance de Amenazas (Principio de Mínimo Privilegio):** El acceso se 
+    limita estrictamente a los recursos que el usuario necesita para realizar su tarea 
+    específica. Se elimina la visibilidad de la red general para evitar el movimiento 
+    lateral de un atacante.
+    3.  **Control de Acceso Impulsado por Políticas:** Las decisiones de permitir o denegar 
+    el acceso a un recurso son evaluadas dinámicamente según políticas corporativas 
+    estrictas, la postura de seguridad del dispositivo (posture assessment) y el contexto de 
+    la solicitud.
+
+### Componentes de Seguridad Esenciales en una ZTA
+
+* **Gestión de Identidad y Acceso (IAM):** Autenticación multifactor (MFA) sólida para 
+validar usuarios.
+* **Seguridad de Redes y Terminales (Endpoints):** Asegurar y validar que los dispositivos 
+finales cumplan con políticas de parches y antivirus antes de dejarlos interactuar con los 
+datos.
+* **Segmentación de Red (Microsegmentación):** Aislar las cargas de trabajo críticas en 
+microperímetros lógicos individuales para que, si una parte es comprometida, el atacante no 
+pueda moverse lateralmente por el resto de la red.
+* **Protección y Cifrado de Datos:** Cifrar todos los datos tanto en reposo como en tránsito 
+y auditar de forma proactiva cada acceso a información sensible.
+
+## Tecnologías de Seguridad Avanzadas en la Nube y Redes
+
+### SASE (Secure Access Service Edge)
+* **Definición:** SASE (pronunciado *"sassy"*) es una arquitectura de red moderna que 
+unifica las capacidades de red de área amplia (WAN) con servicios de seguridad entregados 
+directamente **en la nube**.
+* **Funcionamiento:** En lugar de canalizar todo el tráfico de los usuarios remotos de 
+vuelta al centro de datos local (creando cuellos de botella), SASE permite a los usuarios 
+conectarse de forma segura y directa 
+a los servicios y aplicaciones en la nube que necesitan desde cualquier lugar.
+* **Modelo de Seguridad:** SASE opera inherentemente bajo un modelo de **Confianza Cero**, 
+evaluando de forma centralizada la identidad (IAM) y aplicando prevención de intrusiones,
+filtrado de contenido y protección contra malware de manera uniforme y distribuida.
+
+### SD-WAN (Software-Defined WAN)
+
+* **Concepto:** Aplica los principios de las redes definidas por software (SDN) a las redes 
+de área amplia que conectan sucursales geográficamente dispersas.
+* **Seguridad:** Centraliza la gestión de las políticas de seguridad de red en un panel
+único, simplificando la aplicación de configuraciones de firewalls y reglas de enrutamiento
+seguro en toda la corporación de manera consistente.
+
+
+# Gestión de Activos y Estrategias de Redundancia (Tema 7)
+
+Este tema aborda cómo las organizaciones rastrean, protegen y destruyen sus activos de información, así como las estrategias críticas de redundancia y alta disponibilidad necesarias para garantizar la resiliencia y la continuidad del negocio ante desastres.
+
+## Gestión de Activos
+
+La gestión de activos asegura que la organización conozca qué recursos físicos, lógicos y de datos posee, dónde están ubicados, quién es su propietario y cómo deben ser protegidos a lo largo de su ciclo de vida.
+
+### Seguimiento de Activos (Asset Tracking)
+
+* **Definición:** El proceso de registrar y monitorear el inventario de hardware y software de una organización. No se puede proteger lo que no se sabe que existe.
+* **Componentes de un Inventario de Activos:**
+    * *Hardware:* Servidores, estaciones de trabajo, dispositivos móviles, equipos de red (routers, switches), dispositivos IoT y periféricos.
+    * *Software:* Sistemas operativos, aplicaciones autorizadas, versiones de firmware, licencias y servicios en uso.
+    * *Datos:* Clasificación de la información (Prensa, Interno, Confidencial, Secreto) y su ubicación de almacenamiento.
+* **Técnicas de Seguimiento:**
+    * **Etiquetado de Activos (Asset Tagging):** Colocación de etiquetas físicas con códigos de barras, códigos QR o chips **RFID (Identificación por Radiofrecuencia)** para facilitar el escaneo e inventario físico rápido de los dispositivos.
+    * **Sistemas CMDB (Database de Gestión de Configuración):** Software centralizado que rastrea las relaciones entre los activos de TI y las configuraciones autorizadas de la empresa.
+
+## Copias de Seguridad de Datos (Backup Strategies)
+
+Las copias de seguridad son el último mecanismo de defensa de una organización frente a ataques de *Ransomware*, fallos catastróficos de hardware o desastres naturales.
+
+### Tipos de Copias de Seguridad (Esencial para Examen)
+
+| Tipo de Backup | Qué copia | Tiempo de Respaldo | Tiempo de Restauración | Estado del bit de archivo (Archive Bit) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Completo (Full)** | Todos los archivos seleccionados. | Muy lento. | Muy rápido (solo se requiere esta cinta/disco). | Se borra (se desmarca/0). Indica que ya se respaldó. |
+| **Incremental** | Solo los archivos creados o modificados desde el **último backup (sea completo o incremental)**. | Muy rápido. | Lento (requiere el último completo y *todos* los incrementales intermedios en orden cronológico). | Se borra (se desmarca/0). |
+| **Diferencial** | Todos los archivos modificados desde el **último backup completo**. | Moderado (crece cada día que pasa). | Rápido (solo requiere el último completo y el diferencial más reciente). | **NO** se borra (permanece marcado/1). |
+
+### Regla del 3-2-1 para Backups
+
+Una de las mejores prácticas de seguridad más preguntadas en CompTIA:
+* **3 copias de datos:** Conservar una copia de producción (activa) y al menos dos copias de seguridad.
+* **2 soportes distintos:** Almacenar los backups en dos tipos de medios diferentes (ej. un disco duro local/NAS y cintas magnéticas o almacenamiento en la nube) para protegerse contra fallas específicas del medio de almacenamiento.
+* **1 copia fuera de línea / fuera del sitio (Off-site / Offline):** Mantener al menos una copia de seguridad en una ubicación física externa o almacenamiento inmutable en la nube desconectado de la red de producción. Esto evita que un ataque de *Ransomware* que comprometa la red activa pueda cifrar o borrar también las copias de seguridad.
+
+## Protección Avanzada de Datos
+
+### Prevención de Pérdida de Datos (DLP - Data Loss Prevention)
+* **Definición:** Sistemas de software diseñados para detectar y evitar la exfiltración o el uso no autorizado de datos confidenciales.
+* **Tipos de DLP:**
+    1.  **DLP de Red (Network DLP):** Monitorea y analiza el tráfico de red (correos salientes, subidas web, transferencias FTP). Si detecta patrones sospechosos (como números de tarjetas de crédito o de seguridad social), bloquea la transmisión.
+    2.  **DLP de Endpoint (Endpoint DLP):** Ejecutado localmente en los equipos de los usuarios. Evita que los datos confidenciales se copien a unidades USB no autorizadas, se impriman o se envíen por herramientas de mensajería personal.
+    3.  **DLP de Almacenamiento (Storage/Cloud DLP):** Escanea los servidores de archivos y almacenes en la nube para identificar dónde hay datos sensibles mal ubicados o con permisos de acceso excesivos.
+
+### Cifrado de Datos y Gestión de Claves
+
+* **Datos en Reposo (At-Rest):** Datos guardados en discos, bases de datos o almacenamiento en la nube. Se protegen mediante cifrado de disco completo (FDE) como *BitLocker* o cifrado de bases de datos.
+* **Datos en Tránsito (In-Transit):** Datos que viajan por una red. Se protegen con protocolos como **TLS/SSL, HTTPS o IPsec (VPNs)**.
+* **Datos en Uso (In-Use):** Datos cargados en la memoria RAM o siendo procesados por la CPU. Se protegen mediante tecnologías de enclaves seguros y computación confidencial basada en hardware.
+
+## Destrucción Segura de Datos (Data Sanitization)
+
+Cuando un activo de almacenamiento llega al final de su vida útil, simplemente "borrar" los archivos o formatear el disco no es suficiente para evitar que un tercero recupere la información.
+
+* **Técnicas de Sanitización de Datos:**
+    - **Eliminación (Clearing / Overwriting):** Reemplazar los datos grabados escribiendo nuevos patrones de bits (generalmente ceros, unos o caracteres aleatorios) sobre todo el espacio de almacenamiento del disco. Es eficaz contra herramientas de recuperación de software sencillas.
+    - **Purgado (Purging / Degaussing):** * *Desmagnetización (Degaussing):* Exponer los soportes magnéticos (como discos duros HDD tradicionales o cintas magnéticas) a un campo magnético de alta intensidad. Esto destruye por completo los dominios magnéticos del disco, eliminando los datos de forma irreversible y dejando el disco físicamente inservible. *Nota de examen: No funciona en unidades de estado sólido (SSD).*
+    - **Destrucción Física (Destruction):** El método más seguro. Asegura que los medios de almacenamiento no puedan volver a usarse jamás.
+        * *Trituración (Shredding):* Pasar los discos por trituradoras industriales que los reducen a fragmentos diminutos.
+        * *Incineración (Incineration):* Exponer los componentes al fuego a temperaturas extremadamente elevadas.
+        * *Pulverización / Desintegración:* Reducir el dispositivo a polvo físico.
+
+## Estrategias de Redundancia
+
+La redundancia consiste en duplicar componentes críticos del sistema para que, si uno de 
+ellos falla, el componente redundante tome el control de inmediato, minimizando el tiempo de 
+inactividad.
+
+### Continuidad de las Operaciones (COOP)
+
+La planificación de la continuidad garantiza que las funciones críticas del negocio puedan 
+continuar funcionando durante y después de un desastre mayor.
+
+* **Sitios de Recuperación (Disaster Recovery Sites):**
+    * **Sitio Caliente (Hot Site):** Una réplica exacta y funcional del centro de datos de 
+    producción activo en tiempo real. Cuenta con hardware, servidores configurados, 
+    conectividad de red y datos duplicados continuamente de forma síncrona o asíncrona.
+        * *Ventaja:* Tiempo de recuperación (RTO) de minutos u horas.
+        * *Desventaja:* Extremadamente costoso (duplica los costos de infraestructura y mantenimiento).
+    * **Sitio Tibio (Warm Site):** Cuenta con la infraestructura física y de hardware 
+    necesaria instalada (servidores, switches), pero no tiene los datos actualizados en 
+    tiempo real. Requiere restaurar las copias de seguridad de datos antes de poder iniciar 
+    operaciones.
+        * *Ventaja:* Menos costoso que un Hot Site.
+        * *Desventaja:* El tiempo de restauración de servicios puede tardar de horas a días.
+    * **Sitio Frío (Cold Site):** Un espacio de oficina vacío o centro de datos básico que 
+    cuenta con energía, refrigeración y conexiones físicas, pero **no tiene hardware ni 
+    computadoras instaladas**. Todo el hardware debe ser adquirido, transportado e 
+    instalado, seguido de la instalación de software y la restauración de copias de 
+    seguridad.
+        * *Ventaja:* La opción de menor costo.
+        * *Desventaja:* El tiempo de recuperación puede llevar semanas.
+
+## Alta Disponibilidad (High Availability - HA) y Redundancia de Sistemas
+
+La alta disponibilidad se refiere al diseño de sistemas resilientes que garantizan un tiempo 
+de actividad del servicio continuo, generalmente medido en un **99.99% o superior**.
+
+### Tolerancia a Fallos en Almacenamiento (RAID)
+
+La redundancia a nivel de almacenamiento local se implementa mediante configuraciones **RAID 
+(Redundant Array of Independent Disks)**:
+
+* **RAID 0 (Striping - Distribución):** Divide los datos entre dos o más discos físicos. 
+Ofrece alto rendimiento de lectura y escritura, pero **no proporciona redundancia**. Si un 
+disco falla, se pierden todos los datos. *(No apto para HA)*.
+* **RAID 1 (Mirroring - Espejo):** Duplica de forma idéntica la información en dos discos 
+físicos. Si un disco falla, el sistema continúa operando desde el otro sin interrupciones.
+* **RAID 5 (Distribución con Paridad distribuida):** Requiere al menos tres discos físicos. 
+Distribuye los datos y la paridad (información de reconstrucción) entre todos los discos. 
+Tolera la falla de **un único disco físico** sin pérdida de información.
+* **RAID 6 (Distribución con Doble Paridad):** Requiere al menos cuatro discos físicos. 
+Similar a RAID 5 pero almacena doble información de paridad, tolerando la falla simultánea 
+de **hasta dos discos físicos**.
+* **RAID 10 (1+0 - Espejo de distribuciones):** Combina el alto rendimiento de RAID 0 con la 
+redundancia de RAID 1. Requiere al menos cuatro discos. Tolera fallas de discos múltiples 
+siempre y cuando no fallen ambos miembros de un mismo par en espejo.
+
+## Agrupamiento o Clustering
+
+Un clúster es un conjunto de servidores independientes (llamados nodos) que se conectan y trabajan de forma conjunta para actuar ante el usuario como si fuesen un único sistema.
+
+```mermaid
+graph LR
+    User((Usuarios)) --> LB[Balanceador de Carga]
+    LB --> NodeA[Nodo A - Servidor Activo]
+    LB --> NodeB[Nodo B - Servidor Activo/Pasivo]
+```
+
+## Redundancia de Energía
+
+Los sistemas informáticos requieren un suministro eléctrico estable. Los eventos eléctricos (picos, sobretensiones, caídas de voltaje o cortes) pueden provocar daños de hardware o la pérdida total del servicio.
+
+### Componentes Clave de Redundancia:
+
+* **Fuentes de Alimentación Duales (PSU duales):** Los servidores empresariales suelen contar con dos o más unidades de fuente de alimentación. Estas suelen ser **de conexión en caliente (*hot-swappable*)**, lo que permite sustituir una fuente dañada sin apagar el equipo.
+* **Power Distribution Units (PDU) Gestionadas:** Equipos de distribución eléctrica para bastidores (*racks*) y salas de servidores que soportan amperajes elevados (30 o 60 amperios) y permiten monitorear y gestionar el flujo de energía a nivel de puerto.
+* **Baterías de Respaldo a Nivel de Componente:** Protegen operaciones de lectura/escritura almacenadas en la memoria caché (por ejemplo, en controladoras RAID) al interrumpirse la energía.
+* **Sistema de Alimentación Ininterrumpida (UPS):** * Requisito indispensable para evitar caídas instantáneas del servicio.
+  * Su función principal es **mantener el sistema activo el tiempo suficiente** (minutos u horas) para que se realice un apagado seguro o para realizar la transición a un generador.
+  * Los generadores de respaldo no pueden arrancar de forma inmediata tras un apagón, por lo que el UPS actúa como puente.
+* **Generadores y Alternativas:** * Los generadores de respaldo se conectan mediante **interruptores de transferencia** (manuales o automáticos).
+  * Alternativamente, se usan soluciones de baterías a gran escala (como *Tesla Powerpack*) o microrredes de almacenamiento de energía.
+
+
+## Diversidad de Plataformas y Defensa en Profundidad 
+
+### Diversidad de Plataformas:
+
+Consiste en integrar múltiples tecnologías, sistemas operativos, arquitecturas de hardware y proveedores de software dentro de la infraestructura.
+* **Beneficio principal:** Reduce el riesgo de que una única vulnerabilidad crítica (un único punto de falla tecnológico) comprometa toda la red.
+* **Efecto disuasor:** Incrementa la dificultad para el atacante, ya que este debe dominar diferentes plataformas y técnicas de explotación para poder propagarse.
+
+### Defensa en Profundidad:
+
+Estrategia que aplica múltiples capas de seguridad en niveles distintos (Física, Red, Endpoint, Aplicación, Datos). Ningún control por sí solo es infalible.
+* **Estrategia Multinube (*Multi-cloud*):** Consiste en distribuir las cargas de trabajo entre diferentes proveedores de servicios de nube (por ejemplo, un proveedor principal para producción y otro diferente para copias de seguridad y recuperación ante desastres). Esto garantiza alta disponibilidad, reduce el riesgo de caídas de servicio masivas y optimiza costos y cumplimiento regulatorio.
+
+## Tecnologías de Engaño y Disrupción
+Tienen como objetivo **detectar intrusiones y aumentar el costo del ataque** al desviar, confundir e inmovilizar los recursos del adversario.
+
+### Herramientas de Engaño:
+
+* **Honeypots:** Sistemas señuelo aislados que imitan equipos y aplicaciones reales para atraer atacantes y analizar sus técnicas.
+* **Honeynets:** Redes completas de honeypots interconectados que simulan un entorno empresarial realista.
+* **Honeyfiles:** Archivos falsos con nombres atractivos (ej. "Contraseñas.txt" o "Finanzas2026.xlsx") diseñados para activar alertas silenciosas si son abiertos o robados.
+* **Honeytokens:** Credenciales, tokens de API o datos de inicio de sesión falsos colocados de forma estratégica para detectar accesos ilegítimos y rastrear la actividad del intruso.
+
+### Estrategias de Disrupción (Ofuscación):
+
+* **Entradas DNS falsas:** Crear nombres de host inexistentes para confundir los procesos de enumeración del atacante.
+* **Directorios señuelo:** Páginas web generadas de manera dinámica para ralentizar los escaneos de vulnerabilidades.
+* **Activación de puertos (*Port Triggering* / *Spoofing*):** Retornar datos de telemetría falsos que indiquen que múltiples puertos cerrados están "abiertos", lo que arruina el análisis de puertos del atacante.
+* **DNS Sinkhole:** Redirigir el tráfico malicioso o sospechoso hacia una red controlada (como una honeynet) para su posterior análisis.
+
+## Pruebas de Resiliencia
+
+Probar la resiliencia es vital para validar la continuidad del negocio y optimizar la respuesta ante incidentes.
+
+### Métodos de Prueba
+
+* **Ejercicios Tabletop (Mesa de Trabajo):** Simulaciones teóricas donde los equipos discuten escenarios hipotéticos (ej. un ataque de ransomware) para evaluar los procesos de toma de decisiones, identificar brechas de comunicación y actualizar los planes de respuesta.
+* **Pruebas de Failover (Conmutación por error):** Provocar la caída intencionada del sistema de producción principal para validar si el sistema secundario o de respaldo asume el control de forma automática y transparente.
+* **Pruebas de Procesamiento en Paralelo:** Ejecutar el sistema principal y el de respaldo simultáneamente con transacciones reales para validar que ambos procesan la información de manera idéntica y sin pérdida de consistencia.
+* **Simulaciones de Ataque Completo:** Pruebas complejas que imitan ciberataques reales para medir las capacidades de detección, contención y remediación de la organización.
+
+### Documentación y Terceros
+
+* **Documentación:** Es el pilar de la planificación, ejecución y análisis posterior. Facilita la comunicación con la gerencia y las partes interesadas.
+* **Evaluaciones de Terceros:** Auditorías externas que validan de forma objetiva las pruebas bajo estándares como **ISO 22301 (Continuidad de Negocio)**, **PCI DSS** o **SOC 2**.
+
+## Fundamentos de Seguridad Física
+
+La seguridad física es la primera línea de defensa de la ciberseguridad, ya que protege los activos de hardware (servidores, cableado, centros de datos) contra robos, sabotajes o desastres naturales.
+
+### Fundamentos de Control de Acceso Físico
+
+Se basan en los mismos principios que la seguridad técnica:
+1. **Autenticación:** Identificación y verificación de las personas autorizadas mediante mecanismos aprobados (ej. tarjetas inteligentes, biometría).
+2. **Autorización:** Establecer barreras y controles en los puntos de entrada/salida para restringir el acceso.
+3. **Registro (*Logging*):** Grabar y auditar todas las entradas y salidas de las instalaciones para detectar brechas de seguridad.
+
+> 💡 **Concepto de Zonas:** La seguridad física se estructura en zonas concéntricas delimitadas por barreras físicas. A medida que se progresa hacia el interior (ej. desde el estacionamiento hasta la sala de racks), el acceso se vuelve exponencialmente más restrictivo.
+
+## Diseño Ambiental, Rejas e Iluminación
+
+### CPTED (Seguridad Física a través del Diseño Ambiental)
+
+Enfoque de seguridad que utiliza la arquitectura y el diseño del paisaje para prevenir delitos de forma natural y económica.
+
+### Elementos de Diseño de Seguridad
+
+* **Barricadas y Bolardos:** Su propósito es canalizar a las personas a través de puntos de entrada designados. Los bolardos previenen ataques de embestida con vehículos.
+* **Cercado (Vallas):** El cercado de alta seguridad ideal debe ser:
+  * *Transparente:* Para facilitar la visibilidad de los guardias.
+  * *Robusto:* Difícil de cortar.
+  * *Anti-escalado:* Alto y complementado con alambre de púas o de cuchillas (*concertina*).
+* **Iluminación:** Crucial para la vigilancia nocturna, actúa como un potente disuasor visual y aumenta la sensación de seguridad de los ocupantes.
+* **Camuflaje Industrial:** Las zonas seguras de alto valor (como un centro de datos) deben ser discretas desde el exterior para pasar desapercibidas ante potenciales amenazas.
+
+## Puertas, Cerraduras y Controles de Entrada
+
+### Tipos de Cerraduras:
+
+* **Físicas:** Cerraduras mecánicas convencionales con llave.
+* **Electrónicas / Cifrado:** Funcionan mediante un teclado numérico (PIN), tarjetas magnéticas o llaveros inteligentes (*key fobs* / *smart-cards*) mediante proximidad RFID/NFC.
+* **Sistemas PACS (Physical Access Control Systems):** Redes centralizadas que combinan hardware y software para controlar credenciales de acceso, registrando con precisión la identidad, fecha, hora y ubicación de cada evento de acceso (clave para auditorías).
+
+### Dispositivos de Control de Acceso de Alta Seguridad:
+
+* **Vestíbulo de Control de Acceso (Mantrap):** Sistema de doble puerta interbloqueada que permite el acceso de una sola persona a la vez. Evita el **Tailgating/Piggybacking** (que una persona no autorizada pase detrás de una autorizada).
+* **Cerraduras de Cable:** Se utilizan para asegurar físicamente dispositivos portátiles (laptops, servidores pequeños) a escritorios o estructuras pesadas.
+
+## Vigilancia y Guardias de Seguridad
+
+### Guardias de Seguridad Humanos
+
+* Proporcionan una disuasión visual inmediata y aplican intuición humana ante situaciones imprevistas.
+* Son ideales para el control de accesos principales y patrullaje, pero representan un costo operativo elevado.
+* Pueden tener restricciones de acceso a áreas altamente confidenciales debido a requerimientos de autorización de seguridad (*clearance*).
+
+### Videovigilancia (CCTV)
+
+* Alternativa y complemento económico frente a los guardias de seguridad fijos.
+* Permite el registro y la grabación constante de incidentes.
+* **Desventaja:** Su tiempo de respuesta ante incidentes es pasivo si las pantallas no son monitoreadas activamente por personal en tiempo real.
+* Las tecnologías modernas de CCTV integran **Inteligencia Artificial (IA)** para:
+  * *Reconocimiento de Movimiento / Marcha:* Identificación de patrones de movimiento anómalos.
+  * *Detección de Objetos:* Identificar la desaparición de un servidor o la conexión de un dispositivo extraño en un puerto de red de pared.
+  * *Drones/UAV:* Cámaras móviles capaces de patrullar perímetros extensos de forma autónoma.
+
+## Sistemas de Alarmas y Sensores
+Las alarmas actúan como mecanismos de detección y disuasión física en coordinación con otros sistemas de control.
+
+### Tipos de Alarmas
+
+* **De Circuito:** Se activan al abrirse o cerrarse un circuito eléctrico (ej. apertura de puertas/ventanas). Las alarmas de **circuito cerrado** son más seguras debido a que no se pueden anular simplemente cortando los cables.
+* **De Coacción (*Duress*):** Activadas manualmente de forma silenciosa por el personal ante una amenaza inmediata (mediante colgantes inalámbricos, botones ocultos o códigos específicos en teclados).
+
+### Tipos de Sensores de Movimiento
+
+* **Infrarrojos Pasivos (PIR):** Detectan cambios en la radiación térmica emitida por cuerpos calientes (como un ser humano) en movimiento.
+* **Sensores de Presión:** Alfombras o pisos equipados con sensores de peso, ideales para zonas restringidas.
+* **Sensores de Microondas:** Emiten pulsos de alta frecuencia y miden el rebote. Se suelen combinar con tecnología PIR (sensores de doble tecnología) para reducir significativamente las falsas alarmas, ya que ambos deben activarse simultáneamente.
+* **Sensores Ultrasónicos:** Utilizan ondas sonoras inaudibles para rastrear el espacio, muy comunes en la automatización de iluminación de oficinas.
+
+# Vulnerabilidades de Dispositivos, Sistemas Operativos, Aplicaciones y Nube (Tema 8)
+
+## Vulnerabilidades del Sistema Operativo
+
+Los sistemas operativos (SO) son la base de la infraestructura de TI. Las vulnerabilidades en el SO pueden comprometer la confidencialidad, integridad y disponibilidad de todo el entorno.
+
+### Características y Vectores por Plataforma
+
+* **Microsoft Windows:** * Gran base de instalación (muy atractivo para atacantes, especialmente en corporaciones y gobiernos).
+  * Vulnerabilidades típicas: Desbordamientos de búfer (*buffer overflows*), fallas de validación de entradas y escalada de privilegios.
+  * Propósito de explotación: Instalación de malware, robo de información u obtención de acceso no autorizado.
+* **Apple macOS:**
+  * Arquitectura basada en Unix.
+  * Vulnerabilidades típicas: Debilidades en controles de acceso, procesos de arranque seguro (*secure boot*) y vulnerabilidades en software de terceros.
+  * Riesgo cultural: Existe una falsa percepción de inmunidad ("macOS es 100% seguro") que puede llevar al exceso de confianza y falta de medidas preventivas.
+* **Linux (y Unix):**
+  * Columna vertebral de servidores y sistemas embebidos.
+  * Vulnerabilidades de gran impacto histórico:
+    * *Shellshock (2014):* Falla crítica en el intérprete de comandos Bash que permitía la ejecución remota de código (afectó también a macOS por su base Unix).
+    * *Heartbleed (2014):* Falla grave de fuga de memoria en la biblioteca OpenSSL que permitía leer claves secretas y datos cifrados de servidores de internet.
+* **Sistemas Operativos Móviles:**
+  * **Android:** Vulnerabilidad histórica de referencia: *Stagefright (2015)*. Falla en la biblioteca de procesamiento de medios que permitía la ejecución remota de código de forma silenciosa mediante un simple mensaje multimedia (MMS).
+  * **iOS:** Vulnerabilidades explotadas por agencias estatales mediante ataques tipo *watering hole* (abrevadero), comprometiendo el dispositivo con solo visitar un sitio web infectado de forma pasiva.
+
+## Tipos de Vulnerabilidad y Explotación
+
+### Sistemas Heredados (*Legacy*) y de Fin de Vida (*EOL - End of Life*):
+
+Ambos tipos de sistemas representan un riesgo crítico porque son plataformas obsoletas, pero tienen diferencias en su nivel de soporte:
+* **Sistemas de Fin de Vida (EOL):** El fabricante ha declarado formalmente que **no dará más soporte ni lanzará parches de seguridad**, ni siquiera para vulnerabilidades críticas recién descubiertas.
+* **Sistemas Heredados (*Legacy*):** Tecnologías antiguas que la organización sigue utilizando para mantener la operatividad (ej. una máquina industrial que solo funciona con un software específico). A diferencia del EOL, **un sistema heredado podría seguir recibiendo cierto nivel de soporte técnico**, aunque esté desactualizado respecto a los estándares actuales.
+
+### Vulnerabilidades en Virtualización y Nube
+
+* **Escape de Máquina Virtual (*VM Escape*):** Ocurre cuando un atacante logra saltar las barreras de aislamiento del sistema operativo invitado (VM) para ejecutar código directamente en el sistema operativo del host (hipervisor).
+* **Fallas en el Hipervisor:** Vulnerabilidades en las interfaces de administración del hipervisor. Si no están aseguradas (autenticación débil, protocolos sin cifrar), el atacante puede tomar el control de todas las máquinas virtuales alojadas.
+* **Recursos Compartidos y Multitenencia:** En entornos de nube virtualizados, múltiples clientes comparten el mismo hardware físico. Un ataque o fuga de datos en el hipervisor puede comprometer la información de inquilinos vecinos.
+
+
+## Vulnerabilidades de Día Cero (*Zero-Day*) (8.1.3)
+
+Una vulnerabilidad de día cero es un fallo de seguridad en el software o hardware que es totalmente desconocido para el fabricante o desarrollador.
+
+* **Significado de "Día Cero":** El proveedor tiene exactamente "cero días" para solucionar el fallo porque la vulnerabilidad ya está siendo activamente explotada en el mundo real antes de que exista un parche.
+* **Valor Financiero y Uso:** Los exploits de día cero para plataformas populares (como iOS o Android) tienen un valor de millones de dólares en el mercado negro o gris. Por ello, suelen reservarse para **objetivos de alto valor** por parte de grupos de ciberdelincuencia organizada o agencias de inteligencia estatales.
+* **Divulgación Responsable (*Responsible Disclosure*):** Proceso ético por el cual un investigador de seguridad descubre una vulnerabilidad e informa de manera privada y confidencial al desarrollador para que cree un parche antes de hacer pública la falla.
+
+## Vulnerabilidades de Configuración Errónea
+
+Las malas configuraciones son uno de los vectores de ataque más comunes y sencillos de explotar.
+
+* **Valores Predeterminados Inseguros:** Equipos o sistemas que se implementan sin cambiar la configuración de fábrica (ej. credenciales de fábrica como `admin` / `admin`, o servicios y puertos innecesarios habilitados de forma predeterminada para facilitar la instalación inicial).
+* **Configuraciones de Soporte Técnico:** Un error común ocurre cuando los técnicos desactivan temporalmente firewalls o controles de acceso estrictos para diagnosticar un fallo y olvidan restaurar el estado seguro una vez solucionado el problema.
+* **Fugas en la Nube:** Permisos mal configurados (excesivamente permisivos) en depósitos de almacenamiento en la nube (como buckets de AWS S3 o Azure Blobs), que exponen públicamente bases de datos o archivos confidenciales.
+
+## Vulnerabilidades Criptográficas
+
+La criptografía protege la confidencialidad e integridad de la información; si falla, se compromete toda la infraestructura de seguridad.
+
+### Principales Debilidades
+
+* **Algoritmos Obsoletos o Débiles:** Uso de funciones hash propensas a **ataques de colisión** (donde dos entradas diferentes generan el mismo hash de salida). Ejemplos: **MD5** y **SHA-1** (ya no deben usarse para proteger contraseñas o firmas digitales).
+* **Fallas en la Implementación de Protocolos:**
+  * *Heartbleed:* Explotaba una falta de validación de límites en la extensión de latido (*heartbeat*) de OpenSSL.
+  * *KRACK (Key Reinstallation Attacks):* Vulnerabilidad en el protocolo de enlace de 4 vías de **WPA2** en redes Wi-Fi, permitiendo interceptar y descifrar el tráfico de red.
+* **Gestión y Rotación de Claves Deficiente:**
+  * Las claves criptográficas son solo cadenas alfanuméricas. Si se guardan en texto plano en el disco, pierden toda efectividad.
+  * **Solución:** Utilizar hardware especializado como **HSM (Módulos de Seguridad de Hardware)** o servicios de gestión de claves (**KMS**), además de aplicar políticas estrictas de **rotación de claves** (cambiar las llaves periódicamente).
+
+## Sideloading, Rooting y Jailbreaking
+
+Los dispositivos móviles tienen controles de seguridad estrictos (entornos de ejecución protegidos o *sandboxing*) implementados por los sistemas operativos para prevenir malware.
+
+* **Sideloading (Instalación Lateral):** Instalar aplicaciones en formato de paquete directo (ej. archivos `.apk` en Android o `.ipa` en iOS) desde fuentes externas ajenas a las tiendas oficiales (Google Play Store o Apple App Store). Esto elude los controles y análisis de malware del proveedor.
+* **Rooting (Android):** Proceso para obtener privilegios de superusuario (`root`) en el sistema operativo Android. Permite modificar archivos profundos del sistema e instalar sistemas modificados (ROMs personalizadas).
+* **Jailbreaking (iOS):** Eliminar por completo las limitaciones de software impuestas por Apple en dispositivos iOS. Permite instalar tiendas alternativas (como Cydia) y eludir el sandboxing de las aplicaciones.
+
+> ⚠️ **Impacto Empresarial:** Estas prácticas desactivan los controles de seguridad nativos del dispositivo. Las organizaciones de sectores regulados (como finanzas o salud) deben usar herramientas de **MDM (Mobile Device Management)** para auditar, detectar y bloquear automáticamente el acceso a redes corporativas de dispositivos con root, jailbreak o que realicen sideloading.
+
+## Vulnerabilidades de Aplicación
+
+### Condición de Carrera (*Race Condition*) y TOCTOU
+
+* **Condición de Carrera:** Ocurre cuando dos o más subprocesos de un programa intentan acceder y modificar un recurso compartido al mismo tiempo, y el resultado final depende estrictamente del orden o temporización de su ejecución.
+* **TOCTOU (Time-of-Check to Time-of-Use):** Tipo de condición de carrera donde el estado de un recurso cambia en el breve intervalo de tiempo que transcurre entre que el programa verifica el recurso (*Check*) y cuando finalmente lo utiliza (*Use*).
+* **Mitigación:** Diseñar el código para que realice **operaciones atómicas** (donde la verificación y la ejecución ocurren como un único paso indivisible e ininterrumpible).
+
+### Vulnerabilidades de la Cadena de Suministro (*Supply Chain Attacks*)
+
+Ataques donde los actores maliciosos comprometen un software legítimo introduciendo código dañino en sus actualizaciones oficiales.
+* **Caso CCleaner (2017):** Hackers comprometieron los servidores de desarrollo de CCleaner e insertaron una puerta trasera en una actualización firmada digitalmente y legítima, infectando a millones de usuarios.
+* **Caso SolarWinds (2020):** Los atacantes inyectaron código malicioso en una actualización del software de monitorización *SolarWinds Orion*. Al ser un software utilizado por gobiernos y grandes empresas mundiales, sirvió para espiar redes de altísimo valor de forma masiva.
+
+## 8. Alcance de la Evaluación (*Assessment Scope*)
+
+El objetivo o alcance de la evaluación define con precisión qué sistemas, aplicaciones, redes o entornos físicos van a someterse a pruebas de seguridad.
+
+### Perspectiva del Pentester (Auditor de Seguridad)
+
+* El alcance define el límite legal y operativo de su trabajo (autorización explícita).
+* Le permite optimizar el tiempo, planificar qué herramientas de escaneo y explotación utilizar, y asegurar que no afectará sistemas de producción críticos fuera de los límites acordados.
+* **Resultado esperado:** Identificar fallas, reportarlas y proponer planes de remediación.
+
+### Perspectiva del Atacante (Actor de Amenazas)
+
+* El alcance representa su objetivo de ataque seleccionado.
+* El análisis del objetivo (arquitectura, tecnologías implicadas, parches faltantes) le ayuda a trazar sus vectores de ataque para lograr accesos no autorizados, robos de datos o denegaciones de servicio (DoS).
+
+| Práctica del Alcance | Descripción |
+| :--- | :--- |
+| **Pruebas de Seguridad** | Evaluaciones de vulnerabilidad y simulaciones planificadas y limitadas bajo contrato para mitigar el riesgo operativo y cumplir normativas (ej. **PCI DSS, SOC 2, ISO 27001**). |
+
+## Ataques a las Aplicaciones Web
+Los ataques a aplicaciones web aprovechan la exposición directa a Internet para explotar debilidades de diseño o codificación, evadiendo los controles tradicionales a nivel de red (como firewalls de red básicos).
+
+### Conceptos Clave y Vectores
+
+* **Validación de Entrada Deficiente:** Es la causa raíz de la mayoría de las vulnerabilidades web. Ocurre cuando la aplicación confía en los datos introducidos por el usuario sin sanitizarlos, filtrarlos o validarlos previamente.
+* **Inyección SQL (SQLi):**
+  * Consiste en insertar código o comandos SQL maliciosos dentro de los campos de entrada de una aplicación (ej. formularios de inicio de sesión o barras de búsqueda).
+  * **Mecanismo:** El motor de la base de datos interpreta la entrada del atacante como instrucciones lógicas válidas en lugar de texto plano.
+  * **Ejemplo clásico:** Si un formulario ejecuta `SELECT * FROM usuarios WHERE nombre = 'user'`, un atacante que introduce `' OR '1'='1` (o la versión simplificada `' or 1=1#` donde `#` o `--` comentan el resto de la consulta) alterará la lógica para que siempre sea verdadera (`TRUE`), logrando un volcado completo de la base de datos o evadiendo la autenticación.
+  * **Impacto:** Robo de datos confidenciales, manipulación de registros o ejecución de código arbitrario con privilegios de base de datos.
+
+## Ataques a Aplicaciones Basadas en la Nube
+
+Los entornos de nube presentan características únicas de escala, accesibilidad y gobernanza que modifican y amplían la superficie de ataque.
+
+### Desafíos de Seguridad en la Nube
+
+* **Modelo de Responsabilidad Compartida:** A menudo genera confusión sobre qué controles corresponden al cliente de la nube (ej. asegurar las configuraciones y los datos) y cuáles al proveedor (ej. seguridad física y del hipervisor). Estas brechas de entendimiento provocan vulnerabilidades explotables.
+* **Controles Deficitarios:** Configuraciones erróneas en la nube, autenticación débil, segmentación de red insuficiente y políticas de acceso mal implementadas permiten a un atacante saltar de un recurso comprometido a otros dentro de la misma infraestructura del cliente.
+
+### Solución Tecnológica: CASB (Cloud Access Security Broker)
+
+Un CASB es un punto de control de seguridad intermedio (hardware o software) colocado entre los usuarios de la organización y los proveedores de servicios en la nube para aplicar políticas de seguridad, visibilidad y cumplimiento.
+
+#### Modos de Implementación de un CASB
+
+1. **Proxy Directo (*Forward Proxy*):** Se coloca en la red local u endpoint del usuario. Intercepta y desvía de forma segura las solicitudes hacia servicios de nube autorizados. 
+   * *Desventaja:* Los usuarios astutos podrían eludir el proxy. Además, sin un balanceador de carga, representa un cuello de botella y un punto único de falla (*SPOF*).
+2. **Proxy Inverso (*Reverse Proxy*):** Se ubica en el perímetro de la red en la nube y dirige el tráfico hacia el servicio si este cumple con las políticas establecidas. No requiere configurar los dispositivos del cliente final, pero la aplicación en la nube debe soportar esta integración.
+3. **Basado en API:** El CASB se comunica de forma directa con el servicio de nube mediante interfaces programables (APIs). Si se deshabilita a un usuario en el directorio activo local, el CASB usa la API de la nube para revocar sus accesos de forma instantánea.
+
+
+## Vulnerabilidades en la Cadena de Suministro
+La cadena de suministro de software abarca todo el ciclo de vida de un producto, desde el desarrollo inicial del código, su empaquetado, dependencias de librerías, hasta su distribución e instalación final.
+
+### Vectores de Compromiso
+
+* **Proveedores de Servicios:** Terceros que proveen entornos de desarrollo, pruebas o soporte. Un control deficiente en sus plataformas de comunicación o en su código puede inyectar vulnerabilidades en el producto final de la organización.
+* **Proveedores de Hardware:** El hardware defectuoso o manipulado (ej. chips espías o firmware modificado en el proceso de fabricación o transporte) invalida cualquier control de software posterior.
+* **Dependencias de Terceros y Código Abierto:** El software moderno depende en gran medida de librerías externas. Si una sola librería importada tiene una vulnerabilidad, todo el software que la utiliza hereda ese riesgo.
+
+### Herramientas de Mitigación y Gestión
+
+* **SBOM (Software Bill of Materials / Lista de Materiales de Software):** Un inventario formal y completo que detalla cada componente, librería de terceros y dependencia que integra un software. Ayuda a rastrear de forma inmediata si un sistema contiene un componente vulnerable recién descubierto.
+* **Estándares de SBOM:**
+  * **SPDX (Software Package Data Exchange):** Estándar abierto para comunicar componentes, licencias y referencias de seguridad.
+  * **CycloneDX:** Especificación ligera y ágil de OWASP diseñada para automatizar la compartición y análisis de datos SBOM.
+* **SCA (Software Composition Analysis):** Herramientas automatizadas que escanean de forma continua el código base de la organización y sus librerías asociadas contra bases de datos de vulnerabilidades conocidas (como la NVD de EE.UU.) para sugerir parches o reemplazos de paquetes obsoletos.
+
+## Métodos e Identificación de Vulnerabilidades 
+Un programa de gestión de vulnerabilidades robusto requiere procesos sistemáticos y automatizados para descubrir y clasificar los riesgos de seguridad antes de que sean explotados.
+
+### Feeds de Amenazas (*Threat Feeds*)
+
+* Proporcionan flujos de información en tiempo real sobre nuevas amenazas emergentes y vulnerabilidades recién descubiertas generados por investigadores de seguridad y comunidades globales.
+* Se integran directamente en las herramientas de escaneo para mantener actualizadas sus firmas de detección, permitiendo priorizar la corrección de fallas críticas basándose en el panorama real de ataques.
+
+### Escaneo de Vulnerabilidades
+
+Consiste en el sondeo sistemático de redes, sistemas operativos y aplicaciones utilizando software especializado.
+
+* **Tipos de Escaneo:**
+  * **Escaneo Externo:** Evalúa el perímetro de la red corporativa desde el punto de vista de un atacante en Internet.
+  * **Escaneo Interno:** Evalúa la red desde el interior, simulando la perspectiva de un atacante que ya logró comprometer una máquina o de una amenaza interna (empleado malicioso).
+* **Herramientas de Escaneo Populares:**
+  * **Nessus:** Uno de los escáneres de vulnerabilidades comerciales más reconocidos y ampliamente utilizados en la industria.
+  * **OpenVAS:** Alternativa robusta de código abierto para el escaneo y gestión de vulnerabilidades.
+
+### Análisis e Identificación Avanzada
+
+Para la seguridad de aplicaciones web y de escritorio, el escaneo se complementa con:
+* **SAST (Static Application Security Testing):** Pruebas de código estático que analizan directamente el código fuente de la aplicación sin ejecutarla, buscando patrones de codificación inseguros.
+* **DAST (Dynamic Application Security Testing):** Pruebas de código dinámico que analizan la aplicación en tiempo de ejecución, enviando solicitudes maliciosas de prueba para observar cómo reacciona el sistema ante comportamientos anómalos.
+* **Políticas de Gobernanza:** Directrices de la organización que establecen auditorías periódicas, procesos de aprobación para importar nuevas librerías y calendarios estrictos para la aplicación de parches.
