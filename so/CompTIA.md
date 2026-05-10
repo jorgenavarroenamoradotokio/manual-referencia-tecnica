@@ -3,58 +3,74 @@
 </div>
 
 ## Índice
-- [Conceptos Fundamentales de Seguridad (Tema 1)](#conceptos-fundamentales-de-seguridad-tema-1)
-  - [La Tríada CIA y el No Repudio](#la-tríada-cia-y-el-no-repudio)
-  - [Marco de Ciberseguridad (NIST)](#marco-de-ciberseguridad-nist)
-  - [Gestión de Identidad y Acceso (IAM)](#gestión-de-identidad-y-acceso-iam)
-  - [Controles de Seguridad](#controles-de-seguridad)
-    - [Clasificación por Implementación](#clasificación-por-implementación)
-    - [Tipos Funcionales (Cuándo actúan)](#tipos-funcionales-cuándo-actúan)
-  - [Análisis de Deficiencias (Gap Analysis)](#análisis-de-deficiencias-gap-analysis)
-  - [Funciones y Responsabilidades](#funciones-y-responsabilidades)
-  - [Unidades de Negocio de Seguridad](#unidades-de-negocio-de-seguridad)
-    - [SOC (Security Operations Center)](#soc-security-operations-center)
-    - [Desarrollo y Operaciones (DevSecOps)](#desarrollo-y-operaciones-devsecops)
-    - [Respuesta a Incidentes (CIRT / CSIRT / CERT)](#respuesta-a-incidentes-cirt--csirt--cert)
-- [Tipos de Amenazas (Tema 2)](#tipos-de-amenazas-tema-2)
-  - [Conceptos Clave: Vulnerabilidad, Amenaza y Riesgo](#conceptos-clave-vulnerabilidad-amenaza-y-riesgo)
-  - [Atributos de los Actores de Amenazas](#atributos-de-los-actores-de-amenazas)
-  - [Perfiles de Atacantes](#perfiles-de-atacantes)
+- [1. Conceptos Fundamentales de Seguridad](#1-conceptos-fundamentales-de-seguridad)
+  - [1.1 La Seguridad de la información](#11-la-seguridad-de-la-información)
+    - [Tríada CIA](#tríada-cia)
+    - [No Repudio](#no-repudio)
+  - [1.2 Marco de ciberseguridad (NIST)](#12-marco-de-ciberseguridad-nist)
+  - [1.3 Análisis de Deficiencias (Gap Analysis)](#13-análisis-de-deficiencias-gap-analysis)
+  - [1.4 Control de acceso (Gestión de Identidad y Acceso (IAM))](#14-control-de-acceso-gestión-de-identidad-y-acceso-iam)
+  - [1.5 Controles de Seguridad](#15-controles-de-seguridad)
+    - [A. Clasificación de los controles de seguridad](#a-clasificación-de-los-controles-de-seguridad)
+    - [B. Tipos funcionales de controles de seguridad](#b-tipos-funcionales-de-controles-de-seguridad)
+  - [1.6 Funciones, Responsabilidades y Unidades de Negocio](#16-funciones-responsabilidades-y-unidades-de-negocio)
+    - [Centro de operaciones de seguridad (SOC)](#centro-de-operaciones-de-seguridad-soc)
+    - [DevSecOps (Desarrollo, Seguridad y Operaciones)](#devsecops-desarrollo-seguridad-y-operaciones)
+    - [Respuesta a incidentes (CIRT / CSIRT / CERT)](#respuesta-a-incidentes-cirt--csirt--cert)
+- [2. Tipos de Amenazas](#2-tipos-de-amenazas)
+  - [2.1 Actores de amenazas (Activo, Vulnerabilidad, Amenaza y Riesgo)](#21-actores-de-amenazas-activo-vulnerabilidad-amenaza-y-riesgo)
+  - [2.2 Atributos de los Actores de Amenazas](#22-atributos-de-los-actores-de-amenazas)
+  - [2.3 Perfiles de Atacantes](#23-perfiles-de-atacantes)
     - [Hackers y Hacktivistas](#hackers-y-hacktivistas)
-    - [Amenazas Avanzadas (Estados Nación y Crimen Organizado)](#amenazas-avanzadas-estados-nación-y-crimen-organizado)
+    - [Amenazas Avanzadas: Estado-Nación y Crimen Organizado](#amenazas-avanzadas-estado-nación-y-crimen-organizado)
     - [Amenazas Internas (Insiders)](#amenazas-internas-insiders)
-  - [Superficie de Ataque](#superficie-de-ataque)
-  - [Vectores Tecnológicos](#vectores-tecnológicos)
+  - [2.4 Superficie de ataque y vectores de amenaza](#24-superficie-de-ataque-y-vectores-de-amenaza)
     - [Software Vulnerable](#software-vulnerable)
     - [Vectores de Red](#vectores-de-red)
-    - [Vectores basados en Señuelos (Baiting)](#vectores-basados-en-señuelos-baiting)
-    - [Vectores basados en Mensajes](#vectores-basados-en-mensajes)
-  - [El Factor Humano: Ingeniería Social](#el-factor-humano-ingeniería-social)
+    - [Vectores Basados en Señuelos (Baiting)](#vectores-basados-en-señuelos-baiting)
+    - [Vectores Basados en Mensajes](#vectores-basados-en-mensajes)
+  - [2.5 Superficie de ataque de la cadena de suministro](#25-superficie-de-ataque-de-la-cadena-de-suministro)
+    - [Compromiso de correo electrónico empresarial (BEC)](#compromiso-de-correo-electrónico-empresarial-bec)
+    - [Typosquatting (Apropiación de Errores Tipográficos)](#typosquatting-apropiación-de-errores-tipográficos)
+    - [Desinformación vs. Malinformación](#desinformación-vs-malinformación)
+    - [Ataque de Abrevadero (Watering Hole Attack)](#ataque-de-abrevadero-watering-hole-attack)
+  - [2.6 El Factor Humano: Ingeniería Social](#26-el-factor-humano-ingeniería-social)
+    - [Principios Psicológicos de la Ingeniería Social](#principios-psicológicos-de-la-ingeniería-social)
     - [Suplantación y Pretexting](#suplantación-y-pretexting)
     - [Phishing y Pharming](#phishing-y-pharming)
-  - [Cadena de Suministro (Supply Chain)](#cadena-de-suministro-supply-chain)
-  - [Compromiso de Correo Electrónico Empresarial (BEC)](#compromiso-de-correo-electrónico-empresarial-bec)
-  - [Typosquatting (Allanamiento de error tipográfico)](#typosquatting-allanamiento-de-error-tipográfico)
-  - [Desinformación y Malinformación](#desinformación-y-malinformación)
-  - [Watering Hole Attack (Ataque de abrevadero)](#watering-hole-attack-ataque-de-abrevadero)
-- [Algoritmos Criptográficos (Tema 3)](#algoritmos-criptográficos-tema-3)
-  - [Cifrado Simétrico (Symmetric Encryption)](#cifrado-simétrico-symmetric-encryption)
-  - [Cifrado Asimétrico (Asymmetric Encryption)](#cifrado-asimétrico-asymmetric-encryption)
-  - [Hashing](#hashing)
-  - [Firmas Digitales](#firmas-digitales)
-  - [Longitud de la Clave](#longitud-de-la-clave)
-  - [Infraestructura de Clave Pública (PKI)](#infraestructura-de-clave-pública-pki)
-  - [Autoridades Certificadoras (CA)](#autoridades-certificadoras-ca)
-  - [Certificados Digitales](#certificados-digitales)
-  - [El Proceso de Registro (CSR)](#el-proceso-de-registro-csr)
-  - [Ciclo de Vida y Revocación](#ciclo-de-vida-y-revocación)
-  - [Almacenamiento Seguro](#almacenamiento-seguro)
-  - [Soluciones Criptográficas](#soluciones-criptográficas)
-  - [Cifrado de Almacenamiento (Confidencialidad)](#cifrado-de-almacenamiento-confidencialidad)
-  - [Cifrado de Bases de Datos](#cifrado-de-bases-de-datos)
-  - [Intercambio de Claves y Secreto de Reenvío Perfecto (PFS)](#intercambio-de-claves-y-secreto-de-reenvío-perfecto-pfs)
-  - [Protección de Contraseñas (Salting y Stretching)](#protección-de-contraseñas-salting-y-stretching)
-  - [Tecnologías Emergentes y Ofuscación](#tecnologías-emergentes-y-ofuscación)
+- [3. Algoritmos Criptográficos](#3-algoritmos-criptográficos)
+  - [3.1 Conceptos criptográficos](#31-conceptos-criptográficos)
+  - [3.2 Cifrado Simétrico](#32-cifrado-simétrico)
+  - [3.3 Cifrado Asimétrico](#33-cifrado-asimétrico)
+  - [3.4 Hashing](#34-hashing)
+  - [3.5 Firmas Digitales](#35-firmas-digitales)
+  - [3.6 Longitud de la Clave y Seguridad Equivalente](#36-longitud-de-la-clave-y-seguridad-equivalente)
+  - [3.7 Infraestructura de Clave Pública (PKI)](#37-infraestructura-de-clave-pública-pki)
+    - [Autoridades Certificadoras (CA)](#autoridades-certificadoras-ca)
+    - [Raíz de confianza](#raíz-de-confianza)
+    - [Certificados Digitales](#certificados-digitales)
+    - [Solicitud de Firma de Certificado (CSR)](#solicitud-de-firma-de-certificado-csr)
+    - [Revocación de certificados](#revocación-de-certificados)
+  - [3.8 Gestión de claves](#38-gestión-de-claves)
+  - [3.9 Criptoprocesadores y enclaves seguros](#39-criptoprocesadores-y-enclaves-seguros)
+    - [TPM vs. HSM](#tpm-vs-hsm)
+    - [Custodia de Claves y Recuperación](#custodia-de-claves-y-recuperación)
+    - [Enclaves Seguros](#enclaves-seguros)
+  - [3.10 Custodia de Claves (Key Escrow)](#310-custodia-de-claves-key-escrow)
+  - [3.11 Ofuscación](#311-ofuscación)
+    - [Esteganografía](#esteganografía)
+    - [Enmascaramiento de Datos (Data Masking)](#enmascaramiento-de-datos-data-masking)
+    - [Tokenización](#tokenización)
+  - [3.12 Cifrado que Respalda la Confidencialidad](#312-cifrado-que-respalda-la-confidencialidad)
+    - [Los Tres Estados de los Datos](#los-tres-estados-de-los-datos)
+    - [El Esquema de Cifrado Estándar (Confidencialidad de Archivos)](#el-esquema-de-cifrado-estándar-confidencialidad-de-archivos)
+    - [Cifrado de Archivos y Discos](#cifrado-de-archivos-y-discos)
+    - [Cifrado de Bases de Datos](#cifrado-de-bases-de-datos)
+    - [Cifrado de Transporte e Intercambio de Claves](#cifrado-de-transporte-e-intercambio-de-claves)
+    - [Secreto de Reenvío Perfecto (Perfect Forward Secrecy - PFS)](#secreto-de-reenvío-perfecto-perfect-forward-secrecy---pfs)
+    - [Protección de Contraseñas (Salting y Stretching)](#protección-de-contraseñas-salting-y-stretching)
+  - [3.13 Blockchain (Cadena de Bloques)](#313-blockchain-cadena-de-bloques)
+    - [Componentes de Seguridad en Blockchain](#componentes-de-seguridad-en-blockchain)
 - [Implementación de la gestión de identidades y accesos (Tema 4)](#implementación-de-la-gestión-de-identidades-y-accesos-tema-4)
   - [Autenticación](#autenticación)
     - [Gestión de Contraseñas](#gestión-de-contraseñas)
@@ -197,575 +213,673 @@
     - [Análisis e Identificación Avanzada](#análisis-e-identificación-avanzada)
   
 
-# Conceptos Fundamentales de Seguridad (Tema 1)
+# 1. Conceptos Fundamentales de Seguridad
 
-La seguridad de la información (Infosec) es la protección de los datos contra accesos no autorizados, ataques o daños. Se basa en un proceso continuo de evaluación, configuración y supervisión de sistemas.
+La seguridad de la información (**InfoSec**) es el conjunto de prácticas, políticas y tecnologías destinadas a proteger los datos contra accesos no autorizados, alteraciones, destrucción o divulgación. No es un estado fijo, sino un **proceso continuo** de evaluación, configuración, fortalecimiento, supervisión, respuesta y disuasión. Antes de profundizar en tecnologías concretas, es imprescindible dominar los principios teóricos que sirven de cimiento para todo el examen.
 
-El objetivo principal es garantizar que la información de una organización esté protegida frente a amenazas internas y externas.
+## 1.1 La Seguridad de la información
 
-## La Tríada CIA y el No Repudio
+### Tríada CIA
 
-Para que un sistema sea seguro, debe cumplir con tres propiedades fundamentales conocidas como Tríada CIA:
+La **Tríada CIA** (también conocida como **AIC** para evitar confusiones con la agencia de inteligencia) es el modelo central de la seguridad de la información. Todo control de seguridad que implementes protege al menos uno de estos tres pilares:
 
-- Confidencialidad: Solo personas autorizadas pueden leer la información.
-  - Ejemplo: Cifrar un correo electrónico para que solo el destinatario pueda leerlo.
-- Integridad: Los datos no se modifican sin autorización durante su almacenamiento o transferencia.
-  - Ejemplo: Un sistema de firmas digitales que detecta si un contrato fue alterado.
-- Disponibilidad: La información está accesible cuando las personas autorizadas la necesitan.
-  - Ejemplo: Mantener servidores con respaldo eléctrico para que la web no se caiga.
-- No Repudio: Garantiza que una persona no pueda negar haber realizado una acción (crear o enviar algo).Normalmente se consigue mediante:
-  - Firmas digitales
-  - Certificados digitales
-  - Registros de auditoría (logs)
-- Ejemplo: Un registro de auditoría que confirma quién firmó un documento legal.
+| Pilar | ¿Qué garantiza? | Ejemplo cotidiano |
+|-------|----------------|-------------------|
+| **Confidencialidad** | Solo personas autorizadas pueden leer la información. | Cifrar un correo médico para que solo el paciente y su médico puedan leerlo. |
+| **Integridad** | Los datos no se modifican sin autorización durante su almacenamiento o transferencia. | Una firma digital en un contrato detecta cualquier alteración posterior a la firma. |
+| **Disponibilidad** | La información está accesible cuando las personas autorizadas la necesitan. | Servidores con UPS (batería de respaldo) para que la web bancaria no caiga en un corte de luz. |
 
-## Marco de Ciberseguridad (NIST)
+### No Repudio
 
-El National Institute of Standards and Technology (NIST) desarrolló un marco de ciberseguridad muy utilizado para organizar las funciones de seguridad.
+El No Repudio garantiza que una persona **no pueda negar haber realizado una acción** (como crear, modificar o enviar un recurso). Si la integridad confirma que los datos no cambiaron, el no repudio confirma *quién* realizó la acción.
 
-Este marco divide las tareas en cinco funciones principales:
+Se consigue mediante:
+- **Firmas digitales:** vinculan matemáticamente al firmante con el documento.
+- **Certificados digitales:** validan la identidad del emisor.
+- **Registros de auditoría (logs) protegidos:** registran quién hizo qué y cuándo.
 
-- Identificar: Desarrollar políticas y evaluar riesgos y activos.
-  - Ejemplos:
-    - Inventario de activos
-    - Evaluación de riesgos
-    - Definición de políticas de seguridad
-- Proteger: Instalar y operar activos de TI con seguridad integrada.
-  - Ejemplos:
-    - Control de acceso
-    - Cifrado de datos
-    - Formación de empleados
-- Detectar: Monitoreo continuo para hallar amenazas.
-  - Ejemplos:
-    - Sistemas de monitoreo
-    - Análisis de registros
-    - Alertas de seguridad
-- Responder: Analizar y erradicar amenazas detectadas.
-  - Ejemplos:
-    - Contener un ataque
-    - Investigar la causa
-    - Comunicar el incidente
-- Recuperar: Restaurar sistemas y datos tras un ataque.
-  - Ejemplos:
-    - Restauración desde copias de seguridad
-    - Recuperación de servicios
-    - Mejora de controles tras el incidente
+> 💡 **Ejemplo:** Un empleado afirma que nunca aprobó una transferencia bancaria. El sistema de logs con firma digital demuestra que el mensaje fue enviado desde su cuenta autenticada a las 14:32. Eso es no repudio en acción.
 
-## Gestión de Identidad y Acceso (IAM)
+## 1.2 Marco de ciberseguridad (NIST)
 
-La Gestión de Identidad y Acceso (IAM) controla cómo los usuarios interactúan con los recursos de un sistema.
+El National Institute of Standards and Technology (NIST) desarrolló el **Cybersecurity Framework (CSF)** para organizar las tareas de ciberseguridad (el aprovisionamiento de hardware y software seguro). Divide las tareas en **cinco funciones** principales:
+
+| Función | ¿Qué se hace? | Ejemplos |
+|---------|--------------|----------|
+| **GOBERNAR** *(nueva en v2.0)* | Establecer y supervisar la estrategia, políticas y roles de ciberseguridad a nivel directivo. | Definición de políticas corporativas, asignación de responsabilidades, gestión del riesgo organizacional. |
+| **IDENTIFICAR** | Conocer los activos, riesgos y vulnerabilidades para recomendar controles adecuados. | Inventario de activos, evaluación de riesgos, gobernanza, definición de roles. |
+| **PROTEGER** | Implementar controles preventivos en todo el ciclo de vida del hardware y software. | Control de acceso, cifrado, formación de empleados, mantenimiento seguro. |
+| **DETECTAR** | Monitorear de forma continua y proactiva para verificar la efectividad de los controles. | SIEM, IDS/IPS, análisis de logs, alertas en tiempo real. |
+| **RESPONDER** | Identificar, analizar, contener y erradicar las amenazas detectadas. | Aislamiento de sistemas, mitigación, comunicación y análisis forense. |
+| **RECUPERAR** | Restaurar sistemas y datos dañados por ataques que no se pudieron prevenir. | Restauración desde backups, planes de continuidad de negocio (BCP). |
+
+[ IDENTIFICAR ]  ───────►  [ PROTEGER ]
+          ▲                        │
+          │ (Retroalimentación)    ▼
+   [ RESPONDER / DETECTAR ] ◄──────┘
+          │
+          ▼
+   [ RECUPERAR ]
+
+
+> 🔑 **Clave de examen:** El examen puede presentar escenarios y pedir que se identifique la función NIST correspondiente. Memoriza el acrónimo de la versión original: **IPDRR** (Identificar → Proteger → Detectar → Responder → Recuperar), y ten en cuenta que la v2.0 añade **GOBERNAR** al inicio.
+
+## 1.3 Análisis de Deficiencias (Gap Analysis)
+
+El **Análisis de Deficiencias** es un proceso formal en el que se evalúa el estado actual de los controles de seguridad de una organización en comparación con un marco de referencia (por ejemplo, el NIST CSF o ISO 27001).
+
+- **Utilidad:** Permite realizar una declaración objetiva de las capacidades actuales, definir un estado objetivo ideal y priorizar las inversiones necesarias para alcanzarlo.
+- **Cuándo se realiza:** Al adoptar un marco de seguridad por primera vez, al enfrentar nuevos requisitos legales o regulatorios, o de forma periódica (cada 2 o 3 años) para validar los cambios aplicados.
+- **Puntuación de riesgo CIA:** En un informe profesional de Gap Analysis, cada control que no cumple con el estándar recibe una puntuación de impacto estimada para la Confidencialidad (C), Integridad (I) y Disponibilidad (A), ayudando a los directivos a identificar qué pilares están más expuestos.
+
+> 💡 **Ejemplo:** Una empresa de seguros compara sus controles con el marco NIST. Descubre que aplica correctamente las funciones Identificar y Proteger, pero carece de capacidades de Detección (sin SIEM ni alertas en tiempo real). Esa brecha se convierte en la prioridad de inversión del próximo ejercicio fiscal.
+
+## 1.4 Control de acceso (Gestión de Identidad y Acceso (IAM))
+
+La IAM regula cómo los **sujetos** (usuarios o dispositivos) interactúan con los **objetos** (archivos, bases de datos, servidores). El proceso de acceso sigue cuatro pasos que forman el modelo **AAA**:
+
+1. **Identificación:** Presentar una identidad única (nombre de usuario).
+2. **Autenticación:** Demostrar que eres quien dices ser (contraseña, token, biometría).
+3. **Autorización:** Determinar qué permisos tienes (solo lectura, escritura, control total).
+4. **Accounting (Registro):** Rastrear las acciones realizadas para auditorías e investigaciones.
 
 En este modelo existen dos elementos:
 - Sujetos (Subjects): usuarios o dispositivos
 - Objetos (Objects): recursos como archivos, bases de datos o servidores
 
-El proceso de acceso se divide en cuatro pasos:
-- Identificación: Crear una cuenta única (ID) para el usuario.
-  - Ejemplo: Introducir un nombre de usuario
-- Autenticación: Probar que eres quien dices ser (ej. mediante una contraseña o certificado)
-  - Ejemplo:
-    - Contraseña
-    - Token
-    - Certificado digital
-    - Huella biométrica
-- Autorización: Determinar qué permisos tienes sobre un recurso (ej. solo lectura o control total).
-  - Ejemplo:
-    - Solo lectura
-    - Escritura
-    - Control total
-- Registro (Accounting): Rastrear las acciones realizadas por el sujeto en los registros de auditoría.
-  - Sirve para:
-    - Auditorías
-    - Investigaciones de incidentes
-    - Cumplimiento normativo
-  - Este modelo también se conoce como AAA:
-    - Authentication
-    - Authorization
-    - Accounting
+> 💡 **Ejemplo:** Un empleado de RRHH inicia sesión en el ERP corporativo:
+> - Escribe su nombre de usuario → **Identificación**
+> - Introduce su contraseña + código de MFA → **Autenticación**
+> - El sistema comprueba que puede ver nóminas, pero no modificarlas → **Autorización**
+> - El log registra "jgonzalez consultó la nómina de marzo a las 09:47" → **Accounting**
 
-## Controles de Seguridad
+## 1.5 Controles de Seguridad
 
-Los controles son herramientas o procedimientos para proteger la confidencialidad, integridad y disponibilidad.
+Los controles son herramientas, políticas o procedimientos que mitigan los riesgos. Se clasifican mediante dos taxonomías cruzadas:
 
-### Clasificación por Implementación
+### A. Clasificación de los controles de seguridad
 
-- Gerencial: Supervisión y selección de controles (ej. evaluación de riesgos).
-  - Evaluaciones de riesgo
-  - Políticas de seguridad
-  - Auditorías
-- Operacional: Ejecutado por personas (ej. guardias de seguridad o capacitación).
-  - Guardias de seguridad
-  - Procedimientos de respuesta a incidentes
-  - Formación de empleados
-  - Control físico de instalaciones
-- Técnico: Sistemas de hardware/software (ej. firewalls, antivirus).
-  - Firewalls
-  - Antivirus
-  - Sistemas IDS/IPS
-  - Cifrado
-- Físico: Protección de instalaciones (ej. cerraduras, cámaras, alarmas).
+- **Gerencial / Administrativo:** Diseñados por la dirección para definir la estrategia de seguridad. *Ejemplos: políticas de seguridad, evaluaciones de riesgo, auditorías.*
+- **Operacional:** Procedimientos ejecutados por personas en el día a día. *Ejemplos: guardias de seguridad, rotación de puestos, entrenamiento práctico.*
+- **Técnico / Lógico:** Controles implementados mediante hardware o software. *Ejemplos: firewalls, antivirus, cifrado, IDS/IPS, ACLs.*
+- **Físico:** Dispositivos y barreras que protegen los activos tangibles. *Ejemplos: vallas, cerraduras inteligentes, cámaras CCTV, mantraps.*
 
-### Tipos Funcionales (Cuándo actúan)
+### B. Tipos funcionales de controles de seguridad
 
-Los controles también se clasifican según cuándo actúan frente a una amenaza.
+| Función | Propósito | Ejemplo típico |
+|---------|-----------|----------------|
+| **Preventivo** | Evita que ocurra un incidente de seguridad. | MFA, Firewalls. |
+| **Detectivo** | Identifica y registra un incidente mientras ocurre o después. | Cámaras de seguridad, IDS. |
+| **Correctivo** | Limita el alcance del daño y restaura el sistema tras un incidente. | Parchear un sistema vulnerable, limpiar malware. |
+| **Disuasivo** | Desalienta psicológicamente a un atacante potencial. | Letreros de "Área vigilada", advertencias en el login. |
+| **Directivo** | Establece reglas de comportamiento obligatorias. | Política de Uso Aceptable (AUP), manuales de procedimiento. |
+| **Compensatorio** | Sustituye a un control principal cuando este no puede implementarse. | Aislar en una VLAN una máquina médica que no puede recibir parches. |
+| **Recuperación** | Devuelve el sistema a su estado operativo normal. | Restaurar la base de datos desde un backup fuera de línea. |
 
-- Preventivo: Actúa antes del ataque para bloquearlo (ej. listas de acceso, parches).
-  - Listas de control de acceso
-  - Parcheo de sistemas
-  - Autenticación multifactor
-- De Detección: Actúa durante el ataque para identificarlo (ej. registros/logs).
-  - Sistemas de monitoreo
-  - Registros de actividad
-  - IDS
-- Correctivo: Actúa después del ataque para reducir el impacto (ej. copias de seguridad/backups).
-  - Restaurar un sistema tras una intrusión
-- Recovery: Permite restaurar operaciones normales después de un ataque.
-  - Restaurar sistemas desde copias de seguridad tras un ransomware.
-- Otros:
-  - Directivo: Reglas de comportamiento (ej. políticas, contratos).
-    - Políticas de seguridad
-    - Normas de uso aceptable
-  - Disuasivo: Desalienta psicológicamente al atacante (ej. avisos de multas).
-    - Avisos legales
-    - Cámaras visibles
-    - Carteles de monitoreo
-  - Compensatorio: Sustituto si el control principal no es posible (ej. aislar un sistema viejo que no admite parches).
-    - Aislar un sistema antiguo que no puede recibir parches de seguridad.
+> 🔑 **Clave de examen:** Una misma medida puede pertenecer a varias categorías. Una cámara de vigilancia es simultáneamente **preventiva** (su presencia inhibe al atacante), **detectiva** (graba la acción) y **disuasiva** (desalienta el intento). El examen suele preguntar cuál es la función **principal**.
 
-## Análisis de Deficiencias (Gap Analysis)
 
-El Gap Analysis es el proceso de comparar el estado actual de seguridad de una organización con el estado ideal definido por un estándar o marco de referencia.
+## 1.6 Funciones, Responsabilidades y Unidades de Negocio
 
-- Ejemplo: Comparar los controles actuales de una empresa con el marco del National Institute of Standards and Technology.
+La seguridad no es tarea de una sola persona. Cada rol tiene responsabilidades bien definidas:
 
-- Objetivo
-  - Identificar controles faltantes
-  - Detectar configuraciones incorrectas
-  - Priorizar inversiones en seguridad
+| Rol | Responsabilidad principal |
+|-----|--------------------------|
+| **CISO** (Chief Information Security Officer) | Responsabilidad ejecutiva. Define la estrategia global de seguridad. |
+| **ISSO** (Information Systems Security Officer) | Implementa, mantiene y monitorea la política técnica de seguridad. |
+| **Analista SOC** | Detecta y responde a incidentes en tiempo real. |
+| **Propietario de Datos** *(Data Owner)* | Clasifica los datos y es responsable de su protección. |
+| **Custodio de Datos** *(Data Custodian)* | Gestiona y mantiene técnicamente los datos en nombre del propietario. |
+| **Usuario Final** | Cumple con las políticas y reporta anomalías. |
 
-## Funciones y Responsabilidades
+### Centro de operaciones de seguridad (SOC)
 
-La seguridad dentro de una organización requiere que diferentes roles tengan responsabilidades definidas.
+Es la unidad encargada del **monitoreo continuo de la seguridad (24×7×365)**. Su misión es centralizar la recolección de logs, analizar alertas en tiempo real mediante herramientas como el SIEM, y mitigar cualquier anomalía detectada de forma inmediata.
 
-- Política de Seguridad: Documento formal que define cómo se protegerán los recursos.
-- Responsabilidades Típicas:
-  - Directores/Propietarios: Responsabilidad general y legal.
-  - Personal Técnico (ej. ISSO): Implementar, mantener y monitorear la política.
-  - Personal No Técnico: Cumplir con las políticas y la ley.
+> 💡 **Ejemplo:** A las 3:00 a.m., el SIEM del SOC alerta de que un usuario intenta acceder al servidor de producción desde una IP de Rusia, algo inusual para ese perfil. El analista investiga, bloquea la IP y activa el playbook de «cuenta comprometida». Sin el SOC, el intento habría pasado desapercibido hasta la mañana.
 
-## Unidades de Negocio de Seguridad
+### DevSecOps (Desarrollo, Seguridad y Operaciones)
 
-Para que la seguridad funcione en una organización grande, se suelen crear equipos o centros especializados
+DevSecOps aplica el principio de *shift left* («desplazarse a la izquierda»): la seguridad se integra desde las primeras fases del diseño del software, en lugar de añadirse al final del ciclo de desarrollo.
 
-### SOC (Security Operations Center)
+> 💡 **Ejemplo:** En lugar de revisar la seguridad de una aplicación bancaria justo antes del lanzamiento, el equipo DevSecOps analiza el código en busca de vulnerabilidades cada vez que un desarrollador sube un cambio al repositorio. Los errores se detectan y corrigen en minutos, no en meses.
 
-Es el "cuartel general" donde los profesionales supervisan y protegen los activos de la empresa (finanzas, ventas, etc.) las 24 horas.
+### Respuesta a incidentes (CIRT / CSIRT / CERT)
 
-- Función: Proporcionar personal y recursos para detectar y responder rápido a incidentes.
-- Ejemplo: Un equipo de analistas que recibe una alerta de que alguien está intentando entrar al servidor desde otro país a las 3 a.m. y bloquea el acceso de inmediato.
+Estos equipos coordinan la respuesta cuando ocurre un incidente de seguridad. Sus funciones son **identificar, contener, erradicar y recuperar**. Pueden operar dentro del SOC o como una unidad independiente.
 
-### Desarrollo y Operaciones (DevSecOps)
+| Sigla | Significado |
+|-------|------------|
+| **CIRT** | Computer Incident Response Team |
+| **CSIRT** | Computer Security Incident Response Team |
+| **CERT** | Computer Emergency Response Team |
 
-Este concepto se basa en "moverse a la izquierda" (shift left). Significa que la seguridad no se añade al final de un proyecto, sino que se integra desde la planificación y el diseño.
+> 💡 **Ejemplo:** Ante un ataque de ransomware, el CSIRT decide aislar los sistemas afectados, analiza el malware en un sandbox, notifica a los afectados y restaura los datos desde los backups fuera de línea.
 
-- Concepto clave: Las operaciones de seguridad se tratan como desarrollo de software, usando automatización mediante código para mejorar la detección.
-- Ejemplo: Al programar una aplicación bancaria, el equipo de seguridad revisa el código cada vez que el programador sube un cambio, en lugar de esperar a que la app esté terminada para buscar errores.
+---
 
-### Respuesta a Incidentes (CIRT / CSIRT / CERT)
+# 2. Tipos de Amenazas
 
-Los equipos de respuesta a incidentes actúan como punto central cuando ocurre un incidente de seguridad.
+Para defender una red, primero hay que entender el riesgo. Este no es algo abstracto, sino el resultado de una fórmula concreta:
 
-- Siglas comunes:
-  - CIRT – Computer Incident Response Team
-  - CSIRT – Computer Security Incident Response Team
-  - CERT – Computer Emergency Response Team
-- Funciones principales:
-  - Identificar incidentes
-  - Contener ataques
-  - Erradicar amenazas
-  - Recuperar sistemas
+> **Riesgo = Probabilidad × Impacto**
 
-A veces trabajan dentro del SOC o como equipo independiente.
+Un evento poco probable pero con gran impacto puede ser tan peligroso como uno muy frecuente con impacto moderado.
 
-- Ejemplo: Si una empresa sufre un ataque de ransomware, el CSIRT decide:
-  - aislar los sistemas
-  - analizar el malware
-  - restaurar los datos desde backups.
+## 2.1 Actores de amenazas (Activo, Vulnerabilidad, Amenaza y Riesgo)
 
-# Tipos de Amenazas (Tema 2)
+Antes de analizar ataques concretos, es imprescindible entender estos cuatro conceptos fundamentales:
 
-Para defender una red, primero hay que entender el riesgo. El riesgo no es algo abstracto, sino el resultado de una fórmula:
+- **Activo (Asset):** Cualquier recurso con valor que debe protegerse. Ejemplos: datos de clientes, servidores, sistemas de pago, propiedad intelectual.
+- **Vulnerabilidad:** Debilidad en un sistema que puede ser explotada. Puede existir en hardware, software, configuraciones, procesos o seguridad física. Ejemplos: software sin actualizar, contraseña débil, puerto de red abierto innecesariamente.
+- **Amenaza:** La posibilidad de que alguien o algo explote una vulnerabilidad. El camino o método utilizado se denomina **vector de ataque**.
+- **Riesgo:** El nivel real de peligro, calculado evaluando la **probabilidad** de que ocurra el ataque y el **impacto** que tendría sobre los activos.
 
-> Riesgo = Probabilidad × Impacto
+> 💡 **Ejemplo integrador:** Un servidor web con Apache sin actualizar (**vulnerabilidad**) puede ser atacado por un grupo de ciberdelincuentes (**amenaza**) a través de internet (**vector**). El riesgo es alto porque el servidor almacena datos de 50.000 clientes (**impacto alto**) y existen exploits públicos disponibles (**probabilidad alta**).
 
-Esto significa que un evento poco probable pero con gran impacto puede ser tan peligroso como uno muy probable con impacto moderado.
+## 2.2 Atributos de los Actores de Amenazas
 
-## Conceptos Clave: Vulnerabilidad, Amenaza y Riesgo
+Para clasificar a un atacante, CompTIA analiza cuatro atributos clave:
 
-Antes de analizar ataques es importante entender cuatro conceptos básicos.
+| Atributo | Categorías | Descripción |
+|----------|-----------|-------------|
+| **Ubicación** | Interno / Externo | ¿Está dentro o fuera de la organización? |
+| **Sofisticación** | Baja / Alta | ¿Usa herramientas prefabricadas o desarrolla sus propios exploits? |
+| **Recursos** | Individual / Grupo / Estado | ¿Cuánto dinero y tecnología tiene a su disposición? |
+| **Motivación** | Dinero, espionaje, ideología, venganza | ¿Por qué ataca? |
 
-- Activo (Asset)
-Un activo es cualquier recurso que tiene valor para una organización y debe protegerse.
-- Ejemplos:
-  - Datos de clientes
-  - Servidores
-  - Sistemas de pago
-  - Propiedad intelectual
-  - Infraestructura de red
-
-- Vulnerabilidad: Es una debilidad en un sistema que puede ser explotada.
-  - Puede existir en:
-    - hardware
-    - software
-    - configuraciones
-    - procesos
-    - seguridad física
-  - Ejemplo: 
-    - Software sin actualizar
-    - Contraseña débil
-    - Puerto de red innecesariamente abierto
-- Amenaza: Una amenaza es la posibilidad de que alguien o algo explote una vulnerabilidad. El camino o método utilizado para realizar el ataque se llama vector de ataque.
-  - Ejemplo: Un atacante aprovecha una vulnerabilidad en un servidor web para ejecutar código malicioso.
-- Riesgo: El riesgo es el nivel real de peligro para la organización. Se calcula evaluando:
-  - la probabilidad de que ocurra el ataque
-  - el impacto que tendría sobre los activos
-
-## Atributos de los Actores de Amenazas
-
-Para clasificar a un atacante, el examen de CompTIA analiza varios atributos.
-
-- Ubicación: Indica si el atacante está dentro o fuera de la organización.
-  - Interno: empleado o persona con acceso autorizado
-  - Externo: atacante desde Internet
-- Sofisticación / Capacidad: Nivel técnico del atacante.
-  - Bajo: uso de herramientas automáticas
-  - Alto: desarrollo de exploits propios
-- Recursos / Financiamiento: Capacidad económica o tecnológica del atacante.
-  - Individuos con recursos limitados
-  - Grupos criminales organizados
-  - Gobiernos o agencias estatales
-- Motivación: Razón por la que el atacante realiza el ataque.
-  - Ejemplos:
-    - dinero
-    - espionaje
-    - ideología política
-    - sabotaje
-    - venganza personal
-
-## Perfiles de Atacantes
+## 2.3 Perfiles de Atacantes
 
 ### Hackers y Hacktivistas
 
-- Hacker Autorizado (White Hat): Tiene permiso para buscar fallos (Pentesting).
-- Hacker No Autorizado (Black Hat): Entra en sistemas sin permiso para fines maliciosos.
-- Atacante sin formación (Script Kiddie): Alguien con poca habilidad que solo usa herramientas que otros hicieron.
-- Hacktivista: Ataca para promover una agenda política o social (ej. robar datos para avergonzar a una empresa).
+| Perfil | Descripción |
+|--------|-------------|
+| **White Hat** | Hacker autorizado. Busca fallos con permiso (pentesting ético). |
+| **Black Hat** | Accede a sistemas sin permiso con fines maliciosos. |
+| **Grey Hat** | Actúa a veces sin permiso, pero sin intención dañina; puede revelar las vulnerabilidades encontradas. |
+| **Script Kiddie** | Poca habilidad técnica; solo emplea herramientas creadas por otros. |
+| **Hacktivista** | Ataca para promover una agenda política o social (ej. Anonymous). |
 
-### Amenazas Avanzadas (Estados Nación y Crimen Organizado)
+### Amenazas Avanzadas: Estado-Nación y Crimen Organizado
 
-- Estado Nación: Atacantes financiados por gobiernos con grandes recursos técnicos. Sus objetivos suelen ser:
-  - espionaje
-  - sabotaje
-  - desinformación
-- APT (Amenaza Persistente Avanzada) Una APT es un ataque prolongado y dirigido donde el atacante intenta mantener acceso a la red durante largos periodos. Características principales:
-  - ataques sigilosos
-  - objetivos específicos
-  - acceso persistente a sistemas comprometidos
-- Crimen Organizado: Grupos criminales que buscan principalmente beneficio económico. Actividades comunes:
-  - fraude
-  - robo de datos
-  - ransomware
-  - extorsión
-- Competidores: Empresas que intentan robar secretos comerciales o propiedad intelectual para obtener ventaja en el mercado.
+- **Estado-Nación:** Atacantes financiados por gobiernos con enormes recursos técnicos. Sus objetivos son el espionaje, el sabotaje y la influencia política.
+- **APT (Amenaza Persistente Avanzada):** Ataque prolongado y sigiloso en el que el atacante mantiene acceso durante meses o años sin ser detectado.
+- **Crimen Organizado:** Grupos que buscan beneficio económico mediante fraude, robo de datos, ransomware y extorsión.
+- **Competidores:** Empresas que intentan robar secretos comerciales o propiedad intelectual.
+
+> 💡 **Ejemplo APT:** En el ataque SolarWinds (2020), los atacantes comprometieron las actualizaciones del software Orion. Durante meses, el malware se distribuyó a miles de organizaciones gubernamentales y empresas Fortune 500 sin ser detectado.
 
 ### Amenazas Internas (Insiders)
 
-Las amenazas internas provienen de personas que ya tienen acceso legítimo a la organización.
+Las amenazas internas provienen de personas con acceso legítimo a la organización:
 
-- Insiders malintencionados: Empleados que buscan beneficio personal o venganza.
-  - Ejemplos:
-    - robo de datos
-    - sabotaje de sistemas
-- Insiders no intencionales: Usuarios que causan problemas por error o descuido.
-  - Ejemplos:
-    - perder un USB con datos sensibles
-    - enviar información confidencial al destinatario equivocado
-- Shadow IT: Ocurre cuando empleados utilizan:
-  - software
-  - servicios en la nube
-  - aplicaciones
-  - sin aprobación del departamento de TI.
-Esto crea nuevos riesgos de seguridad.
+- **Malintencionados:** Buscan beneficio personal o ejercen venganza (robo de datos, sabotaje deliberado).
+- **No intencionales:** Causan daño por error o descuido (perder un USB con datos sensibles, enviar información al destinatario equivocado).
+- **Shadow IT:** Empleados que usan software, servicios cloud o apps sin la aprobación del departamento de TI, creando vectores de ataque invisibles para el equipo de seguridad.
 
-## Superficie de Ataque
+> 💡 **Ejemplo:** Un empleado frustrado descarga la base de datos de clientes antes de su despido. Aunque técnicamente tenía acceso, el uso no fue autorizado → **insider malintencionado**.
 
-La superficie de ataque es la suma total de todos los puntos donde un atacante puede intentar entrar o extraer datos de un sistema. Comprender los métodos de infiltración es esencial para implementar los controles adecuados.
+## 2.4 Superficie de ataque y vectores de amenaza
 
-Incluye:
-- aplicaciones
-- servicios de red
-- dispositivos
-- usuarios
+La **superficie de ataque** es la suma total de todos los puntos donde un atacante puede intentar entrar o extraer datos. Incluye aplicaciones, servicios de red, dispositivos y usuarios.
 
-
-- Vector de amenaza/ataque: Es la ruta específica o herramienta que usa el atacante.
-  - email malicioso
-  - puerto abierto
-  - sitio web comprometido
-  - ingeniería social
-- Estrategia fundamental: Reducir la superficie de ataque limitando el acceso únicamente a:
-  - servicios necesarios
-  - puertos esenciales
-  - usuarios autorizados
-
-## Vectores Tecnológicos
+**Estrategia fundamental:** Reducir la superficie de ataque limitando el acceso únicamente a los servicios necesarios, puertos esenciales y usuarios autorizados.
 
 ### Software Vulnerable
 
-Casi ningún software es perfecto. Las fallas en el código permiten eludir controles.
-- Estrategia: 
-  - Gestión de parches.
-  - Actualizar software para corregir vulnerabilidades conocidas.
-  - Si una aplicación no puede actualizarse, se puede aplicar un control compensatorio, como aislarla de la red.
-- Escaneo de vulnerabilidades:
-  - Escaneo con agentes
-    - software instalado en cada sistema
-    - permite análisis más detallado
-  - Escaneo sin agentes
-    - análisis remoto desde la red
-    - no requiere instalar software en los equipos
+Casi ningún software es perfecto. Las fallas de código permiten eludir controles de seguridad. La estrategia principal es la **gestión de parches** (actualizar regularmente). Si un sistema no puede actualizarse, se aplica un **control compensatorio**, como aislarlo de la red.
 
 ### Vectores de Red
 
-- Ataque Remoto: No requiere una sesión previa; el atacante envía código a través de la red.
-- Ataque Local: Requiere que el atacante ya tenga una sesión iniciada o credenciales válidas.
-  - una sesión activa
-  - acceso físico
-  - credenciales válidas
-- Puntos débiles comunes:
-  - puertos abiertos innecesarios
-  - falta de cifrado en comunicaciones
-  - contraseñas por defecto
-  - servicios mal configurados
+- **Ataque remoto:** No requiere acceso previo. El atacante envía código malicioso a través de la red.
+- **Ataque local:** Requiere que el atacante ya disponga de una sesión activa o credenciales válidas.
+- **Puntos débiles comunes:** Puertos abiertos innecesarios, falta de cifrado, credenciales por defecto, servicios mal configurados, redes inalámbricas o Bluetooth sin protección adecuada.
 
-### Vectores basados en Señuelos (Baiting)
+A fin de minimizar los riesgos de las vulnerabilidades de software, los administradores deben reducir la superficie de ataque eliminando las redes no seguras.
+
+- **Falta de confidencialidad**
+- **Falta de integridad**
+- **Falta de disponibilidad**
+
+Algunos vectores de amenaza específicos que se asocian con redes no seguras son lossiguientes
+- **Acceso directo**
+- **Red cableada**
+- **Red remota e inalámbrica**
+- **Acceso a la nube**
+- **Red Bluetooth**
+- **Credenciales predeterminadas**
+- **Puerto de servicio abierto**
+
+### Vectores Basados en Señuelos (Baiting)
 
 Se ofrece algo atractivo para que la víctima caiga en la trampa:
 
-- Dispositivos extraíbles: Dejar un USB infectado en un parking (USB Drop) esperando que alguien lo conecte.
-- Archivos maliciosos: Ocultar código en PDFs, imágenes o instaladores de software.
+- **USB Drop:** Dejar una memoria USB infectada en un lugar público esperando que alguien la conecte.
+- **Archivos maliciosos:** Ocultar código dañino en PDFs, imágenes o instaladores de software aparentemente legítimos.
 
-### Vectores basados en Mensajes
+> 💡 **Ejemplo real:** En 2016, investigadores dejaron 297 USBs en el campus de la Universidad de Illinois. El 98% fueron conectados a ordenadores y muchos abrieron los archivos que contenían.
 
-Los atacantes usan comunicaciones para engañar a las víctimas.
+### Vectores Basados en Mensajes
 
-- Email e IM: Uso de archivos adjuntos o enlaces.
-- SMS (Smishing): Muy difícil de monitorear por las empresas ya que depende del proveedor de telefonía.
-- Clic Cero (Zero-click): Los ataques más peligrosos, donde el exploit se activa solo con recibir el mensaje, sin que el usuario haga nada.
+- **Email e IM:** Archivos adjuntos maliciosos o enlaces de phishing.
+- **SMS (Smishing):** Difícil de monitorear porque depende del operador de telefonía.
+- **Zero-click:** El ataque más peligroso: se activa solo con recibir el mensaje, sin que el usuario realice ninguna acción.
 
-## El Factor Humano: Ingeniería Social
+## 2.5 Superficie de ataque de la cadena de suministro
 
-Se considera al ser humano como el eslabón más débil del sistema. "Hackear al humano" es manipularlo para que revele información o realice acciones.
+En lugar de atacar directamente a una organización con defensas sólidas, el atacante penetra en sus sistemas comprometiendo a sus proveedores, fabricantes o empresas logísticas.
+
+```
+┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
+│    FABRICANTE   ├──────►│   DISTRIBUIDOR  ├──────►│ EMPRESA CLIENTE │
+│ (Código/Chips)  │       │(Logística/Venta)│       │ (Objetivo Real) │
+└────────┬────────┘       └─────────────────┘       └────────▲────────┘
+         │                                                   │
+         └───────── Infiltración y código troyanizado ───────┘
+```
+
+- **MSP (Proveedores de Servicios Gestionados):** Son objetivos críticos porque tienen acceso simultáneo a las redes de cientos de clientes.
+
+> 💡 **Ejemplo real:** El ataque SolarWinds (2020) afectó a 18.000 organizaciones, incluidas agencias del gobierno de EE.UU., mediante código malicioso inyectado en actualizaciones legítimas del software Orion.
+
+### Compromiso de correo electrónico empresarial (BEC)
+
+Ataque altamente dirigido en el que el atacante suplanta a un ejecutivo o proveedor de confianza para conseguir transferencias bancarias fraudulentas o acceso a información sensible. No emplea malware ni enlaces sospechosos, sino pura persuasión social.
+
+### Typosquatting (Apropiación de Errores Tipográficos)
+
+Técnica que consiste en registrar dominios similares a sitios legítimos aprovechando errores tipográficos habituales: `gogle.com`, `micosoft.com`, `empresa.enmicrosoft.com`.
+
+### Desinformación vs. Malinformación
+
+- **Desinformación:** Difusión deliberada de datos falsos con intención de engañar.
+- **Malinformación:** Repetición de datos falsos por parte de terceros sin intención de engañar (el atacante usa a otros para amplificar su mensaje).
+
+### Ataque de Abrevadero (Watering Hole Attack)
+
+El atacante identifica sitios web de terceros que los empleados objetivo visitan con frecuencia, los compromete e inserta código malicioso. Cuando los empleados acceden al sitio de confianza, sus equipos se infectan.
+
+> 💡 **Ejemplo:** En lugar de atacar directamente las redes de una empresa petrolera bien protegida, los atacantes comprometen el sitio web de la asociación industrial que sus ingenieros consultan a diario.
+
+## 2.6 El Factor Humano: Ingeniería Social
+
+El ser humano es considerado el **eslabón más débil** de la cadena de seguridad. La ingeniería social consiste en manipular psicológicamente a las personas para que revelen información o realicen acciones que no deberían.
+
+### Principios Psicológicos de la Ingeniería Social
+
+┌────────────────────────────────────────────────────────┐
+│        PRINCIPIOS PSICOLÓGICOS DE INGENIERÍA SOCIAL    │
+└───────────────────────────┬────────────────────────────┘
+                            │
+      ┌───────────┬─────────┼───────────┬───────────┐
+      ▼           ▼         ▼           ▼           ▼
+┌───────────┐┌─────────┐┌───────┐┌─────────────┐┌───────┐
+│ AUTORIDAD ││URGENCIA ││ESCASEZ││CONSENSOS/PR.││FAMIL. │
+│           ││         ││       ││   SOCIAL    ││ /LIK. │
+└───────────┘└─────────┘└───────┘└─────────────┘└───────┘
+
+1. **Autoridad:** El atacante se presenta como una figura de poder (CEO, auditor, soporte técnico). Las personas tienden a seguir instrucciones de autoridades sin cuestionarlas.
+2. **Urgencia:** Se induce estrés exigiendo una acción inmediata bajo amenaza de consecuencias graves. El estrés reduce el pensamiento analítico y fuerza decisiones apresuradas.
+3. **Escasez:** Se ofrece un beneficio supuestamente exclusivo a punto de agotarse, forzando al usuario a saltarse los procesos de verificación por miedo a perder la oportunidad.
+4. **Consenso / Prueba Social:** El atacante simula que otros compañeros ya han realizado la acción solicitada, validando el comportamiento como normal.
+5. **Familiaridad / Simpatía:** Las personas cooperan más con quienes les caen bien. Los atacantes establecen relaciones previas para ganarse la confianza antes del ataque.
+6. **Confianza:** El atacante construye credibilidad demostrando conocer información interna obtenida mediante reconocimiento OSINT.
+7. **Intimidación:** Uso de amenazas o asertividad extrema para forzar a la víctima a saltarse los protocolos de seguridad.
 
 ### Suplantación y Pretexting
 
-- Suplantación (Impersonation): Pretender ser otra persona (soporte técnico, un jefe, un repartidor).
-- Pretexting: Crear una historia creíble (el "pretexto") para ganar confianza.
-- Tácticas psicológicas:
-  - Urgencia/Miedo: "Si no lo haces ahora, se borrará tu cuenta".
-  - Autoridad: "Soy el director de TI y necesito tu clave".
-  - Consenso/Agrado: "Todos los de tu equipo ya me dieron acceso".
-  - Simpatía / agrado: El atacante intenta generar confianza personal.
+- **Suplantación (Impersonation):** Pretender ser otra persona (soporte técnico, directivo, repartidor).
+- **Pretexting:** Crear una historia creíble para ganar la confianza de la víctima antes de solicitar la información o acción deseada.
+- **Tácticas psicológicas comunes:**
+  - *Urgencia/Miedo:* «Si no lo haces ahora, se bloqueará tu cuenta.»
+  - *Autoridad:* «Soy el director de TI y necesito tu contraseña para una auditoría urgente.»
+  - *Consenso:* «Todos tus compañeros ya me han dado acceso.»
+  - *Simpatía/Agrado:* El atacante genera confianza personal antes de solicitar información.
 
 ### Phishing y Pharming
 
-- Phishing: Uso de ingeniería social + suplantación de identidad (normalmente vía email) para robar credenciales.
-- Pharming: Es más técnico; redirige al usuario de un sitio web legítimo a uno falso dañando la resolución de nombres (DNS). El usuario escribe la URL correcta, pero va al sitio del atacante.
+- **Phishing:** Ingeniería social combinada con suplantación de identidad (normalmente por email) para robar credenciales.
+- **Spear Phishing:** Phishing dirigido a una persona o grupo concreto con información personalizada.
+- **Whaling:** Spear phishing dirigido específicamente a ejecutivos de alto nivel.
+- **Vishing:** Phishing realizado por llamada de voz.
+- **Smishing:** Phishing por SMS.
+- **Pharming:** Técnica más sofisticada que redirige al usuario de un sitio legítimo a uno falso manipulando la resolución DNS. El usuario escribe la URL correcta, pero llega al sitio del atacante.
 
-## Cadena de Suministro (Supply Chain)
+> 💡 **Ejemplo:** Recibes un email de «tu banco» informando que tu cuenta ha sido bloqueada. El enlace dirige a una copia exacta del sitio del banco. Introduces tus credenciales, que el atacante captura en tiempo real. Esto es un ataque de phishing clásico.
 
-En lugar de atacarte a ti, atacan a tus proveedores.
+---
 
-- Proveedores y Socios: Un atacante puede entrar en tu red usando las credenciales de un proveedor de mantenimiento o un servicio externo.
-- MSP (Proveedores de Servicios Gestionados): Son objetivos críticos porque tienen acceso a las redes de cientos de clientes a la vez.
+# 3. Algoritmos Criptográficos
 
-## Compromiso de Correo Electrónico Empresarial (BEC)
+La criptografía es el arte de proteger información mediante su transformación matemática. A diferencia de la «seguridad por oscuridad», aunque un atacante sepa dónde está el mensaje, **no puede entenderlo sin la clave correcta**.
 
-A diferencia del phishing masivo, el BEC (Business Email Compromise) es un ataque de "guante blanco" altamente sofisticado y dirigido.
+## 3.1 Conceptos criptográficos
 
-- El Objetivo: Una persona específica con poder de decisión (ejecutivos, directores financieros o gerentes con acceso a presupuestos).
-- La Táctica: El atacante realiza un reconocimiento previo exhaustivo para imitar el lenguaje y tono de un colega, socio o proveedor de confianza.
-- Sin rastro técnico: A menudo no incluyen enlaces sospechosos ni malware, sino que usan puramente la persuasión para que la víctima autorice transferencias bancarias fraudulentas o entregue datos confidenciales.
-- Suplantación real: El atacante puede incluso intentar tomar el control de una cuenta de correo legítima de la empresa para enviar los mensajes desde dentro.
+Para entender los algoritmos modernos, es clave dominar las dos técnicas básicas de manipulación de caracteres:
 
-## Typosquatting (Allanamiento de error tipográfico)
+- **Sustitución:** Reemplazar caracteres del texto plano por otros diferentes. Ejemplo clásico: **ROT13** (rotar las letras 13 posiciones; la 'A' se convierte en 'N').
+  - *Alerta de examen:* Los desplazamientos que devuelven el mismo texto (ROT0, ROT26) se consideran **claves débiles**.
+- **Transposición:** Los caracteres del mensaje se mantienen iguales, pero cambia su orden o posición según un patrón definido.
 
-Es una técnica que se aprovecha de los errores que cometen los usuarios al escribir una dirección en el navegador.
+**Glosario esencial:**
 
-- Nombres de dominio similares: El atacante registra dominios como gogle.com o ejenplo.com (conocidos como dominios primos o doppelganger).
-- Subdominios secuestrados: Usar un dominio de confianza para crear un subdominio engañoso, por ejemplo: empresa.enmicrosoft.com. El usuario ve "microsoft.com" y baja la guardia.
-- Inconsistencias en el cliente de correo: Manipular el campo "De" (From) para que el nombre mostrado no coincida con la dirección de correo real.
+| Término | Definición |
+|---------|-----------|
+| **Texto plano (Plaintext)** | Datos en su formato original, legibles y sin procesar. |
+| **Texto cifrado (Ciphertext)** | Datos alterados mediante un algoritmo criptográfico, ilegibles sin la clave. |
+| **Cifrado (Encryption)** | Proceso de convertir texto plano en texto cifrado. |
+| **Descifrado (Decryption)** | Proceso inverso: recuperar el texto plano a partir del texto cifrado. |
+| **Criptoanálisis** | Estudio y práctica de encontrar debilidades o descifrar códigos sin poseer la clave. |
+| **Entropía** | Medida de la aleatoriedad de una clave. A mayor entropía, más difíciles son los ataques de fuerza bruta. |
+| **Principio de Kerckhoffs** | Un sistema criptográfico debe ser seguro aunque todo el mundo conozca el algoritmo, siempre que la clave se mantenga en secreto. |
 
-## Desinformación y Malinformación
+**Las tres familias de algoritmos criptográficos:**
 
-- Desinformación: Intención deliberada de engañar mediante noticias o datos falsos.
-- Malinformación: La repetición de rumores o datos falsos por parte de terceros sin que estos tengan necesariamente la intención de engañar (el atacante usa a otros para amplificar su mentira).
-- SEO Malicioso: Usar estas tácticas para que sitios falsos aparezcan en los primeros resultados de búsqueda de Google.
+Existen tres familias o tipos principales de algoritmos criptográficos
 
-## Watering Hole Attack (Ataque de abrevadero)
+```
+              ┌───────────────────────────────┐
+              │   Algoritmos Criptográficos   │
+              └───────────────┬───────────────┘
+     ┌────────────────────────┼────────────────────────┐
+┌────┴────────┐      ┌────────┴────────┐      ┌────────┴────────┐
+│  Simétrico  │      │   Asimétrico   │      │    Hashing      │
+│(misma clave)│      │(clave pública/ │      │  (integridad)   │
+│             │      │   privada)     │      │                 │
+└─────────────┘      └────────────────┘      └─────────────────┘
+```
 
-En lugar de atacar una red corporativa muy protegida, el atacante identifica un sitio web de terceros que los empleados suelen visitar por confianza o necesidad.
+## 3.2 Cifrado Simétrico
 
-- proceso:
-  - El atacante identifica sitios que los empleados suelen visitar.
-  - Compromete ese sitio web.
-  - Inserta código malicioso.
-  - Cuando los empleados acceden al sitio, sus equipos se infectan.
+Utiliza **la misma clave** para cifrar y descifrar. Es muy rápido y eficiente para grandes volúmenes de datos.
 
-# Algoritmos Criptográficos (Tema 3)
+- **Ventaja:** Proceso rápido y eficiente, ideal para el cifrado masivo de datos.
+- **Desventajas:**
+  - **Intercambio de claves:** El canal para acordar la clave secreta de forma segura es su punto más vulnerable. Si un tercero intercepta la clave, toda la confidencialidad se rompe.
+  - **Sin autenticación:** Al compartir la misma clave, es imposible probar cuál de las dos partes creó el mensaje.
 
-La criptografía ("escritura secreta") es el arte de asegurar la información mediante su codificación. Se diferencia de la "seguridad por oscuridad" en que, aunque un atacante sepa dónde está el mensaje, no puede entenderlo sin la clave.
+| Algoritmo | Tamaño de clave | Uso típico |
+|-----------|----------------|-----------|
+| **AES** | 128, 192 o 256 bits | Estándar actual; cifrado de discos, TLS. |
+| **3DES** | 112 o 168 bits | Legado; en proceso de sustitución por AES. |
+| **ChaCha20** | 256 bits | Dispositivos móviles e IoT con recursos limitados. |
 
-- Texto plano: Mensaje original sin cifrar.
-- Texto cifrado: Mensaje encriptado e ilegible.
-- Algoritmo: El proceso matemático para cifrar y descifrar.
-- Criptoanálisis: El arte de romper sistemas criptográficos (ej. ataques de fuerza bruta que prueban todas las llaves posibles).
+> 💡 **Ejemplo:** Alice cifra un archivo con AES-256 usando la clave «X» y lo envía a Bob. Bob usa la misma clave «X» para descifrarlo. El problema: ¿cómo transmite Alice la clave a Bob de forma segura?
 
-## Cifrado Simétrico (Symmetric Encryption)
+## 3.3 Cifrado Asimétrico
 
-Utiliza la misma clave secreta tanto para cifrar como para descifrar.
+Emplea un **par de claves complementarias** relacionadas matemáticamente:
 
-- Características: Es muy rápido y se usa para el cifrado masivo de datos.
-- Desventaja: El intercambio de claves es difícil; si un atacante intercepta la clave, la seguridad se rompe.
+1. **Clave Pública:** Accesible para cualquiera, se distribuye libremente.
+2. **Clave Privada:** Se mantiene en estricto secreto por su propietario.
 
-> Ejemplo: Alice cifra un archivo "HolaMundo" con una clave. Envía el archivo ilegible a Bob, quien usa esa misma clave para leerlo.
+- **Principio de funcionamiento:** Si un mensaje se cifra con la clave pública de Bob, **únicamente la clave privada de Bob** puede descifrarlo. La clave pública no puede revertir su propio cifrado.
+- **Seguridad matemática:** Es computacionalmente inviable derivar la clave privada a partir de la clave pública.
+- Es más lento que el simétrico, por lo que generalmente se usa para **intercambiar claves simétricas** de forma segura, no para cifrar grandes volúmenes de datos.
 
-## Cifrado Asimétrico (Asymmetric Encryption)
+| Algoritmo | Base matemática | Longitud recomendada |
+|-----------|----------------|---------------------|
+| **RSA** | Factorización de números primos | ≥ 2048 bits |
+| **ECC** (Curva Elíptica) | Curvas elípticas | ≥ 256 bits (equivale a RSA 3072) |
+| **DSA** | Logaritmos discretos | ≥ 2048 bits (solo firmas digitales) |
 
-Utiliza un par de claves relacionadas: una pública (que todos conocen) y una privada (secreta y personal).
+> 🔑 **Clave de examen:** ECC ofrece la misma seguridad que RSA con claves mucho más pequeñas, lo que lo hace más eficiente en dispositivos con recursos limitados (móviles, IoT).
 
-- Funcionamiento: Si cifras con la clave pública de alguien, solo su clave privada puede descifrarlo.
-- Uso: Es más lento que el simétrico, por lo que suele usarse para intercambiar claves simétricas de forma segura.
+## 3.4 Hashing
 
-> Ejemplo: Bob publica su clave pública. Alice la usa para cifrar un mensaje. Solo Bob, con su clave privada, puede leer el contenido.
+Un algoritmo de hash convierte cualquier entrada en una cadena de bits de longitud fija (el **hash** o *digest*). Es una función **unidireccional**: no se puede recuperar el mensaje original a partir del hash.
 
-## Hashing
+**Propiedades clave:**
 
-Un algoritmo de hash convierte cualquier entrada en una cadena de bits de longitud fija.
+- **Determinista:** La misma entrada siempre produce el mismo hash.
+- **Efecto avalancha:** Cambiar un solo bit en la entrada produce un hash completamente diferente.
+- **Resistencia a colisiones:** Dos entradas distintas no deben generar el mismo hash.
 
-- Propiedades: Es unidireccional (no se puede volver al mensaje original) y resistente a colisiones (dos entradas diferentes no deben dar el mismo hash).
-- Objetivo: Garantizar la integridad (que los datos no hayan cambiado).
-- Algoritmos comunes:
-  - SHA-256: Muy seguro, produce 256 bits.
-  - MD5: 128 bits, más rápido pero menos seguro hoy en día.
+| Algoritmo | Longitud del hash | Estado |
+|-----------|------------------|--------|
+| **MD5** | 128 bits | ❌ Obsoleto (vulnerable a colisiones) |
+| **SHA-1** | 160 bits | ❌ Obsoleto (colisiones demostradas en 2017) |
+| **SHA-256** | 256 bits | ✅ Recomendado actualmente |
+| **SHA-3** | Variable | ✅ Estándar más reciente |
 
-> Ejemplo: Al descargar un archivo, calculas su hash y lo comparas con el del fabricante. Si son iguales, el archivo no ha sido manipulado.
+> 💡 **Ejemplo:** Al descargar una imagen ISO de Ubuntu, la página oficial muestra su hash SHA-256. Tras la descarga, calculas el hash del archivo. Si coincide, el archivo es auténtico y no fue alterado durante la transferencia.
 
-## Firmas Digitales
+## 3.5 Firmas Digitales
 
-Combinan el hashing y el cifrado asimétrico para garantizar autenticidad, integridad y no repudio.
+Las firmas digitales combinan hashing y cifrado asimétrico para garantizar **autenticidad, integridad y no repudio** de forma simultánea.
 
-- Alice crea un hash de su mensaje y lo cifra con su clave privada (esta es la firma).
-- Bob recibe el mensaje, descifra la firma con la clave pública de Alice para obtener el hash original.
-- Bob calcula su propio hash del mensaje recibido. Si ambos coinciden, sabe que el mensaje es de Alice y no fue alterado.
+**Proceso:**
 
-## Longitud de la Clave
+1. Alice calcula el hash de su mensaje.
+2. Alice cifra ese hash con su **clave privada** → esa es la firma digital.
+3. Bob recibe el mensaje y la firma.
+4. Bob descifra la firma con la **clave pública de Alice** para obtener el hash original.
+5. Bob calcula su propio hash del mensaje recibido.
+6. Si ambos hashes coinciden → el mensaje es auténtico, íntegro y no repudiable.
 
-La seguridad depende de qué tan grande es el espacio de claves (rango de valores posibles).
+> 💡 **Analogía:** Es como un sello de cera en una carta. Si el sello está intacto, sabes que nadie abrió la carta y que viene del remitente legítimo.
 
-- Bits: A más bits, más difícil es un ataque de fuerza bruta.
-- Ejemplos de seguridad equivalente:
-  - AES (Simétrico): 128 o 256 bits.
-  - RSA (Asimétrico): Requiere 2048 bits para ser seguro.
-  - ECC (Curva Elíptica): Logra la misma seguridad que RSA pero con solo 256 bits, lo que lo hace más eficiente.
+## 3.6 Longitud de la Clave y Seguridad Equivalente
 
-## Infraestructura de Clave Pública (PKI)
+La seguridad depende del tamaño del espacio de claves. A más bits, mayor dificultad para un ataque de fuerza bruta.
 
-La Infraestructura de Clave Pública (PKI) es el marco de hardware, software, personas y procesos necesarios para crear, gestionar, distribuir, utilizar, almacenar y revocar certificados digitales. Su objetivo principal es establecer confianza.
+| Tipo | Algoritmo | Longitud segura actual |
+|------|-----------|----------------------|
+| Simétrico | AES | 128 o 256 bits |
+| Asimétrico (factorización) | RSA | ≥ 2048 bits |
+| Asimétrico (curva elíptica) | ECC | ≥ 256 bits |
+| Hash | SHA-2 / SHA-3 | ≥ 256 bits |
 
-## Autoridades Certificadoras (CA)
+## 3.7 Infraestructura de Clave Pública (PKI)
 
-La CA es la entidad de confianza que emite certificados digitales.
+La PKI es el ecosistema completo de hardware, software, personas y procesos necesarios para crear, gestionar, distribuir y revocar **certificados digitales**. Su objetivo es establecer **confianza verificable** en entornos digitales.
 
-- Función: Valida la identidad de quien solicita un certificado y lo firma digitalmente para garantizar su autenticidad.
-- Jerarquía de Confianza:
-  - CA Raíz (Root CA): Es la autoridad máxima. Su certificado está autofirmado. En organizaciones grandes, la CA raíz se suele mantener offline para protegerla.
-  - CA Intermedias: Emiten certificados a los usuarios finales en nombre de la CA raíz, lo que añade una capa de seguridad.
+### Autoridades Certificadoras (CA)
 
-## Certificados Digitales
+La CA es la entidad de confianza que **emite y firma digitalmente** los certificados, garantizando la identidad del poseedor de la clave pública.
 
-Un certificado es un "contenedor" para una clave pública.
+**Jerarquía de confianza:**
 
-- Estándar X.509: Es el formato estándar utilizado por la mayoría de los certificados
-- Atributos clave:
-  - Nombre común (CN): Antiguamente identificaba el dominio (ej. www.google.com), pero hoy está en desuso.
-  - Nombre Alternativo del Sujeto (SAN): El estándar actual. Permite que un solo certificado proteja múltiples dominios o direcciones IP.
+- **CA Raíz (Root CA):** Autoridad máxima. Su certificado es autofirmado. En grandes organizaciones se mantiene **offline** para protegerla: su compromiso sería catastrófico para toda la PKI.
+- **CA Intermedias:** Emiten certificados en nombre de la CA raíz, añadiendo una capa de seguridad y compartimentación.
 
-## El Proceso de Registro (CSR)
+**Proceso de emisión de un certificado:**
 
-Para obtener un certificado, no envías tu clave privada. Envías una CSR (Certificate Signing Request).
+1. El solicitante genera su par de claves y crea una **CSR (Certificate Signing Request)** con su clave pública.
+2. La CA valida rigurosamente la identidad del solicitante.
+3. La CA emite el certificado firmado con su clave privada y lo entrega al solicitante.
+4. El cliente verifica el certificado comprobando la firma de la CA contra su almacén de confianza.
 
-- Generas tu par de claves (pública y privada).
-- Creas la CSR con tu clave pública e información de identidad.
-- La CA firma la CSR y te devuelve el certificado completado.
+> 💡 **Analogía:** La CA Raíz es como el Ministerio del Interior que emite los DNIs. Las CAs intermedias son las oficinas provinciales que tramitan las solicitudes. Si se compromete una oficina provincial, el Ministerio puede revocarla sin invalidar todos los DNIs del país.
 
-## Ciclo de Vida y Revocación
+### Raíz de confianza
 
-Los certificados no duran para siempre. Pueden ser invalidados antes de su fecha de vencimiento si la clave privada se pierde o es robada.
+| Modelo | Descripción | Riesgo |
+|--------|-------------|--------|
+| **CA única** | Una sola CA raíz emite todos los certificados. Común en redes privadas. | Si se compromete, toda la PKI colapsa. |
+| **CA jerárquica (terceros)** | La CA raíz emite certificados a CA intermedias, y estas a los usuarios finales. | Más seguro y escalable. |
+| **Certificado autofirmado** | Cualquier equipo o servidor genera su propio certificado sin intervención de una CA. | No confiable por defecto; no debe usarse en sistemas críticos. |
 
-- CRL (Lista de Revocación de Certificados): Una lista publicada por la CA con todos los certificados revocados. Los navegadores la consultan periódicamente.
-- OCSP (Online Certificate Status Protocol): Un método más rápido que la CRL. El navegador pregunta en tiempo real por el estado de un certificado específico.
+> 🔑 **Clave de examen:** La cadena CA raíz → CA intermedia → certificado de usuario final se denomina **cadena de confianza** (*certificate chaining*).
 
-## Almacenamiento Seguro
+### Certificados Digitales
 
-Las claves son el "eslabón débil" si se guardan como archivos comunes.
+Un certificado es un «contenedor» estandarizado para una clave pública. El estándar X.509 define los siguientes campos principales:
 
-- HSM (Hardware Security Module): Un dispositivo físico dedicado a generar y proteger claves criptográficas.
-- TPM (Trusted Platform Module): Un chip en la placa base de las computadoras que almacena claves de cifrado y asegura el arranque del sistema.
-- Custodia de Claves (Key Escrow): Almacenar una copia de las claves con un tercero de confianza para poder recuperarlas si se pierden.
-  - M de N: Control que requiere que un quórum de personas (ej. 2 de 3 administradores) autorice la recuperación de una clave.
+- **CN (Common Name):** Identificaba el FQDN del servidor. Actualmente **obsoleto** para la validación de identidad.
+- **SAN (Subject Alternative Name):** Estándar actual. Permite identificar múltiples FQDNs, direcciones IP y subdominios en un mismo certificado.
+  - *Subdominios específicos:* `www.comptia.org`, `members.comptia.org` → más seguro, pero requiere un nuevo certificado al añadir subdominios.
+  - *Comodín (Wildcard):* `*.comptia.org` → válido para todos los subdominios de un nivel. Más cómodo pero menos granular.
+- Período de validez, datos del emisor (CA), algoritmo de firma y longitud de clave.
 
-## Soluciones Criptográficas
+> 🔑 **Clave de examen:** Si un certificado tiene SAN configurado, el navegador **valida el SAN e ignora el CN**.
 
-Para elegir la solución correcta, primero debemos saber dónde están los datos:
+### Solicitud de Firma de Certificado (CSR)
 
-- Datos en reposo (At rest): Almacenados en discos, SSD o cintas.
-- Datos en tránsito (In transit): Viajando por la red (web, email).
-- Datos en uso (In use): Procesándose en la memoria RAM o CPU.
+Para obtener un certificado, nunca se envía la clave privada. El proceso es:
 
-## Cifrado de Almacenamiento (Confidencialidad)
+1. Se genera el par de claves (pública + privada).
+2. Se crea una **CSR** con la clave pública e información de identidad.
+3. La CA verifica la identidad y firma la CSR.
+4. Se recibe el certificado completo con la firma de la CA.
 
-Como el cifrado asimétrico es lento, para cifrar archivos grandes se usa un sistema híbrido:
+> 🔑 **Clave de examen:** El CSR contiene la clave **pública**, nunca la privada.
 
-- DEK (Data Encryption Key): Una clave simétrica (rápida) cifra los datos.
-- KEK (Key Encryption Key): Una clave asimétrica (segura) cifra a la DEK.
-- FDE (Full Disk Encryption): Cifra todo el disco (incluyendo sectores vacíos y metadatos). Protege contra el robo físico de la laptop.
-- Cifrado de archivos/volúmenes: Cifra carpetas o particiones específicas (ej. BitLocker, FileVault).
+### Revocación de certificados
 
-## Cifrado de Bases de Datos
+Un certificado en circulación puede retirarse antes de su expiración natural de dos formas:
 
-- TDE (Transparent Data Encryption): Cifra la base de datos completa a nivel de archivos.
-- Always Encrypted: Los datos se cifran en el cliente y llegan cifrados al servidor; el administrador de la base de datos no puede ver el contenido, solo el usuario con la clave.
+- **Revocado:** Pierde su validez de forma **permanente e irreversible**.
+- **Suspendido:** Se pausa temporalmente (*Certificate on hold*) y puede reactivarse posteriormente.
 
-## Intercambio de Claves y Secreto de Reenvío Perfecto (PFS)
+**Razones de revocación estándar:**
 
-Para que dos personas hablen por internet de forma segura, necesitan intercambiar una clave simétrica sin que nadie la vea.
+| Razón | Descripción |
+|-------|-------------|
+| **Key Compromise** | La clave privada asociada ha sido comprometida. |
+| **CA Compromise** | La CA que emitió el certificado ha sido comprometida. |
+| **Superseded** | El certificado ha sido reemplazado por uno nuevo. |
+| **Cessation of Operation** | La entidad ya no opera o ha cambiado de nombre. |
+| **Unspecified** | Causa no especificada. |
 
-- Diffie-Hellman (D-H): Permite que dos partes generen un secreto compartido a través de un canal público inseguro.
-- PFS (Perfect Forward Secrecy): Asegura que, si alguien roba la clave privada del servidor en el futuro, no pueda descifrar las sesiones pasadas. Utiliza claves efímeras (temporales) que se borran tras cada sesión.
+**Mecanismos de verificación del estado:**
 
-## Protección de Contraseñas (Salting y Stretching)
+- **CRL (Certificate Revocation List):** Lista firmada por la CA que enumera todos los certificados revocados. Incluye atributos como el período de publicación, puntos de distribución (URLs) y su propia firma digital. Su debilidad principal es el **retraso** entre la revocación real y la próxima publicación de la lista actualizada, durante el cual los clientes seguirán aceptando certificados comprometidos.
+- **OCSP (Online Certificate Status Protocol):** Permite consultas en tiempo real sobre el estado de un certificado individual, devolviendo «Válido», «Revocado» o «Desconocido». Más eficiente que la CRL, pero requiere infraestructura adicional.
 
-Las contraseñas no se guardan tal cual, se guardan sus hashes. Pero para evitar ataques de "tablas arcoíris" (diccionarios de hashes):
+> 🔑 **Clave de examen:** OCSP es más eficiente que CRL para validaciones en tiempo real, pero requiere infraestructura adicional.
 
-- Salting (Salado): Se añade un valor aleatorio a la contraseña antes de hacer el hash para que dos usuarios con la misma contraseña tengan hashes diferentes.
-- Key Stretching: El proceso de hash se repite miles de veces (ej. PBKDF2) para ralentizar los ataques de fuerza bruta.
+## 3.8 Gestión de claves
 
-## Tecnologías Emergentes y Ofuscación
+El ciclo de vida de una clave criptográfica comprende las siguientes etapas:
 
-- Blockchain: Un libro de transacciones descentralizado donde cada bloque tiene el hash del anterior, garantizando que nadie pueda borrar o alterar el pasado sin romper la cadena.
-- Esteganografía: Ocultar un mensaje dentro de otro archivo (ej. un texto secreto dentro de una foto de un gatito).
-- Tokenización: Sustituir un dato sensible (como el número de tarjeta) por un "token" aleatorio. Es reversible pero el token no tiene valor por sí mismo si es robado.
+1. **Generación:** Creación matemática del par de claves o de la clave secreta mediante generadores pseudoaleatorios robustos.
+2. **Almacenamiento:** Protección de las claves privadas o secretas contra accesos no autorizados, garantizando además su disponibilidad mediante copias de respaldo.
+3. **Revocación:** Anulación del uso de la clave en caso de compromiso. Los datos previamente cifrados deben volver a cifrarse con una nueva clave.
+4. **Caducidad y Renovación:** Definición de un período de validez para mitigar ataques prolongados. Al expirar, se puede renovar con el mismo par o generar uno nuevo.
+
+## 3.9 Criptoprocesadores y enclaves seguros
+
+La seguridad de un sistema criptográfico completo depende en última instancia de cómo se protejan y manipulen sus claves.
+
+### TPM vs. HSM
+
+| Característica | TPM (Trusted Platform Module) | HSM (Hardware Security Module) |
+|---------------|------------------------------|-------------------------------|
+| **Formato** | Chip soldado a la placa base. | Dispositivo externo o tarjeta PCI de grado industrial. |
+| **Escala** | Uso individual en portátiles y servidores. | Uso masivo en centros de datos. |
+| **Funciones principales** | Arranque seguro (Secure Boot), almacenamiento de claves, asistencia a BitLocker. | Generación y procesamiento de claves a gran escala, firmas digitales corporativas, protección de la CA raíz. |
+| **Protección física** | Básica (integrada en el hardware del equipo). | Avanzada: autodestrucción de claves ante intrusión, sensores de calor y voltaje. |
+
+### Custodia de Claves y Recuperación
+
+- **Key Escrow:** Entrega de una copia de las claves a un tercero de confianza o entidad gubernamental, garantizando el acceso a los datos si el propietario los pierde o en el marco de una orden judicial.
+- **M de N (Quórum):** Requiere que un número mínimo **M** de custodios autorizados de un grupo total de **N** estén presentes simultáneamente para ejecutar operaciones críticas. Previene el abuso de poder de un único administrador.
+
+### Enclaves Seguros
+
+La debilidad crítica de cualquier criptoprocesador es que **los datos descifrados deben cargarse en la RAM en texto plano** para ser procesados, lo que los expone a malware o exploits de lectura de memoria. Un **Enclave Seguro** (como Intel SGX) mitiga esto aislando a nivel de hardware áreas de memoria exclusivas, accesibles únicamente por procesos firmados digitalmente y autorizados.
+
+## 3.10 Custodia de Claves (Key Escrow)
+
+Si una clave privada o simétrica se pierde, toda la información cifrada con ella quedará permanentemente inaccesible. Para mitigar este riesgo se utilizan dos controles:
+
+1. **Key Escrow:** Almacenar una copia de la clave con un tercero independiente de confianza (o entidad gubernamental bajo orden judicial).
+2. **Esquema M de N (Quórum):** Una operación crítica no puede ser ejecutada por una única persona. Se requiere el consenso de un mínimo **M** de custodios de un grupo de **N**. Ejemplo: 3 de 5 custodios deben aprobar la recuperación de la clave maestra. Previene el abuso de poder de un único administrador.
+- **KRA (Key Recovery Agent):** Rol o cuenta con permisos explícitos para acceder e importar claves mantenidas en custodia.
+
+
+## 3.11 Ofuscación
+
+La ofuscación consiste en alterar datos, código o mensajes para hacerlos difíciles de identificar o comprender por parte de personas no autorizadas. Se fundamenta en la «seguridad por oscuridad», obsoleta por sí sola pero útil como capa complementaria.
+
+### Esteganografía
+
+Técnica que **oculta la existencia misma** de la información dentro de un archivo contenedor aparentemente inofensivo (*covertext*), como una imagen digital, un archivo de audio o un vídeo.
+
+- **Mecanismo técnico:** Modificar los **bits menos significativos (LSB)** de los píxeles de una imagen para insertar datos ocultos. Los cambios de color resultantes son imperceptibles para el ojo humano.
+- **Uso malicioso:** Evadir sistemas de inspección profunda de paquetes (DPI) o herramientas de prevención de fuga de datos (DLP).
+- **Uso legítimo:** Marcas de agua digitales imperceptibles para rastrear la procedencia o detectar la alteración de documentos.
+
+### Enmascaramiento de Datos (Data Masking)
+
+Técnica que protege la confidencialidad de datos sensibles mediante su modificación o sustitución, especialmente en bases de datos de desarrollo o pruebas.
+
+- **Enmascaramiento Estático:** Modifica permanentemente los datos en una copia de la base de producción antes de trasladarla a entornos de prueba.
+- **Enmascaramiento Dinámico:** Intercepta la consulta en tiempo real y sustituye los datos según el rol del usuario (ej. mostrar solo los últimos 4 dígitos de una tarjeta: `************1234`).
+
+### Tokenización
+
+Reemplaza un dato sensible (como el número de tarjeta de crédito) por un sustituto aleatorio no sensible llamado **token**.
+
+- **Diferencia con el cifrado:** El token no es el resultado de una fórmula matemática reversible; es una referencia que requiere consultar una base de datos segura (*token vault*), compatible con estándares como PCI-DSS.
+
+## 3.12 Cifrado que Respalda la Confidencialidad
+
+Si los datos se cifran correctamente, incluso si los discos son robados físicamente o los paquetes de red son interceptados, la información permanece protegida.
+
+### Los Tres Estados de los Datos
+
+| Estado | Descripción | Control de seguridad típico |
+|--------|-------------|----------------------------|
+| **Datos en Reposo** *(Data at Rest)* | Información almacenada en medios no volátiles (HDD, SSD, cintas, NAS). | FDE, cifrado de volúmenes o archivos. |
+| **Datos en Tránsito** *(Data in Transit)* | Información viajando por una red pública o privada. | TLS, IPsec, WPA. |
+| **Datos en Uso** *(Data in Use)* | Información activa cargada en la RAM o caché de la CPU. | Enclaves seguros (Intel SGX). |
+
+### El Esquema de Cifrado Estándar (Confidencialidad de Archivos)
+
+La mayoría de los sistemas criptográficos combinan cifrado simétrico y asimétrico de forma complementaria:
+
+1. El sistema genera una clave simétrica temporal (**DEK - Data Encryption Key**) que cifra los datos de forma masiva y rápida.
+2. La DEK se protege cifrándola con la clave pública asimétrica del usuario (**KEK - Key Encryption Key**).
+3. Para descifrar, el usuario autenticado usa su clave privada (KEK) para recuperar la DEK, y esta para descifrar los datos.
+
+### Cifrado de Archivos y Discos
+
+- **FDE (Full Disk Encryption):** Cifra absolutamente todo el contenido de un dispositivo: particiones, espacio libre y metadatos del sistema. Protege principalmente contra el **robo físico** del dispositivo.
+- **Cifrado de Volúmenes:** Cifra particiones o unidades lógicas específicas mediante software del sistema operativo. Ejemplos: **BitLocker** (Microsoft) y **FileVault** (Apple).
+
+### Cifrado de Bases de Datos
+
+El cifrado a nivel de base de datos permite una protección más granular que el FDE:
+
+- **Cifrado de Celda o Columna:** Se cifran únicamente los campos más sensibles (ej. solo la columna «Número de Tarjeta»), reduciendo el impacto en el rendimiento de las consultas.
+- **Always Encrypted (SQL Server):** Los datos permanecen cifrados incluso cuando se cargan en la memoria RAM del servidor. Solo se descifran en el lado de la aplicación cliente cuando esta suministra la clave legítima. El administrador de la base de datos (DBA) nunca tiene acceso al texto plano.
+
+### Cifrado de Transporte e Intercambio de Claves
+
+| Protocolo | Uso principal |
+|-----------|--------------|
+| **WPA / WPA3** | Cifrado de redes inalámbricas locales (Wi-Fi). |
+| **IPsec** | Cifrado de tráfico IP entre dos extremos; base de las VPNs. |
+| **TLS** | Cifrado de datos de aplicaciones a través de Internet (HTTPS, SMTPS, IMAPS). |
+
+### Secreto de Reenvío Perfecto (Perfect Forward Secrecy - PFS)
+
+En los esquemas clásicos, la clave de sesión simétrica se intercambia usando la clave privada de largo plazo del servidor. Si esa clave privada se ve comprometida en el futuro, un atacante que haya grabado el tráfico pasado podría descifrarlo todo retroactivamente.
+
+El **PFS** elimina este riesgo utilizando el protocolo de acuerdo de claves **Diffie-Hellman efímero (DHE o ECDHE)**: Diffie-Hellman permite que dos partes generen el mismo secreto compartido a través de un canal inseguro sin necesidad de transferirlo directamente. Las claves de sesión generadas son únicas, temporales y se descartan de la memoria al cerrar la sesión, sin depender jamás de la clave privada de largo plazo para el descifrado.
+
+> 🔑 **Clave de examen:** PFS garantiza que el compromiso futuro de la clave privada del servidor **no compromete** la confidencialidad de las sesiones pasadas.
+
+### Protección de Contraseñas (Salting y Stretching)
+
+Las contraseñas no se almacenan como texto plano, sino como hashes. Para protegerlos contra ataques de tablas arcoíris (diccionarios de hashes precalculados):
+
+- **Salting:** Se añade un valor aleatorio único a cada contraseña antes de calcular su hash. Dos usuarios con la misma contraseña tendrán hashes completamente diferentes.
+- **Key Stretching:** El proceso de hashing se repite miles de veces (ej. mediante PBKDF2 o bcrypt) para ralentizar significativamente los ataques de fuerza bruta.
+
+## 3.13 Blockchain (Cadena de Bloques)
+
+Un registro o libro contable digital, distribuido, descentralizado e inmutable diseñado para registrar transacciones de forma segura y verificable.
+
+### Componentes de Seguridad en Blockchain
+
+- **Libro Mayor Distribuido:** Los datos no se almacenan en un servidor central, sino que se replican en múltiples nodos de una red P2P, eliminando el punto único de fallo.
+- **Encadenamiento Criptográfico por Hash:** Cada bloque contiene el hash del bloque anterior. Si un atacante modifica un dato en el bloque 3, su hash cambia, rompiendo el enlace con el bloque 4 e invalidando toda la cadena subsiguiente. Para manipular el registro, el atacante debería recalcular toda la cadena en la mayoría de los nodos simultáneamente.
+- **Consenso:** Mecanismos que garantizan que todos los nodos coincidan en el estado del libro mayor. Los más comunes son *Proof of Work* y *Proof of Stake*.
+
+---
 
 # Implementación de la gestión de identidades y accesos (Tema 4)
 
