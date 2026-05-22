@@ -982,6 +982,184 @@
       - [Análisis de Cumplimiento](#análisis-de-cumplimiento)
   - [12.5 Glosario](#125-glosario)
   - [12.6  Relaciones Clave](#126--relaciones-clave)
+- [13. Análisis de Indicadores de Actividad Maliciosa](#13-análisis-de-indicadores-de-actividad-maliciosa)
+  - [13.1 Indicadores de Ataques de Malware](#131-indicadores-de-ataques-de-malware)
+    - [13.1.1 Clasificación de Malware](#1311-clasificación-de-malware)
+      - [Clasificación por VECTOR (¿cómo se propaga/ejecuta?)](#clasificación-por-vector-cómo-se-propagaejecuta)
+      - [Clasificación por PAYLOAD (¿qué hace el malware?)](#clasificación-por-payload-qué-hace-el-malware)
+    - [13.1.2 Virus Informáticos](#1312-virus-informáticos)
+      - [Tipos de Virus por Clasificación](#tipos-de-virus-por-clasificación)
+      - [Métodos de distribución](#métodos-de-distribución)
+    - [13.1.3 Gusanos Informáticos y Malware Sin Archivos](#1313-gusanos-informáticos-y-malware-sin-archivos)
+      - [Gusanos (Worms)](#gusanos-worms)
+      - [Malware Sin Archivos (Fileless Malware)](#malware-sin-archivos-fileless-malware)
+      - [Términos relacionados](#términos-relacionados)
+    - [13.1.4 Spyware y Registradores de Pulsaciones de Teclas](#1314-spyware-y-registradores-de-pulsaciones-de-teclas)
+      - [Espectro de Monitoreo (de menor a mayor intrusión)](#espectro-de-monitoreo-de-menor-a-mayor-intrusión)
+      - [Tipos detallados](#tipos-detallados)
+      - [Keyloggers: más allá del software](#keyloggers-más-allá-del-software)
+    - [13.1.5 Puertas Traseras (Backdoors) y Troyanos de Acceso Remoto](#1315-puertas-traseras-backdoors-y-troyanos-de-acceso-remoto)
+      - [Definiciones clave](#definiciones-clave)
+      - [Usos de una Botnet](#usos-de-una-botnet)
+      - [Comunicación C2 / C\&C (Command and Control)](#comunicación-c2--cc-command-and-control)
+    - [13.1.6 Rootkits](#1316-rootkits)
+      - [Escalera de privilegios en Windows](#escalera-de-privilegios-en-windows)
+      - [¿Qué es un Rootkit?](#qué-es-un-rootkit)
+      - [Anillos de privilegio del procesador](#anillos-de-privilegio-del-procesador)
+      - [Rootkits de Firmware](#rootkits-de-firmware)
+    - [13.1.7 Ransomware, Malware Criptográfico y Bombas Lógicas](#1317-ransomware-malware-criptográfico-y-bombas-lógicas)
+      - [Ransomware](#ransomware)
+      - [Malware de Criptosecuestro (Cryptojacking)](#malware-de-criptosecuestro-cryptojacking)
+      - [Bombas Lógicas (Logic Bombs)](#bombas-lógicas-logic-bombs)
+    - [13.1.8 TTP e IoC](#1318-ttp-e-ioc)
+      - [Detección Basada en Firmas vs. TTP](#detección-basada-en-firmas-vs-ttp)
+      - [TTP — Tácticas, Técnicas y Procedimientos](#ttp--tácticas-técnicas-y-procedimientos)
+      - [IoC — Indicador de Compromiso (Indicator of Compromise)](#ioc--indicador-de-compromiso-indicator-of-compromise)
+      - [Ejemplos de IoC en un ataque de ransomware](#ejemplos-de-ioc-en-un-ataque-de-ransomware)
+      - [Base de datos de referencia](#base-de-datos-de-referencia)
+    - [13.1.9 Indicadores de Actividad Maliciosa](#1319-indicadores-de-actividad-maliciosa)
+      - [Ejecución Sandbox](#ejecución-sandbox)
+      - [Indicadores por Categoría](#indicadores-por-categoría)
+  - [13.2 Indicadores de Ataques Físicos y de Red](#132-indicadores-de-ataques-físicos-y-de-red)
+    - [13.2.1 Ataques Físicos](#1321-ataques-físicos)
+      - [Tipos de Ataques Físicos](#tipos-de-ataques-físicos)
+    - [13.2.2 Ataques de Red](#1322-ataques-de-red)
+      - [Ciclo de vida de un Ciberataque — Fases y Técnicas](#ciclo-de-vida-de-un-ciberataque--fases-y-técnicas)
+    - [13.2.3 Ataques Distribuidos por Denegación de Servicio (DDoS)](#1323-ataques-distribuidos-por-denegación-de-servicio-ddos)
+      - [Tipos de DoS/DDoS](#tipos-de-dosddos)
+      - [Ataque de Congestión SYN (SYN Flood)](#ataque-de-congestión-syn-syn-flood)
+      - [Ataques Reflejados (DRDoS)](#ataques-reflejados-drdos)
+      - [Ataques de Amplificación](#ataques-de-amplificación)
+      - [Indicadores de DDoS](#indicadores-de-ddos)
+    - [13.2.4 Ataques En Ruta (On-Path / AitM)](#1324-ataques-en-ruta-on-path--aitm)
+      - [Mecanismo](#mecanismo)
+      - [Envenenamiento de ARP (ARP Poisoning)](#envenenamiento-de-arp-arp-poisoning)
+    - [13.2.5 Ataques al Sistema de Nombres de Dominio (DNS)](#1325-ataques-al-sistema-de-nombres-de-dominio-dns)
+      - [Vector de Ataques DNS](#vector-de-ataques-dns)
+      - [Tipos de Envenenamiento de DNS](#tipos-de-envenenamiento-de-dns)
+      - [Indicadores de Ataques DNS en los Logs](#indicadores-de-ataques-dns-en-los-logs)
+    - [13.2.6 Ataques Inalámbricos](#1326-ataques-inalámbricos)
+      - [Puntos de Acceso No Autorizados (Rogue Access Points)](#puntos-de-acceso-no-autorizados-rogue-access-points)
+      - [Denegación de Servicio Inalámbrico](#denegación-de-servicio-inalámbrico)
+      - [Reproducción Inalámbrica y Recuperación de Claves](#reproducción-inalámbrica-y-recuperación-de-claves)
+    - [13.2.7 Ataques de Contraseña](#1327-ataques-de-contraseña)
+      - [Conceptos base](#conceptos-base)
+      - [Tipos de Ataques](#tipos-de-ataques)
+    - [13.2.8 Ataques de Reproducción de Credenciales](#1328-ataques-de-reproducción-de-credenciales)
+      - [Contexto: Windows Active Directory y LSASS](#contexto-windows-active-directory-y-lsass)
+      - [Tipos de Ataques de Reproducción de Credenciales](#tipos-de-ataques-de-reproducción-de-credenciales)
+      - [Proceso del Pass the Hash](#proceso-del-pass-the-hash)
+    - [13.2.9 Ataques Criptográficos](#1329-ataques-criptográficos)
+      - [Ataques de Degradación (Downgrade Attacks)](#ataques-de-degradación-downgrade-attacks)
+      - [Ataques de Colisión (Collision Attacks)](#ataques-de-colisión-collision-attacks)
+      - [Ataques de Cumpleaños (Birthday Attacks)](#ataques-de-cumpleaños-birthday-attacks)
+    - [13.2.10 Indicadores de Código Malicioso](#13210-indicadores-de-código-malicioso)
+      - [Principales Tipos de Actividades Maliciosas](#principales-tipos-de-actividades-maliciosas)
+      - [Métodos de Persistencia](#métodos-de-persistencia)
+  - [13.3 Indicadores de Ataques a Aplicaciones](#133-indicadores-de-ataques-a-aplicaciones)
+    - [13.3.1 Ataques a las Aplicaciones](#1331-ataques-a-las-aplicaciones)
+      - [Dos Escenarios Principales](#dos-escenarios-principales)
+      - [Indicadores Generales](#indicadores-generales)
+      - [Escalada de Privilegios](#escalada-de-privilegios)
+      - [Buffer Overflow (Desbordamiento de Búfer)](#buffer-overflow-desbordamiento-de-búfer-1)
+    - [13.3.2 Ataques de Reproducción (Replay Attacks)](#1332-ataques-de-reproducción-replay-attacks)
+      - [Cookies y Sesiones Web](#cookies-y-sesiones-web)
+      - [Ataque de Repetición](#ataque-de-repetición)
+      - [Ataque de Predicción de Sesión](#ataque-de-predicción-de-sesión)
+    - [13.3.3 Ataques de Falsificación (CSRF / SSRF)](#1333-ataques-de-falsificación-csrf--ssrf)
+      - [CSRF — Cross-Site Request Forgery (Falsificación de Solicitudes Entre Sitios)](#csrf--cross-site-request-forgery-falsificación-de-solicitudes-entre-sitios)
+      - [SSRF — Server-Side Request Forgery (Falsificación de Solicitudes del Lado del Servidor)](#ssrf--server-side-request-forgery-falsificación-de-solicitudes-del-lado-del-servidor)
+    - [13.3.4 Ataques por Inyección](#1334-ataques-por-inyección)
+      - [Tipos de Ataques de Inyección](#tipos-de-ataques-de-inyección)
+    - [13.3.5 Ataques de Salto de Directorio e Inyección de Comandos](#1335-ataques-de-salto-de-directorio-e-inyección-de-comandos)
+      - [Salto de Directorio (Directory Traversal)](#salto-de-directorio-directory-traversal)
+      - [Inyección de Comandos (Command Injection)](#inyección-de-comandos-command-injection)
+    - [13.3.6 Análisis de URL](#1336-análisis-de-url)
+      - [Estructura de una URL](#estructura-de-una-url)
+      - [Métodos HTTP Principales](#métodos-http-principales)
+      - [Estructura de parámetros en URL](#estructura-de-parámetros-en-url)
+      - [Codificación Porcentual (Percent Encoding)](#codificación-porcentual-percent-encoding)
+      - [Códigos de Respuesta HTTP relevantes para seguridad](#códigos-de-respuesta-http-relevantes-para-seguridad)
+    - [13.3.7 Registros de Servidor Web](#1337-registros-de-servidor-web)
+      - [Valor de los Logs para Detección](#valor-de-los-logs-para-detección)
+      - [Análisis de Códigos de Estado](#análisis-de-códigos-de-estado)
+      - [Información adicional en logs](#información-adicional-en-logs)
+      - [Ejemplo de patrón de log malicioso](#ejemplo-de-patrón-de-log-malicioso)
+  - [13.4 Tabla de Tipos de Malware](#134-tabla-de-tipos-de-malware)
+  - [13.5 Tabla de Ataques de Red y Aplicación](#135-tabla-de-ataques-de-red-y-aplicación)
+- [14 Gobernanza de la Seguridad](#14-gobernanza-de-la-seguridad)
+    - [Objetivos de Aprendizaje del Tema](#objetivos-de-aprendizaje-del-tema)
+  - [14.1 — Políticas, Estándares y Procedimientos](#141--políticas-estándares-y-procedimientos)
+    - [14.1.1 — Políticas y Directrices](#1411--políticas-y-directrices)
+      - [¿Qué son las Políticas?](#qué-son-las-políticas)
+      - [Relación: Gobernanza → Políticas → Cumplimiento](#relación-gobernanza--políticas--cumplimiento)
+      - [Políticas Organizativas Comunes](#políticas-organizativas-comunes)
+        - [AUP — Detalles Clave](#aup--detalles-clave)
+      - [Directrices (Guidelines)](#directrices-guidelines)
+    - [14.1.2 — Procedimientos](#1412--procedimientos)
+      - [Administración de Personal (IAM — Identity and Access Management)](#administración-de-personal-iam--identity-and-access-management)
+        - [Fase 1: Reclutamiento (Contratación)](#fase-1-reclutamiento-contratación)
+        - [Fase 2: Operación (Trabajo) — Incorporación (Onboarding)](#fase-2-operación-trabajo--incorporación-onboarding)
+        - [Fase 3: Cese/Separación — Desvinculación (Offboarding)](#fase-3-ceseseparación--desvinculación-offboarding)
+      - [Manuales de Estrategias (Playbooks)](#manuales-de-estrategias-playbooks-1)
+      - [Administración de Cambios (en contexto de procedimientos)](#administración-de-cambios-en-contexto-de-procedimientos)
+    - [14.1.3 — Estándares](#1413--estándares)
+      - [Factores que Impulsan la Adopción de Estándares](#factores-que-impulsan-la-adopción-de-estándares)
+      - [Estándares de la Industria (Internacionales/Nacionales)](#estándares-de-la-industria-internacionalesnacionales)
+      - [Estándares Internos](#estándares-internos)
+        - [Estándares de Contraseñas](#estándares-de-contraseñas)
+        - [Estándares de Control de Acceso](#estándares-de-control-de-acceso)
+        - [Estándares de Seguridad Física](#estándares-de-seguridad-física)
+        - [Estándares de Cifrado](#estándares-de-cifrado)
+    - [14.1.4 — Entorno Legal](#1414--entorno-legal)
+      - [Responsabilidades Legales de los Comités de Gobernanza](#responsabilidades-legales-de-los-comités-de-gobernanza)
+      - [🇺🇸 Leyes Clave de EE.UU.](#-leyes-clave-de-eeuu)
+      - [Derecho Global](#derecho-global)
+        - [RGPD — Principios Clave](#rgpd--principios-clave)
+        - [CCPA — Aplicabilidad](#ccpa--aplicabilidad)
+      - [Leyes por País](#leyes-por-país)
+      - [Regulaciones Locales/Regionales (EE.UU.)](#regulaciones-localesregionales-eeuu)
+      - [Regulaciones por Industria](#regulaciones-por-industria)
+      - [Regulaciones de Ciberseguridad Clave](#regulaciones-de-ciberseguridad-clave)
+    - [14.1.5 — Gobernanza y Responsabilidad](#1415--gobernanza-y-responsabilidad)
+      - [Monitoreo y Revisión](#monitoreo-y-revisión)
+      - [Juntas de Gobernanza (Governance Boards)](#juntas-de-gobernanza-governance-boards)
+      - [Centralizado vs. Descentralizado vs. Híbrido](#centralizado-vs-descentralizado-vs-híbrido)
+      - [Juntas vs. Comités](#juntas-vs-comités)
+      - [Entidades y Grupos Gubernamentales](#entidades-y-grupos-gubernamentales)
+      - [Funciones de Gobernanza de Datos](#funciones-de-gobernanza-de-datos)
+  - [14.2 — Administración de Cambios](#142--administración-de-cambios)
+    - [14.2.1 — Programas de Gestión de Cambios](#1421--programas-de-gestión-de-cambios)
+      - [Tipos de Cambios Gestionados](#tipos-de-cambios-gestionados)
+      - [Requisitos de Cada Cambio](#requisitos-de-cada-cambio)
+      - [Proceso Estándar de Aprobación](#proceso-estándar-de-aprobación)
+      - [Factores que Impulsan la Gestión de Cambios](#factores-que-impulsan-la-gestión-de-cambios)
+      - [Conceptos Clave de Administración de Cambios](#conceptos-clave-de-administración-de-cambios)
+    - [14.2.2 — Cambios Permitidos y Bloqueados](#1422--cambios-permitidos-y-bloqueados)
+      - [Lista de Permitidos (Allow List / Whitelist)](#lista-de-permitidos-allow-list--whitelist)
+      - [Lista de Denegados (Deny List / Blocklist / Blacklist)](#lista-de-denegados-deny-list--blocklist--blacklist)
+      - [Impacto Técnico de las Listas en la Gestión de Cambios](#impacto-técnico-de-las-listas-en-la-gestión-de-cambios)
+      - [Actividades Restringidas](#actividades-restringidas)
+    - [14.2.3 — Reinicios, Dependencias y Tiempo de Inactividad](#1423--reinicios-dependencias-y-tiempo-de-inactividad)
+      - [Impacto de los Reinicios](#impacto-de-los-reinicios)
+      - [Dependencias](#dependencias)
+      - [Tipos de Tiempo de Inactividad](#tipos-de-tiempo-de-inactividad)
+      - [Cambios que Suelen Requerir Reinicio](#cambios-que-suelen-requerir-reinicio)
+      - [Aplicaciones y Sistemas Heredados (Legacy Systems)](#aplicaciones-y-sistemas-heredados-legacy-systems)
+    - [14.2.4 — Documentación y Control de Versiones](#1424--documentación-y-control-de-versiones)
+      - [Control de Versiones](#control-de-versiones)
+      - [Documentación Afectada por la Administración de Cambios](#documentación-afectada-por-la-administración-de-cambios)
+  - [14.3 — Automatización y Orquestación](#143--automatización-y-orquestación)
+    - [14.3.1 — Automatización y Scripting](#1431--automatización-y-scripting)
+      - [Doble Rol de la Automatización](#doble-rol-de-la-automatización)
+      - [Funciones Clave de Automatización y Scripting](#funciones-clave-de-automatización-y-scripting)
+    - [14.3.2 — Implementación de Automatización y Orquestación](#1432--implementación-de-automatización-y-orquestación)
+      - [Beneficios en Operaciones de Seguridad](#beneficios-en-operaciones-de-seguridad)
+      - [Fatiga del Operador (Operator Fatigue)](#fatiga-del-operador-operator-fatigue)
+      - [Desafíos de la Automatización y Orquestación](#desafíos-de-la-automatización-y-orquestación)
+      - [Beneficios de la Automatización de Gestión de Infraestructura](#beneficios-de-la-automatización-de-gestión-de-infraestructura)
+  - [14.4 RESUMEN MAESTRO — JERARQUÍA DE GOBERNANZA](#144-resumen-maestro--jerarquía-de-gobernanza)
+  - [14.5 GLOSARIO](#145-glosario)
   
 
 # 1. Conceptos Fundamentales de Seguridad
@@ -11528,5 +11706,1981 @@ HERRAMIENTAS DE MONITOREO
 ├── DLP → prevención de exfiltración
 └── SCAP (OVAL+XCCDF) → cumplimiento de configuración
 ```
+
+---
+
+# 13. Análisis de Indicadores de Actividad Maliciosa
+
+## 13.1 Indicadores de Ataques de Malware
+
+> **Analogía:** Piensa en el malware como distintas plagas en un edificio. Algunas son cucarachas (virus) que se esconden y se reproducen en rincones; otras son ratas (gusanos) que se mueven solas por los pasillos; y otras son parásitos invisibles (rootkits) que viven en las paredes sin que nadie los vea.
+
+### 13.1.1 Clasificación de Malware
+
+El **malware** es cualquier software que hace algo malo desde la perspectiva del propietario del sistema.
+
+#### Clasificación por VECTOR (¿cómo se propaga/ejecuta?)
+
+| Tipo | Vector | Consentimiento del usuario |
+|------|--------|---------------------------|
+| **Virus** | Se oculta en código ejecutable de otro proceso | Ninguno |
+| **Gusano (Worm)** | Se replica por red sin acción del usuario | Ninguno |
+| **Troyano (Trojan)** | Paquete de instalación aparentemente legítimo | Engañado (no real) |
+| **PUP/PUA** (Potentially Unwanted Program/Application) | Instalado junto a software seleccionado | Confuso / implícito |
+
+> 💡 **PUP/PUA** también se conoce como **grayware** o **bloatware**. No es automáticamente malicioso, pero puede instalarse con consentimiento obtenido mediante licencias intencionalmente confusas.
+
+#### Clasificación por PAYLOAD (¿qué hace el malware?)
+
+| Tipo | Acción principal |
+|------|-----------------|
+| **Spyware** | Monitorea actividad del usuario |
+| **Rootkit** | Opera con privilegios máximos del sistema |
+| **RAT** (Remote Access Trojan) | Control remoto encubierto del host |
+| **Ransomware** | Cifra archivos y exige rescate |
+
+> **👉 Enfoque de Examen SY0-701:**
+> CompTIA distingue entre vector y payload. Una pregunta puede presentar un malware y preguntar "¿Qué tipo de malware es por su vector?". Recuerda: **Troyano = vector engañoso**, no es una acción. Un RAT puede ser tanto un troyano (por vector) como un backdoor (por payload). No los confundas.
+
+### 13.1.2 Virus Informáticos
+
+> **Analogía:** Un virus informático es como un virus biológico: necesita un "huésped" (archivo ejecutable) para reproducirse y propagarse.
+
+#### Tipos de Virus por Clasificación
+
+| Tipo | Descripción clave |
+|------|-------------------|
+| **No residente / Infector de archivos** | Vive en un ejecutable; infecta otros archivos en disco al ejecutarse |
+| **Residente en memoria** | Crea su propio proceso en RAM; persiste aunque el proceso huésped termine |
+| **De sector de arranque (Boot)** | Se escribe en el sector de arranque o tabla de particiones; se ejecuta al iniciar el SO |
+| **De secuencias de comandos / Macros** | Usa motores de scripting: `PowerShell`, `WMI`, `VBA`, `JavaScript` en Office/PDF |
+| **Multipartito** | Usa **múltiples vectores** de infección simultáneamente |
+| **Polimórfico** | Cambia/ofusca su código dinámicamente para **evadir la detección** |
+
+#### Métodos de distribución
+
+- Disco / USB
+- Red compartida
+- **Adjunto de correo electrónico** ← más común en escenarios de examen
+- Publicación en redes sociales
+- Descarga desde sitio web
+
+> ⚠️ **Indicador real:** Un adjunto con **extensión doble** (ej: `Docx_2017_PDF.jar`) es un intento de engañar al usuario. Outlook puede bloquear estos archivos potencialmente inseguros.
+
+> **👉 Enfoque de Examen SY0-701:**
+> Si el escenario menciona que el malware "persiste en RAM incluso después de cerrar la aplicación", es un **virus residente en memoria**. Si menciona PowerShell o VBA de Office, es un **virus de macro/script**. Si "cambia su firma para evadir el antivirus", es **polimórfico**.
+
+### 13.1.3 Gusanos Informáticos y Malware Sin Archivos
+
+#### Gusanos (Worms)
+
+| Característica | Virus | Gusano |
+|----------------|-------|--------|
+| Necesita acción del usuario | ✅ Sí | ❌ No |
+| Se propaga por red autónomamente | ❌ No | ✅ Sí |
+| Necesita archivo huésped | ✅ Sí | ❌ No |
+| Efecto principal | Infecta archivos | Consume ancho de banda |
+
+> 💡 **Ejemplo histórico:** El gusano **Code Red** explotó una vulnerabilidad de desbordamiento de búfer en **IIS de Microsoft** y escaneó rangos de IP aleatorios para infectar otros servidores.
+
+#### Malware Sin Archivos (Fileless Malware)
+
+> 🎯 **Analogía:** Es como un ladrón que no deja huellas dactilares porque usa guantes. No escribe código en disco, opera en memoria.
+
+**Técnicas características del malware sin archivos:**
+
+1. **No escribe código en disco** → usa técnicas residentes en memoria, DLL (Dynamic Link Library) o procesos huésped
+2. Puede modificar **valores del registro** para lograr persistencia
+3. Usa **código shell ligero** (shellcode) para establecer una puerta trasera
+4. Emplea técnicas **LOTL** (Living off the Land / "Vivir del territorio"):
+   - Usa herramientas legítimas del sistema: `PowerShell`, `WMI` (Windows Management Instrumentation)
+   - Difícil de detectar porque el malware parece actividad legítima del sistema
+
+#### Términos relacionados
+
+| Término | Significado |
+|---------|-------------|
+| **APT** (Advanced Persistent Threat) | Amenaza persistente avanzada — malware moderno sofisticado |
+| **AVT** (Advanced Volatile Threat) | Amenaza volátil avanzada — vive solo en memoria |
+| **LOC** (Low Observable Characteristics) | Ataque de características de baja observabilidad |
+| **LOTL** (Living off the Land) | Usa herramientas legítimas del SO para ejecutar acciones maliciosas |
+
+> **👉 Enfoque de Examen SY0-701:**
+> Si el escenario dice "el malware no dejó archivos en disco pero sí modificó el registro" o "usó PowerShell para ejecutar comandos" → **fileless malware / LOTL**. Los distractores comunes son "virus de macro" o "troyano". Clave: si la herramienta es LEGÍTIMA del sistema pero usada con fines maliciosos = LOTL.
+
+### 13.1.4 Spyware y Registradores de Pulsaciones de Teclas
+
+> **Analogía:** El spyware es como un espía que te sigue a todas partes sin que lo veas: anota lo que escribes, graba tus conversaciones y te redirige a tiendas falsas.
+
+#### Espectro de Monitoreo (de menor a mayor intrusión)
+
+```
+Cookies de seguimiento → Supercookies/Balizas web → Adware → Spyware → Keylogger
+```
+
+#### Tipos detallados
+
+| Tipo | Descripción |
+|------|-------------|
+| **Cookies de seguimiento** | Archivos de texto plano; las cookies de **terceros** rastrean IP, consultas, metadatos |
+| **Supercookie** | Almacena datos de rastreo de forma no convencional (caché, encabezados HTTP) — difícil de desactivar |
+| **Baliza web (Web Beacon)** | Imagen de **1 pixel** invisible; al cargar, el host recopila metadatos y puede ejecutar scripts |
+| **Adware** | PUP que reconfigura el navegador: cookies, buscadores por defecto, páginas de inicio de patrocinadores |
+| **Spyware** | Monitorea apps locales, toma capturas de pantalla, activa micrófono/webcam; puede hacer **pharming** (redireccionamiento DNS) |
+| **Keylogger** | Registra pulsaciones de teclado → roba contraseñas y datos de tarjetas |
+
+#### Keyloggers: más allá del software
+
+Los keyloggers NO son solo software. También existen:
+
+- **Hardware:** Adaptador USB modificado entre teclado y puerto (almacena datos localmente o vía Wi-Fi)
+- **Wireless sniffers:** Capturan datos de teclados inalámbricos
+- **Superposición de teclado en ATM:** Overlay físico sobre el teclado del cajero
+
+> **👉 Enfoque de Examen SY0-701:**
+> Pregunta típica: "Un usuario visita un sitio web y sus credenciales bancarias son robadas sin instalar ningún programa." → Puede ser una **baliza web** con script de rastreo o **pharming** por spyware. Si el robo ocurre con un dispositivo físico entre el teclado y el PC → **hardware keylogger**.
+
+### 13.1.5 Puertas Traseras (Backdoors) y Troyanos de Acceso Remoto
+
+#### Definiciones clave
+
+| Término | Definición |
+|---------|-----------|
+| **Backdoor** | Cualquier método de acceso que elude la autenticación habitual y da control administrativo remoto |
+| **RAT** (Remote Access Trojan) | Malware de backdoor que imita programas legítimos de control remoto; opera de forma **encubierta** |
+| **Zombie** | Host comprometido bajo control malicioso |
+| **Bot** | Script/herramienta automatizada que realiza actividad maliciosa en el host comprometido |
+| **Botnet** | Red de bots bajo control de la misma instancia de malware |
+| **Herder (Pastor)** | El programa que controla y manipula la botnet |
+
+#### Usos de una Botnet
+
+- Ataques **DDoS** (Distributed Denial of Service)
+- Campañas de **spam**
+- **Criptominería** maliciosa
+
+#### Comunicación C2 / C&C (Command and Control)
+
+> 🎯 **Analogía:** El C2 es como la central de un ejército de marionetas: el atacante da órdenes y los zombies las ejecutan. El truco está en disfrazar esas órdenes como tráfico normal.
+
+```
+Host comprometido → Conexión encubierta → Servidor C2/C&C del atacante
+```
+
+**Métodos históricos y modernos de C&C:**
+
+| Época | Protocolo |
+|-------|-----------|
+| Histórico | `IRC` (Internet Relay Chat) |
+| Moderno | Scripts en tráfico `HTTPS` o `DNS` |
+
+> ⚠️ **Importante:** Las backdoors también pueden crearse sin malware:
+> - Programadores que dejan backdoors de desarrollo sin eliminar
+> - Mala configuración de software/hardware
+
+> **👉 Enfoque de Examen SY0-701:**
+> La **mejor forma de detectar un RAT/backdoor** es monitorear conexiones de red anómalas salientes hacia IPs desconocidas. Si el escenario dice "el host hace conexiones periódicas a una IP externa desconocida" → **baliza C2 / RAT**. No confundas RAT (malware) con RDP (protocolo legítimo).
+
+### 13.1.6 Rootkits
+
+> 🎯 **Analogía:** Un rootkit es como una infección que corrompe al propio médico (el sistema operativo). El doctor ya no puede diagnosticar correctamente porque el parásito controla sus instrumentos.
+
+#### Escalera de privilegios en Windows
+
+```
+Usuario estándar → Administrador local → SYSTEM → Kernel (Ring 0)
+```
+
+| Nivel | Descripción |
+|-------|-------------|
+| **Administrador local** | Puede instalar software, pero algunos procesos críticos siguen protegidos |
+| **SYSTEM** | Nivel máximo de proceso en modo usuario; procesos críticos del SO |
+| **Kernel / Ring 0** | Acceso directo al hardware — nivel más privilegiado |
+
+#### ¿Qué es un Rootkit?
+
+- Malware que se ejecuta con privilegios de nivel **SYSTEM o superior**
+- El nombre deriva de UNIX/Linux: cuenta **root** = superusuario con acceso irrestricto desde la raíz del sistema de archivos
+- Puede **modificar herramientas del sistema** para ocultar su presencia:
+  - `Explorer`, `taskmgr`, `tasklist` en Windows
+  - `ps`, `top` en Linux
+  - `netstat` (análisis de puertos)
+- Puede **limpiar registros del sistema** para borrar rastros
+
+#### Anillos de privilegio del procesador
+
+| Anillo | Uso |
+|--------|-----|
+| **Ring 0** | Kernel — más privilegiado, acceso directo al hardware |
+| **Ring 1 / Ring 2** | Controladores, procesos de E/S |
+| **Ring 3** | Procesos en modo usuario — menos privilegiado |
+
+#### Rootkits de Firmware
+
+- Residen en el **firmware del equipo** o de tarjetas, discos, periféricos
+- **Sobreviven al formateo y reinstalación del SO**
+- Ejemplo: **DarkMatter** y **Quark Matter** — rootkits UEFI desarrollados por agencias de inteligencia de EEUU, dirigidos al firmware de MacBook
+
+> **👉 Enfoque de Examen SY0-701:**
+> Si el escenario dice "el malware sobrevivió al formateo del disco y la reinstalación del SO" → **rootkit de firmware**. Si "las herramientas del sistema no muestran el proceso pero existe actividad" → **rootkit activo** que ha comprometido las herramientas de diagnóstico. Distractor común: confundir rootkit con RAT — el RAT necesita un canal C2; el rootkit se centra en escalar privilegios y ocultarse.
+
+### 13.1.7 Ransomware, Malware Criptográfico y Bombas Lógicas
+
+#### Ransomware
+
+**Tipos de ransomware:**
+
+| Tipo | Mecanismo | Dificultad de mitigación |
+|------|-----------|--------------------------|
+| **Ransomware básico (Scareware)** | Muestra mensajes amenazantes falsos; bloquea visualmente el acceso | Baja — relativamente sencillo de revertir |
+| **Ransomware criptográfico** | **Cifra archivos** en unidades fijas, extraíbles y de red | **Muy alta** — sin backup actualizado, los datos son irrecuperables |
+
+**Ejemplo:** **CryptoLocker** — troyano que cifra archivos y exige pago antes de un tiempo límite; después destruye la clave de descifrado.
+
+**Métodos de pago (para evitar rastreo):**
+- Transferencia bancaria
+- **Criptomoneda** ← más común hoy
+- Líneas telefónicas de tarifa premium
+
+**Scareware:**
+- Muestra alertas falsas que simulan cuadros de diálogo legítimos del SO
+- Intenta alarmar al usuario sugiriendo infección o secuestro
+
+> **Analogía:** El ransomware es un secuestrador digital. Te bloquea el acceso a tus archivos y exige un rescate. Si no pagas antes de cierto tiempo, destruye la llave.
+
+#### Malware de Criptosecuestro (Cryptojacking)
+
+| Término | Definición |
+|---------|-----------|
+| **Criptominería** | Uso de recursos computacionales para acuñar criptomonedas |
+| **Criptosecuestro / Cryptojacking** | Malware que **secuestra recursos del host** para criptominería sin consentimiento |
+
+> 💡 El cryptojacking se realiza frecuentemente a través de **botnets**.
+
+#### Bombas Lógicas (Logic Bombs)
+
+| Tipo | Disparador |
+|------|-----------|
+| **Bomba de tiempo (Time Bomb)** | Fecha u hora preconfigurada |
+| **Bomba lógica (Logic Bomb)** | Evento del sistema o del usuario |
+
+> ⚠️ **Las bombas lógicas NO tienen por qué ser código malicioso externo.** Ejemplo clásico: un administrador de sistemas descontento deja una trampa que se ejecuta si su cuenta es eliminada o desactivada. También se llama **mina**.
+
+> 💡 Es poco probable que el software antivirus detecte una bomba lógica, ya que puede ser código legítimo con un trigger condicional.
+
+> **👉 Enfoque de Examen SY0-701:**
+> Pregunta típica: "Los archivos del servidor tienen extensiones diferentes y no pueden abrirse. Hay un mensaje exigiendo Bitcoin." → **Ransomware criptográfico**. Si el escenario dice "el código malicioso se ejecutó automáticamente en el aniversario de la empresa" → **bomba de tiempo**. Si "se activó cuando se eliminó la cuenta del empleado" → **bomba lógica**. Distractor: confundir cryptojacking (roba CPU/recursos) con ransomware (cifra archivos).
+
+### 13.1.8 TTP e IoC
+
+> **Analogía:** Los TTP son como el "modus operandi" de un criminal — la forma en que opera. Los IoC son como las huellas dactilares o rastros que deja en la escena del crimen.
+
+#### Detección Basada en Firmas vs. TTP
+
+| Enfoque | Descripción | Limitación |
+|---------|-------------|-----------|
+| **Detección por firma (A-V)** | Compara código malicioso con base de datos de firmas conocidas | No detecta malware nuevo o polimórfico |
+| **Análisis TTP** | Estudia comportamientos de actores de amenaza | Más complejo; requiere correlación de indicadores |
+
+#### TTP — Tácticas, Técnicas y Procedimientos
+
+| Nivel | Descripción | Ejemplo |
+|-------|-------------|---------|
+| **Táctica** | Descripción de alto nivel del comportamiento | Reconocimiento, Persistencia, Escalada de privilegios |
+| **Técnica** | Cómo progresa el actor en una táctica | Escaneo activo de red, recolección de emails |
+| **Procedimiento** | Descripción detallada de cómo se ejecuta una técnica | Herramienta específica usada de forma distintiva |
+
+#### IoC — Indicador de Compromiso (Indicator of Compromise)
+
+- Señal **residual** de que un activo fue atacado con éxito o sigue siendo atacado
+- Es evidencia de un TTP
+- Pueden ser objetivos (firma de malware) o identificados mediante correlación de múltiples puntos de datos
+
+> 💡 **IoA** (Indicator of Attack) = evidencia de un intento de intrusión **en curso** (a diferencia del IoC que es post-compromiso).
+
+#### Ejemplos de IoC en un ataque de ransomware
+
+- Presencia de versión comprometida del software de monitoreo
+- Conexiones a red C&C
+- Funciones de recuperación/backup deshabilitadas
+- Entradas sospechosas en el registro
+- Archivos con extensiones diferentes (cifrados)
+- Avisos de extorsión
+
+#### Base de datos de referencia
+
+- **MITRE ATT&CK** (`attack.mitre.org`) — framework de TTP e IoC ampliamente conocido e integrado en herramientas modernas de escaneo
+
+> **👉 Enfoque de Examen SY0-701:**
+> Pregunta típica: "¿Qué describe mejor la evidencia dejada por un ataque exitoso?" → **IoC**. "¿Qué describe la forma en que un grupo APT realiza reconocimiento?" → **TTP / Técnica**. No confundas IoC (post-compromiso) con IoA (en curso). MITRE ATT&CK puede aparecer como opción de respuesta correcta cuando se pregunta sobre frameworks de inteligencia de amenazas.
+
+### 13.1.9 Indicadores de Actividad Maliciosa
+
+#### Ejecución Sandbox
+
+| Término | Definición |
+|---------|-----------|
+| **Sandbox** | Entorno completamente aislado de la red de producción; registra cambios en archivos, registro y actividad de red |
+| **Sheep Dip** | Host aislado para probar software nuevo y medios extraíbles antes de autorizar su uso en la red |
+
+#### Indicadores por Categoría
+
+**1. 🔋 Consumo de Recursos**
+- Uso excesivo y continuo de **CPU** (ej: nunca baja del 50%)
+- **Fugas de memoria**
+- Alta actividad de **lectura/escritura en disco**
+- Uso anómalo del **ancho de banda de red**
+- Característico de: **DDoS botnet**, **cryptojacking**, **ransomware criptográfico**
+
+> ⚠️ El consumo anómalo es razón para investigar, NO prueba definitiva de malware.
+
+**2. 🗂️ Sistema de Archivos**
+- Metadatos de archivos (fechas de creación, acceso, modificación) ayudan a establecer **cronología del incidente**
+- **Contenido bloqueado**: registros de acceso denegado indican intentos de acceder a datos protegidos por **ACL** (Access Control List) o **DLP** (Data Loss Prevention)
+- Archivos temporales sospechosos
+
+**3. 🚫 Inaccesibilidad de Recursos**
+- Red, host, archivo o base de datos no disponible
+- Indicador típico de ataque **DoS** (Denial of Service)
+- Puede significar consumo excesivo de recursos, ataque de ransomware o malware que **desactiva utilidades de monitoreo**
+
+**4. 👤 Vulneración de Cuenta**
+
+| Indicador | Significado |
+|-----------|-------------|
+| **Bloqueo de cuenta** | Demasiados intentos fallidos, o el actor cambió la contraseña |
+| **Uso concurrente de sesiones** | El actor obtuvo credenciales e inició sesión desde otra ubicación |
+| **Viaje imposible (Impossible Travel)** | Inicio de sesión desde ubicación geográfica físicamente imposible dada la última sesión |
+
+**5. 📋 Registro de Logs**
+
+| Indicador | Significado |
+|-----------|-------------|
+| **Pérdida de registros** | Archivo de log eliminado; brechas inusuales entre entradas |
+| **Registros manipulados** | Actor sofisticado que elimina entradas específicas o las falsifica |
+| **Registro fuera de ciclo** | Manipulación de hora del sistema o marcas de tiempo para ocultar actividad |
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Un usuario inicia sesión desde Nueva York a las 9am y desde Tokio a las 10am" → **Viaje imposible**. "Los archivos de log muestran saltos de tiempo inexplicables" → **manipulación de logs**. "El antivirus fue deshabilitado automáticamente" → indicador de **malware que evade detección**. CompTIA ama los escenarios de "viaje imposible" — memorízalo bien.
+
+## 13.2 Indicadores de Ataques Físicos y de Red
+
+### 13.2.1 Ataques Físicos
+
+Un **ataque físico** se dirige contra infraestructura de cableado, dispositivos de hardware o el ambiente de las instalaciones.
+
+#### Tipos de Ataques Físicos
+
+**1. 💪 Fuerza Bruta Física**
+- Dañar hardware → **DoS físico**
+- Irrumpir forzando cerraduras → indicador de **robo o manipulación**
+- Un sistema inviolado (tamper-evident) mostrará signos visibles de entrada forzada
+
+**2. 🌡️ Ataque Ambiental**
+- Destruir cableado eléctrico
+- Cortar cables de red
+- Interrumpir sistemas de refrigeración
+- Los sistemas de mantenimiento ambiental son **vectores conocidos de acceso** a redes corporativas
+
+**3. 📡 Clonación RFID (Radio Frequency Identification)**
+
+| Concepto | Descripción |
+|----------|-------------|
+| **RFID** | Codifica información en etiquetas pasivas; un lector las activa con ondas electromagnéticas |
+| **NFC** (Near Field Communication) | Derivado de RFID; comunicación bidireccional a muy corta distancia |
+| **Clonación de tarjeta** | Copia física de una tarjeta sin protecciones criptográficas |
+| **Skimming** | Uso de lector falsificado para capturar datos de la tarjeta y programar un duplicado |
+
+**Indicadores de compromiso RFID:**
+- **Viaje imposible** en registros de acceso
+- **Uso simultáneo** de la misma tarjeta en dos ubicaciones
+
+> ⚠️ Estos ataques solo funcionan contra tarjetas "tontas" que transfieren **tokens estáticos** (sin criptoprocesamiento).
+
+> **Analogía:** RFID es como una llave magnética de hotel. Si alguien copia tu llave sin que te des cuenta, puede entrar a tu habitación cuando quiera.
+
+> **👉 Enfoque de Examen SY0-701:**
+> Si el escenario menciona una tarjeta de acceso sin contacto y accesos en horarios imposibles → **clonación RFID o skimming**. NFC es la tecnología base de muchas tarjetas sin contacto modernas. Recuerda que las tarjetas con criptoprocesamiento son resistentes a estos ataques.
+
+### 13.2.2 Ataques de Red
+
+#### Ciclo de vida de un Ciberataque — Fases y Técnicas
+
+```
+Reconocimiento → Recolección de credenciales → DoS → Entrega/Vulneración
+      ↓
+Mando y Control (C2) → Movimiento lateral → Exfiltración de datos
+```
+
+| Fase | Descripción | Indicadores |
+|------|-------------|-------------|
+| **Reconocimiento** | Escaneo de hosts, puertos, servicios, OS fingerprinting | Gran volumen de tráfico de escaneo; difícil distinguir de escaneo legítimo |
+| **Recolección de credenciales** | Obtener contraseñas/secretos criptográficos | Intentos de autenticación fallidos |
+| **DoS** | Hacer que hosts/servicios no estén disponibles | Host sin respuesta; volúmenes de solicitudes anómalos |
+| **Entrega y Vulneración** | Código malicioso, exploits, archivos adjuntos | Detección de malware; logs de exploits |
+| **C2, Baliza y Persistencia** | Operar el host vulnerado remotamente | Conexiones a IPs anómalas (países sin leyes de privacidad) |
+| **Movimiento lateral y Pivoting** | Moverse entre hosts; escalar privilegios | Inicios de sesión anómalos; uso de privilegios inusual |
+| **Exfiltración de datos** | Copiar activos de información al atacante | Transferencias de datos grandes/anómalas |
+
+> 💡 Las etapas son **iterativas**: el actor puede reconocer desde afuera, obtener acceso, y luego reconocer de nuevo desde adentro para moverse lateralmente.
+
+> **👉 Enfoque de Examen SY0-701:**
+> CompTIA puede presentar una secuencia de eventos y preguntar en qué fase del ciclo de vida está el ataque. Memoriza el orden y qué indica cada fase. "El atacante usa credenciales comprometidas para acceder a otro servidor" → **movimiento lateral**. "Copió 50GB de datos a un servidor externo" → **exfiltración**.
+
+### 13.2.3 Ataques Distribuidos por Denegación de Servicio (DDoS)
+
+> **Analogía:** Un DDoS es como si miles de personas bloquearan simultáneamente la entrada de una tienda, impidiendo que los clientes reales entren.
+
+#### Tipos de DoS/DDoS
+
+| Tipo | Mecanismo |
+|------|-----------|
+| **DoS básico** | Un solo atacante consume recursos del objetivo |
+| **DDoS** (Distributed Denial of Service) | Múltiples hosts (botnet) atacan simultáneamente |
+| **DRDoS** (Distributed Reflected DoS) | El atacante falsifica la IP de la víctima; servidores de terceros envían respuestas a la víctima |
+| **Ataque de amplificación** | Explota protocolos que generan respuestas grandes a solicitudes pequeñas |
+
+#### Ataque de Congestión SYN (SYN Flood)
+```
+Atacante envía SYN → Servidor responde SYN/ACK → Atacante NO envía ACK
+                                                    ↓
+                                    Servidor mantiene conexión pendiente en tabla de estados
+                                    (se llena rápidamente → no puede atender tráfico legítimo)
+```
+
+#### Ataques Reflejados (DRDoS)
+
+- El atacante **falsifica la IP de la víctima**
+- Abre conexiones con múltiples servidores terceros
+- Esos servidores envían sus respuestas `SYN/ACK` a la IP falsificada (la víctima)
+- La víctima es inundada sin que el atacante use muchos recursos propios
+
+> 💡 Una **amenaza asimétrica** = el atacante logra ataques efectivos con **menos recursos que la víctima**.
+
+#### Ataques de Amplificación
+
+Explotan protocolos que responden con **más datos de los que reciben**:
+- `DNS` (Domain Name System)
+- `NTP` (Network Time Protocol)
+- `CLDAP` (Connectionless Lightweight Directory Access Protocol)
+- **Memcached** (sistema de caché de bases de datos para servidores web)
+
+#### Indicadores de DDoS
+
+- **Picos de tráfico** sin explicación legítima
+- Servicios no disponibles
+- Los cortafuegos con estado pueden detectar y bloquear DDoS
+- Las IPs de origen suelen estar **falsificadas o provienen de bots** → difícil de bloquear en la fuente
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Un servidor web recibe millones de paquetes SYN sin completar el handshake" → **SYN Flood DDoS**. "El atacante envía solicitudes DNS pequeñas que generan respuestas enormes hacia la víctima" → **amplificación DNS**. "El atacante usa la IP de la víctima para hacer que otros servidores le envíen tráfico" → **DRDoS / ataque reflejado**. Los distractores incluyen confundir reflejado con amplificado — pueden combinarse.
+
+### 13.2.4 Ataques En Ruta (On-Path / AitM)
+
+| Nombre | Sinónimo |
+|--------|----------|
+| **Ataque On-Path (En Ruta)** | Anteriormente "Man-in-the-Middle" (MitM) |
+| **AitM** (Adversary in The Middle) | Término moderno equivalente |
+
+> **Analogía:** Imagina un cartero malicioso que abre tu correo, lo lee, lo modifica y lo vuelve a sellar antes de entregarlo. Ni el remitente ni el destinatario saben que el cartero lo tocó.
+
+#### Mecanismo
+
+- El actor se posiciona **entre dos hosts**
+- Captura, supervisa y **retransmite** todo el tráfico de forma transparente
+- Puede **modificar el tráfico** encubiertamente (ej: formulario web falsificado para capturar credenciales)
+
+#### Envenenamiento de ARP (ARP Poisoning)
+
+> 💡 **ARP** (Address Resolution Protocol) identifica la dirección MAC de un host en el segmento local a partir de su IPv4.
+
+**Proceso del ataque:**
+```
+1. Herramienta (ej: Ettercap) difunde paquetes ARP Reply NO solicitados (gratuitos)
+2. Los dispositivos actualizan su tabla caché ARP con la MAC falsificada
+3. El tráfico destinado a la puerta de enlace llega al atacante
+4. El atacante retransmite el tráfico (on-path)
+```
+
+**Indicador en Wireshark:** Patrón de **ARP gratuitos** frecuentes desde una misma MAC → señal de ataque de envenenamiento.
+
+> ⚠️ ARP **no tiene mecanismo de seguridad** — los dispositivos confían ciegamente en las respuestas.
+
+**Objetivo habitual:** La **puerta de enlace predeterminada (gateway)** → captura todo el tráfico saliente hacia otras redes.
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Un analista ve múltiples paquetes ARP Reply gratuitos hacia los hosts de la red desde una IP desconocida" → **ARP Poisoning / Ataque On-Path**. "El tráfico entre el cliente y el servidor está siendo interceptado y modificado sin que ninguno lo detecte" → **AitM**. Herramienta mencionada: **Ettercap**. No confundas ARP Poisoning (Capa 2) con DNS Poisoning (Capa de aplicación).
+
+### 13.2.5 Ataques al Sistema de Nombres de Dominio (DNS)
+
+> **Analogía:** El DNS es como la guía telefónica de Internet. Si alguien falsifica esa guía, cuando buscas "banco.com" te da el número del banco falso del atacante.
+
+#### Vector de Ataques DNS
+
+| Tipo de Ataque | Descripción |
+|----------------|-------------|
+| **Typosquatting** | Dominios maliciosos con errores tipográficos similares al legítimo |
+| **DRDoS usando DNS** | Explotación de servidores DNS como amplificadores |
+| **DoS contra servicios DNS** | Hacer caer el DNS para dejar un sitio inaccesible |
+| **Secuestro de servidor DNS** | Insertar registros falsificados que redirigen a sitios fraudulentos |
+| **Envenenamiento de DNS** | Corromper el proceso de resolución de nombres |
+
+#### Tipos de Envenenamiento de DNS
+
+**1. Envenenamiento basado en ARP (en red local):**
+- El atacante usa **ARP Poisoning** para interceptar consultas DNS y responder con IPs falsas
+- Se puede combinar con **DHCP malicioso** para configurar clientes con un resolver DNS controlado por el atacante
+
+**2. Envenenamiento de caché de cliente DNS (archivo HOSTS):**
+
+| SO | Ubicación del archivo HOSTS |
+|----|----------------------------|
+| Unix/Linux | `/etc/hosts` |
+| Windows | `%SystemRoot%\System32\Drivers\etc\hosts` |
+
+- El archivo HOSTS se consulta **antes** que el DNS
+- Si un atacante modifica este archivo con entradas falsas → **envenenamiento de caché de cliente**
+- Requiere **permisos de administrador** para modificarlo
+- La presencia de entradas sospechosas en HOSTS es un **IoC claro**
+
+**3. Envenenamiento de caché del servidor DNS:**
+- DoS contra el servidor DNS autorizado + falsificación de respuestas a otros servidores de nombres
+- Ataque de **consulta recursiva**: el DNS atacante se hace pasar por el servidor autorizado e inyecta registros falsos adicionales
+
+**Herramientas de verificación:** `nslookup` o `dig` para consultar registros y detectar entradas falsas.
+
+#### Indicadores de Ataques DNS en los Logs
+
+- Tipos de consultas inusuales realizadas por un host
+- Hosts que se comunican con **rangos de IP sospechosos**
+- **Picos estadísticos** o gran número de **fallos de búsqueda DNS**
+- DNS como canal de **C&C** o **exfiltración encubierta** de datos
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Los usuarios son redirigidos a un sitio bancario falso aunque escriben la URL correcta" → **DNS Poisoning / envenenamiento de caché**. "El archivo HOSTS tiene una entrada que apunta google.com a una IP desconocida" → **compromiso del archivo HOSTS**. Herramientas: `nslookup`, `dig`. DNS también puede usarse como canal C&C — dato que aparece en escenarios de APT.
+
+### 13.2.6 Ataques Inalámbricos
+
+#### Puntos de Acceso No Autorizados (Rogue Access Points)
+
+| Término | Descripción |
+|---------|-------------|
+| **Rogue AP** | Punto de acceso instalado sin autorización (malicioso o accidental) |
+| **Evil Twin** | AP falso que se hace pasar por el legítimo |
+| **SSID** (Service Set Identifier) | Nombre de la red Wi-Fi |
+| **BSSID** (Basic SSID) | Dirección MAC del radio del punto de acceso |
+
+**Técnicas de Evil Twin:**
+- **Typosquatting de SSID:** nombre similar al legítimo
+- **SSID Stripping:** eliminar caracteres del SSID real
+- **DoS contra el AP legítimo** → clientes se conectan al evil twin
+- Falsifica tanto SSID como BSSID del AP legítimo
+
+**Capacidades del Evil Twin:**
+- Captura credenciales de autenticación
+- Ataques on-path
+- **Redirección de DNS**
+
+**Detección:**
+- Inspección física
+- Analizadores de Wi-Fi y **WIPS** (Wireless Intrusion Prevention System)
+- Detección de **SSIDs con typosquatting** y **MACs desconocidas/duplicadas**
+- En redes empresariales: APs no conectados a switches son marcados como sospechosos
+
+#### Denegación de Servicio Inalámbrico
+
+| Técnica | Descripción |
+|---------|-------------|
+| **Interferencia de radio** | Bloqueo con AP de señal más fuerte |
+| **Ataque de disociación (Deauthentication)** | Envía frames de gestión falsos para desconectar clientes |
+
+**Ataque de Disociación:**
+- Explota la **falta de cifrado** en frames de gestión 802.11
+- Puede desconectar **un cliente específico** (suplanta su MAC) o **todos los clientes**
+- Se puede combinar con un ataque de **repetición** para recuperar la clave de red
+
+#### Reproducción Inalámbrica y Recuperación de Claves
+
+| Ataque | Descripción |
+|--------|-------------|
+| **Captura de hash** | Captura los hashes del proceso de asociación → fuerza bruta offline + diccionario |
+| **KRACK** (Key Reinstallation Attack) | Ataca el **handshake de 4 vías** de `WPA` y `WPA2`; efectivo independientemente de si es Personal o Enterprise |
+
+> ⚠️ Para KRACK: es importante que **tanto clientes como APs** tengan todas sus actualizaciones de seguridad.
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Un cliente se desconecta repetidamente del AP sin razón aparente" → **ataque de disociación**. "Se detecta una red con el mismo SSID pero diferente MAC" → **evil twin**. KRACK afecta WPA y WPA2 — ambos, no solo WPA. Los ataques de replay inalámbrico buscan capturar hashes para romperlos offline.
+
+### 13.2.7 Ataques de Contraseña
+
+> 🎯 **Analogía:** Una contraseña almacenada como hash es como una huella dactilar: puedes verificarla pero no "des-imprimirla". Los ataques de contraseña buscan generar la huella a partir de combinaciones hasta que coincida.
+
+#### Conceptos base
+
+- La contraseña en texto plano se convierte en un **hash criptográfico** para almacenamiento
+- En teoría, el hash es **irreversible**; en práctica, se pueden usar ataques para derivar el texto plano
+
+#### Tipos de Ataques
+
+**1. Ataques en Línea (Online)**
+- Interacción directa con el servicio de autenticación
+- Indicadores: **inicios de sesión fallidos repetidos** seguidos de uno exitoso; intentos en momentos/ubicaciones inusuales
+- Mitigación: contraseñas seguras, limitación de intentos, bloqueo de IPs maliciosas
+- ⚠️ Riesgo secundario: restringir intentos puede usarse para un **DoS** (bloquear usuarios legítimos)
+
+**2. Ataques sin Conexión (Offline)**
+- El atacante **obtuvo la base de datos de hashes** directamente
+- Archivos objetivo:
+
+| SO | Archivo de credenciales |
+|----|------------------------|
+| Windows (local) | `%SystemRoot%\System32\config\SAM` |
+| Windows (AD) | `%SystemRoot%\NTDS\NTDS.DIT` |
+| Linux | `/etc/shadow` |
+
+- El único indicador puede ser un registro de auditoría del sistema de archivos mostrando acceso al archivo
+- Los actores pueden también **leer credenciales de la memoria del host**
+
+**3. Fuerza Bruta (Brute Force)**
+- Prueba **todas las combinaciones posibles** del espacio de salida del hash
+- Limitado por tiempo y recursos
+- Más efectivo contra contraseñas **cortas**
+- Un **clúster de GPUs** puede descifrar contraseñas más largas
+
+**4. Diccionario e Híbrido**
+
+| Tipo | Descripción |
+|------|-------------|
+| **Diccionario** | Genera hashes de palabras comunes y las compara con el hash capturado |
+| **Híbrido** | Combina diccionario + fuerza bruta: prueba palabras + variaciones (ej: `james1`, `james123`) |
+
+**5. Spraying de Contraseñas (Password Spraying)**
+- Ataque **horizontal** de fuerza bruta en línea
+- Prueba **pocas contraseñas comunes** (ej: `password`, `123456`) contra **muchos usuarios**
+- Evita los bloqueos de cuenta al no intentar muchas veces en la misma cuenta
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El sistema detectó muchos intentos fallidos desde diferentes IPs contra diferentes cuentas" → **password spraying**. "El atacante obtuvo el archivo NTDS.DIT" → **ataque offline**. "El atacante prueba millones de combinaciones hasta encontrar la contraseña" → **fuerza bruta**. Distractor: confundir spraying (horizontal, pocas contraseñas, muchos usuarios) con brute force (vertical, muchas contraseñas, un usuario).
+
+### 13.2.8 Ataques de Reproducción de Credenciales
+
+> **Analogía:** Imagina que el atacante roba la llave de tu coche pero no sabe cómo hacer una copia. En cambio, simplemente usa esa misma llave en el coche de tu vecino, que tiene el mismo modelo y cerradura.
+
+#### Contexto: Windows Active Directory y LSASS
+
+**LSASS** (Local Security Authority Subsystem Service) almacena en caché secretos en memoria y en **SAM** (Security Accounts Manager):
+
+| Secreto almacenado | Descripción |
+|-------------------|-------------|
+| **TGT** (Ticket Granting Ticket) de Kerberos | Permite solicitar tickets de servicio |
+| **Tickets de servicio** | Para aplicaciones donde el usuario inició sesión |
+| **Hash NT** | Formato de credencial almacenada; usado en autenticación **NTLM** |
+
+> ⚠️ Si múltiples usuarios inician sesión en un host (incluyendo administradores de dominio), LSASS puede cachear secretos de TODAS esas cuentas → vector de escalada de privilegios.
+
+> 💡 LSASS **purga hashes de memoria** a los pocos minutos de que el usuario cierra sesión. La base de datos SAM almacena credenciales locales pero NO las de dominio.
+
+> 💡 **Credential Guard** — función de virtualización en algunas ediciones de Windows que protege estos secretos de procesos maliciosos incluso con permisos SYSTEM.
+
+#### Tipos de Ataques de Reproducción de Credenciales
+
+| Ataque | Descripción |
+|--------|-------------|
+| **Pass the Hash (PtH)** | Usa el hash NT capturado para autenticarse en otro host que permite NTLM |
+| **Golden Ticket** | Falsifica un **TGT** de Kerberos → acceso sin restricciones a TODOS los recursos del dominio |
+| **Silver Ticket** | Falsifica **tickets de servicio** de Kerberos → acceso a servicios específicos |
+| **PtT** (Pass the Ticket) | Término general para ataques Golden/Silver Ticket |
+| **DCSync** | Engaña a un DC (Domain Controller) para que replique su lista de usuarios y credenciales a un host malicioso |
+
+#### Proceso del Pass the Hash
+
+```
+1. Víctima inicia sesión → DC verifica mediante Kerberos
+2. Credenciales de Kerberos se cachean en memoria de LSASS
+3. Atacante extrae la memoria de LSASS → hashes expuestos
+4. Atacante usa el hash en otro equipo → reconocido por Kerberos/NTLM
+```
+
+> ⚠️ La autenticación NTLM heredada frecuentemente se deshabilita por ser un **riesgo de seguridad muy alto**.
+
+**Detección:**
+- Correlación de eventos de registro de seguridad
+- Antivirus y detección basada en host pueden detectar código que **vuelca credenciales** o lanza ataques de falsificación de tickets
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El atacante usó el hash de la contraseña de un administrador sin conocer la contraseña en texto plano" → **Pass the Hash**. "El atacante obtuvo acceso a todos los recursos del dominio falsificando un ticket de Kerberos" → **Golden Ticket**. DCSync es un ataque avanzado que imita la replicación de un DC. Asegurarse de que los hosts tengan todos sus parches reduce significativamente estos ataques.
+
+### 13.2.9 Ataques Criptográficos
+
+#### Ataques de Degradación (Downgrade Attacks)
+
+- Fuerza a servidor o cliente a usar protocolos/cifrados **más débiles**
+- Ejemplo: forzar uso de versión débil de **TLS** (Transport Layer Security) o degradar a **SSL** (Secure Sockets Layer) legacy
+- Combinado con ataque on-path → permite falsificar firmas de **CA** (Certificate Authority)
+
+**Kerberoasting:**
+- Tipo de ataque de degradación contra **Active Directory**
+- Obtiene **tickets de servicio** y los somete a descifrado por fuerza bruta
+- Si el ticket usa **AES** → muy difícil de romper por fuerza bruta
+- Si el atacante logra que el servidor devuelva el ticket con cifrado **RC4** (débil) → mucho más fácil de descifrar
+
+> **Analogía:** Es como si el atacante convenciera a dos personas que hablan en clave secreta de que usen un código antiguo y débil que él ya sabe romper.
+
+#### Ataques de Colisión (Collision Attacks)
+
+**¿Qué es una colisión?**
+- Cuando dos textos planos diferentes producen el **mismo valor hash**
+- Indica una función hash débil
+
+**Proceso del ataque de colisión para falsificar firma digital:**
+```
+1. Atacante crea documento maligno + documento benigno con el MISMO hash
+2. Envía el benigno para que la víctima lo firme
+3. Roba la firma del benigno y la aplica al maligno
+4. El documento maligno aparece como firmado por la víctima
+```
+
+**Usos maliciosos:**
+- Falsificar **certificados digitales** para sitios web
+- Hacer que malware troyano parezca provenir de un **editor de confianza**
+
+> **Analogía:** Una colisión hash es como encontrar dos llaves diferentes que abren la misma cerradura. El atacante crea una llave falsa que funciona igual que la original.
+
+#### Ataques de Cumpleaños (Birthday Attacks)
+
+**La paradoja:**
+- En un año de 365 días, necesitas solo **23 personas** para tener 50% de probabilidad de cumpleaños compartido (no 182 como intuiría la mayoría)
+
+**Aplicación al hacking:**
+- El atacante genera múltiples variaciones de documentos malignos y benignos (con cambios menores: puntuación, espacios)
+- Si puede generar suficientes variaciones, la probabilidad de colisión supera el 50%
+- Una función hash de **128 bits** puede atacarse generando **2⁶⁴ variaciones** (mucho menos que 2¹²⁸)
+
+> **Analogía:** La paradoja del cumpleaños: en un grupo de 23 personas, hay un 50% de probabilidad de que dos compartan cumpleaños. Parece mucho, pero es sorprendentemente poco. Los ataques de cumpleaños explotan esta paradoja para encontrar colisiones más rápido de lo esperado.
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El atacante pudo firmar un documento malicioso con la firma de la víctima porque dos documentos diferentes producían el mismo hash" → **ataque de colisión**. "El atacante usó fuerza bruta para encontrar dos mensajes con el mismo hash" → **ataque de cumpleaños**. Kerberoasting: busca la palabra clave RC4 (débil) vs AES (fuerte). Los ataques de degradación apareceran en escenarios con TLS/SSL.
+
+### 13.2.10 Indicadores de Código Malicioso
+
+#### Principales Tipos de Actividades Maliciosas
+
+| Tipo | Descripción |
+|------|-------------|
+| **Shellcode** | Fragmento compacto de código (payload) que explota una vulnerabilidad para obtener privilegios o crear una backdoor; seguido de conexión de red para descargar herramientas adicionales |
+| **Volcado de credenciales** | Accede al archivo SAM o rastrea credenciales en memoria del proceso `lsass.exe` |
+| **DCSync** | Engaña a un DC para replicar lista de usuarios y credenciales a un host deshonesto |
+| **Pivoting / Movimiento lateral** | Usa el punto de apoyo para ejecutar procesos remotamente (ej: `PsExec`, `PowerShell`); abre puertos de firewall o crea cuentas |
+| **Persistencia** | Mecanismo para reiniciar la backdoor después de reinicios del host |
+
+#### Métodos de Persistencia
+
+| Método | Descripción |
+|--------|-------------|
+| **Claves de ejecución automática en el registro** | Entradas en `HKLM\...\Run` o `HKCU\...\Run` |
+| **Tarea programada** | Se agrega una tarea que ejecuta el malware periódicamente |
+| **Suscripciones de eventos WMI** (Windows Management Instrumentation) | El malware se activa en respuesta a eventos del sistema |
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El malware se reactiva cada vez que el sistema reinicia aunque se elimine el ejecutable" → **persistencia mediante registro o tarea programada**. "El atacante puede ejecutar comandos en otros servidores desde el host comprometido" → **pivoting / movimiento lateral**. Herramientas mencionadas: `PsExec`, `PowerShell`. DCSync es específico de entornos Active Directory.
+
+## 13.3 Indicadores de Ataques a Aplicaciones
+
+### 13.3.1 Ataques a las Aplicaciones
+
+#### Dos Escenarios Principales
+
+| Escenario | Objetivo |
+|-----------|----------|
+| Vulnerar SO/apps de terceros en host de red | Obtener un punto de apoyo en la red local |
+| Vulnerar seguridad de sitio/app web | Controlar un host web, robar datos o penetrar más en la red |
+
+#### Indicadores Generales
+
+- **Mayor número de bloqueos y errores** de la aplicación
+- Logs de errores en registros del sistema o específicos de la aplicación
+- Utilización anómala de CPU, memoria, almacenamiento o red
+
+#### Escalada de Privilegios
+
+| Concepto | Definición |
+|----------|-----------|
+| **Ejecución de código arbitrario** | El actor ejecuta su propio código en el sistema |
+| **Ejecución remota de código (RCE)** | El código se transmite y ejecuta desde otra máquina |
+
+| Tipo de Escalada | Descripción |
+|-----------------|-------------|
+| **Vertical** | Un usuario/app accede a funcionalidad/datos **de nivel superior** (ej: de admin local a SYSTEM) |
+| **Horizontal** | Un usuario accede a funcionalidad/datos de **otro usuario del mismo nivel** (ej: acceder a datos de otro usuario en el servidor) |
+
+**Indicador más simple:** Intentos de escalada de privilegios en **registros de auditoría**; alertas de agentes de protección de punto de conexión.
+
+#### Buffer Overflow (Desbordamiento de Búfer)
+
+**Proceso:**
+```
+1. Atacante envía datos que llenan el búfer hasta su límite
+2. Los datos extra sobrescriben la dirección de retorno de la pila (stack)
+3. La dirección modificada apunta al código malicioso del atacante
+4. El programa ejecuta el código arbitrario del atacante
+```
+
+**Tipo más común:** **Desbordamiento de pila (Stack Overflow)**
+
+**Mitigaciones del SO:**
+- **ASLR** (Address Space Layout Randomization) — aleatorización del espacio de direcciones
+- **DEP** (Data Execution Prevention) — prevención de ejecución de datos
+
+**Indicadores:** Bloqueos frecuentes del proceso, anomalías en la aplicación
+
+> **Analogía:** Es como verter agua en un vaso hasta que se desborda y moja la mesa. El "agua extra" (datos maliciosos) llega a áreas de la memoria que no deberían ser accesibles.
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El atacante envió una entrada más larga de lo esperado y pudo ejecutar código arbitrario" → **buffer overflow**. "El proceso se ejecuta con privilegios más altos de los que debería" → **escalada vertical de privilegios**. ASLR y DEP son las contramedidas clave para buffer overflow — pueden aparecer como respuestas correctas.
+
+### 13.3.2 Ataques de Reproducción (Replay Attacks)
+
+> **Analogía:** Es como si un ladrón grabara tu código de alarma al entrar a tu casa y luego lo reprodujera para desactivarla él mismo.
+
+#### Cookies y Sesiones Web
+
+| Concepto | Descripción |
+|----------|-------------|
+| **HTTP** | Protocolo **sin estado** — el servidor no retiene información entre solicitudes |
+| **Cookie** | Archivo creado por el servidor para mantener estado entre solicitudes |
+| **Token de sesión** | Identifica unívocamente al usuario y prueba que se autenticó |
+| **Cookie no persistente** | Almacenada en memoria; se borra al cerrar el navegador |
+| **Cookie persistente** | Almacenada en caché del navegador hasta borrarla o que expire |
+
+#### Ataque de Repetición
+
+- Captura o **adivina el valor del token de sesión**
+- Lo envía para restablecer la sesión de forma ilegítima
+
+**Formas de capturar cookies:**
+- Análisis de tráfico de red **(ataque on-path)**
+- Red Wi-Fi no segura (hotspot público)
+- **Malware** en el host
+- **XSS** (Cross-Site Scripting)
+
+#### Ataque de Predicción de Sesión
+
+- Identifica debilidades en el algoritmo de **generación de tokens**
+- Si el token es predecible, el atacante anticipa valores futuros
+
+**Buenas prácticas de sesión:**
+- Algoritmo de generación **no predecible**
+- El token **no debe revelar información** del cliente
+- Limitar el **tiempo de vida** de la sesión
+- Requerir **reautenticación** después de cierto tiempo
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El atacante usó una cookie de sesión capturada para acceder a la cuenta de otro usuario" → **ataque de repetición / session hijacking**. "El atacante puede predecir los tokens de sesión" → **predicción de sesión**. XSS puede ser el vector para capturar cookies — escenarios combinados son comunes.
+
+### 13.3.3 Ataques de Falsificación (CSRF / SSRF)
+
+#### CSRF — Cross-Site Request Forgery (Falsificación de Solicitudes Entre Sitios)
+
+También llamado: **"Confused Deputy Attack"** (ataque del guardia confundido)
+
+**Proceso:**
+```
+1. Alice inicia sesión en sitio de confianza (tiene cookie de sesión válida)
+2. Mallory envía a Alice un enlace malicioso
+3. Alice hace clic (o el ataque se ejecuta automáticamente)
+4. El enlace realiza una solicitud maliciosa en el sitio de confianza
+5. El sitio acepta la solicitud porque la cookie de sesión es válida
+```
+
+**Condición necesaria:** El sitio destino **no realiza verificación de autorización adicional** sobre la entrada.
+
+> **Analogía:** El atacante convence a tu navegador (que ya tiene sesión iniciada en tu banco) de que haga una transferencia sin que tú lo sepas.
+
+#### SSRF — Server-Side Request Forgery (Falsificación de Solicitudes del Lado del Servidor)
+
+**Diferencia clave CSRF vs SSRF:**
+
+| Característica | CSRF | SSRF |
+|----------------|------|------|
+| ¿Quién hace la solicitud? | El **cliente (navegador)** de la víctima | El **servidor web** |
+| Nivel de privilegio | Privilegios del **cliente** | Privilegios del **servidor** |
+| Objetivo típico | Acciones en nombre del usuario | Acceso a servidores **internos/backend** |
+
+**Arquitectura típica de app web con SSRF:**
+```
+Cliente → Servidor web (público) → Middleware → Servidor de base de datos
+                ↑
+         El atacante inyecta solicitudes aquí
+         que el servidor web ejecuta internamente
+```
+
+**Uso frecuente:** Ataques contra **infraestructura en la nube** donde hay múltiples capas de servidores.
+
+> **Analogía:** El atacante hace que el cartero (el servidor web) entregue una carta maliciosa a alguien que solo acepta correo de confianza (el servidor interno).
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El atacante logró que el navegador autenticado de la víctima hiciera una solicitud no autorizada" → **CSRF**. "El atacante hizo que el servidor web enviara solicitudes a servidores internos que no debería poder alcanzar" → **SSRF**. La diferencia de privilegios es clave: CSRF = privilegios de cliente; SSRF = privilegios de servidor.
+
+### 13.3.4 Ataques por Inyección
+
+**Ataques del lado del cliente** (ejecutan código en el navegador): XSS, CSRF, replay de sesión
+**Ataques del lado del servidor** (el servidor ejecuta código/consultas no autorizadas): Ataques de inyección
+
+> **Analogía:** La inyección es como meter un billete falso en una caja registradora: el sistema procesa lo que el atacante introduce como si fuera una entrada legítima.
+
+#### Tipos de Ataques de Inyección
+
+**1. Inyección XML / XXE (XML External Entity):**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY bar SYSTEM "file:///etc/config"> ]>
+<bar>&bar;</bar>
+```
+
+- Define una entidad que referencia un **archivo local del sistema**
+- El servidor responde con el contenido de `/etc/config`
+- Vulnerabilidades: sin cifrado ni validación de entrada en XML
+
+**2. Inyección LDAP (Lightweight Directory Access Protocol):**
+
+- **LDAP** = protocolo para leer y escribir bases de datos de directorios de red
+- Filtros LDAP usan pares `(atributo=valor)` y operadores `&` (AND) y `|` (OR)
+- Consulta legítima:
+  ```
+  (&(username=Bob)(password=Pa$$w0rd))
+  ```
+- Inyección maliciosa (usuario ingresa `bob)(&))`):
+  ```
+  (&(username=Bob)(&))
+  ```
+  → La verificación de contraseña se reemplaza por una **condición siempre verdadera** → bypass de autenticación
+
+> **También mencionados en el curso:**
+> - **SQLi** (SQL Injection) — inyección en consultas de base de datos
+> - **XSS persistente** (Stored XSS) — tipo de inyección en el contexto de aplicaciones web
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Un atacante envió datos XML que hicieron que el servidor devolviera el contenido de un archivo interno" → **XXE / inyección XML**. "Un atacante bypasseó la autenticación LDAP añadiendo caracteres especiales al nombre de usuario" → **inyección LDAP**. La palabra clave de inyección es siempre **"entrada no depurada / no validada"** (unsanitized input).
+
+### 13.3.5 Ataques de Salto de Directorio e Inyección de Comandos
+
+#### Salto de Directorio (Directory Traversal)
+
+**Mecanismo:**
+- Envía una ruta con `../` para navegar al directorio padre y acceder a archivos fuera del directorio raíz del servidor web
+- Ejemplo de ataque:
+  ```
+  http://victim.foo/?show=../../../../etc/config
+  ```
+
+**Ataque de Canonicalización:**
+- La **canonicalización** convierte representaciones de un recurso a su forma más simple (canónica)
+- El atacante ofusca `../` usando **codificación porcentual**:
+  ```
+  http://victim.foo/?show=%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2fetc/config
+  ```
+  - `%2e` = `.`
+  - `%2f` = `/`
+- Esto elude validaciones de entrada limitadas que solo buscan `../` en texto plano
+
+> **Analogía:** Es como si en un hotel el atacante navegara por los pasillos del sótano usando las escaleras de servicio que no están en el mapa para los huéspedes.
+
+#### Inyección de Comandos (Command Injection)
+
+- Hace que el servidor ejecute **comandos del shell del sistema operativo**
+- El servidor devuelve la salida al navegador
+- Requiere eludir la seguridad del directorio raíz o explotar un servidor **mal configurado**
+
+> **👉 Enfoque de Examen SY0-701:**
+> "El atacante envió `../../etc/passwd` en el parámetro de una URL y recibió el contenido del archivo" → **directory traversal**. "El atacante usó `%2e%2e%2f` para eludir el filtro de entrada" → **ataque de canonicalización**. "El atacante logró ejecutar comandos del SO a través de la aplicación web" → **inyección de comandos**. La codificación porcentual es un distractor frecuente — memoriza que `%2e` = `.` y `%2f` = `/`.
+
+### 13.3.6 Análisis de URL
+
+> **Analogía:** Una URL maliciosa es como una dirección de carta que parece legítima pero tiene instrucciones ocultas en el código postal.
+
+#### Estructura de una URL
+
+```
+http://trusted.foo/upload.php?post=%3Cscript%3D%27http%3A%2F%2Fzyxcba.foo%2Frat%2Ejs%27%3E%3C/script%3E
+ ↑          ↑          ↑                    ↑
+Protocolo  Dominio  Recurso           Parámetro codificado (XSS ofuscado)
+```
+
+#### Métodos HTTP Principales
+
+| Método | Acción |
+|--------|--------|
+| `GET` | Recuperar un recurso |
+| `POST` | Enviar datos al servidor para procesamiento |
+| `PUT` | Crear o reemplazar un recurso |
+
+#### Estructura de parámetros en URL
+
+```
+http://sitio.com/recurso?param1=valor1&param2=valor2
+                        ↑                           
+                    delimitador ?             operador & separa parámetros
+```
+
+#### Codificación Porcentual (Percent Encoding)
+
+| Uso legítimo | Uso malicioso |
+|--------------|---------------|
+| Codificar caracteres reservados en contextos no sintácticos | **Ofuscar** la naturaleza de una URL |
+| Enviar caracteres Unicode | Enviar entradas maliciosas eludiendo validación |
+
+**Caracteres reservados en URL** (solo deben usarse sin codificar para su propósito sintáctico):
+```
+: / ? # [ ] @ ! $ & ' ( ) * + , ; =
+```
+
+**Caracteres NO seguros** (requieren codificación): Caracteres de control (`\0`, `\r`, `\n`, EOF, tabulador)
+
+#### Códigos de Respuesta HTTP relevantes para seguridad
+
+| Código | Significado | Implicación de seguridad |
+|--------|-------------|--------------------------|
+| `200` | OK | Normal |
+| `403` | Forbidden | Acceso rechazado; múltiples 403 → intentos de acceso no autorizado |
+| `404` | Not Found | Múltiples 404 → posible escaneo/enumeración de directorios |
+| `502` | Bad Gateway | Comunicación bloqueada entre servidores o servidor upstream caído |
+
+> **👉 Enfoque de Examen SY0-701:**
+> Si el escenario muestra una URL con `%3C`, `%3E`, `%27` en los parámetros → probable **XSS ofuscado con codificación porcentual**. Si muestra `%2e%2e%2f` → **directory traversal**. CompTIA puede presentar fragmentos de logs de servidor — los códigos 403 repetidos indican intentos de acceso no autorizado; muchos 404 seguidos indican escaneo.
+
+### 13.3.7 Registros de Servidor Web
+
+#### Valor de los Logs para Detección
+
+Los servidores web registran tráfico HTTP que encuentra **errores** o coincide con **reglas predefinidas**, preservando indicadores de ataques.
+
+#### Análisis de Códigos de Estado
+
+| Rango | Tipo | Ejemplo de indicador |
+|-------|------|---------------------|
+| **4xx** | Errores del cliente | `403` repetidos → intentos de acceso no autorizado |
+| **5xx** | Errores del servidor | `502` → comunicación bloqueada con servidor upstream |
+| **404** múltiples | — | Escaneo activo / enumeración de directorios (ej: herramienta **Nikto**) |
+
+#### Información adicional en logs
+
+- **Información de encabezados HTTP** (solicitudes y respuestas)
+- **Datos de cookies** → útil para detectar ataques de sesión
+- **User-agent**: identifica el cliente; agentes como `Nikto` son conocidas herramientas de escaneo
+
+#### Ejemplo de patrón de log malicioso
+
+```
+203.0.113.66 - GET /index.html 200    ← acceso normal
+203.0.113.66 - GET /image.jpg 200     ← acceso normal
+203.0.113.66 - GET /admin/ 404        ← escaneo comienza
+203.0.113.66 - GET /wp-admin/ 404     ← herramienta de escaneo (Nikto)
+203.0.113.66 - GET /phpmyadmin/ 404   ← enumeración de directorios
+```
+
+> **👉 Enfoque de Examen SY0-701:**
+> "Los logs del servidor muestran cientos de respuestas 404 desde la misma IP en segundos" → **escaneo activo / enumeración con herramienta como Nikto**. "Los logs muestran respuestas 403 repetidas de un mismo usuario seguidas de un 200" → **ataque de fuerza bruta online exitoso**. Los logs de servidor web son la fuente de evidencia principal para ataques a aplicaciones web.
+
+## 13.4 Tabla de Tipos de Malware
+
+| Tipo | Vector | Payload | Autonomía | Indicador clave |
+|------|--------|---------|-----------|----------------|
+| **Virus** | Archivo infectado | Variable | Necesita acción usuario | Archivo huésped infectado |
+| **Gusano** | Red (exploit) | Variable | **Autónomo** | Consumo de ancho de banda |
+| **Troyano** | Instalador falso | Variable | Necesita instalación | Comportamiento inesperado |
+| **RAT** | Troyano | Control remoto | Requiere instalación inicial | Conexiones C2 salientes |
+| **Rootkit** | Exploit de kernel | Privilegios máximos | Independiente | Herramientas del sistema comprometidas |
+| **Ransomware** | Troyano/Email | Cifrado/extorsión | Activo tras ejecución | Extensiones de archivo cambiadas |
+| **Keylogger** | Software/Hardware | Robo de credenciales | Pasivo | Transmisión de pulsaciones |
+| **Spyware** | PUP/Troyano | Monitoreo/Pharming | Activo | Actividad de red anómala |
+| **Fileless** | Exploit/Script | Variable (LOTL) | Autónomo en memoria | Sin archivos en disco; uso de PS/WMI |
+| **Cryptojacker** | Botnet/Web | Criptominería | Activo | CPU al 100% constantemente |
+| **Logic Bomb** | Insider/Código | Variable | Esperando trigger | Activación en fecha/evento específico |
+
+## 13.5 Tabla de Ataques de Red y Aplicación
+
+| Ataque | Capa | Herramienta/Protocolo | Indicador principal |
+|--------|------|----------------------|---------------------|
+| **ARP Poisoning** | Capa 2 | Ettercap | ARP gratuitos excesivos |
+| **DNS Poisoning** | Aplicación | `nslookup`, `dig` | Entradas falsas en caché/HOSTS |
+| **SYN Flood DDoS** | Transporte | TCP `SYN` | Tabla de estados llena; handshakes incompletos |
+| **DRDoS** | Red | DNS/NTP/CLDAP | Tráfico entrante masivo con IP falsificada |
+| **Evil Twin** | Wi-Fi | SSID duplicado | BSSID diferente con mismo SSID |
+| **KRACK** | Wi-Fi | WPA/WPA2 | Reinstalación de clave |
+| **Pass the Hash** | Red Windows | LSASS, NTLM | Autenticación anómala entre hosts |
+| **Golden Ticket** | Kerberos | TGT falsificado | Acceso irrestricto a dominio |
+| **Kerberoasting** | Kerberos | RC4 vs AES | Degradación de cifrado en tickets |
+| **Buffer Overflow** | Aplicación | Stack | Crashes frecuentes de proceso |
+| **SQLi/XXE/LDAP** | Aplicación | Entrada no sanitizada | Errores de app; datos inesperados |
+| **CSRF** | Web | Cookie de sesión | Acciones no autorizadas en nombre del usuario |
+| **SSRF** | Web/Cloud | Solicitudes internas | Acceso a servidores backend |
+| **Directory Traversal** | Web | `../` o `%2e%2e%2f` | URLs con secuencias de navegación |
+| **Password Spraying** | Autenticación | Pocas passwords, muchos users | Múltiples 401 en diferentes cuentas |
+
+---
+
+# 14 Gobernanza de la Seguridad
+
+La **gobernanza de la seguridad** es el **marco que guía la gestión de riesgos de ciberseguridad** en una organización. Abarca:
+
+- Desarrollar, implementar y mantener **políticas, procedimientos, estándares y directrices**
+- Salvaguardar **activos de información** e **infraestructura técnica**
+- Definir **funciones y responsabilidades** de las partes interesadas
+- Fomentar una **cultura de concientización** en toda la organización
+- Gestionar el **cumplimiento** de leyes, regulaciones y obligaciones contractuales
+- Alinearse con los **objetivos estratégicos** de la organización
+- Supervisión y **mejora continua** ante amenazas cambiantes
+
+> **Analogía:** Piensa en la gobernanza de seguridad como la **constitución de un país**: no detalla cómo cruzar la calle, pero establece los principios y estructuras que hacen posible todas las demás leyes y normas.
+
+### Objetivos de Aprendizaje del Tema
+
+| Objetivo | Descripción |
+|---|---|
+| **Políticas vs. Procedimientos vs. Estándares** | Identificar las diferencias entre cada capa |
+| **Entorno legal** | Comprender las complejidades legales que afectan las operaciones |
+| **Gobernanza y dirección** | El papel del equipo directivo en la seguridad |
+| **Administración de cambios** | Importancia de las prácticas de change management |
+| **Automatización y orquestación** | Su papel en las operaciones de seguridad |
+
+> **👉 Enfoque de Examen SY0-701:** CompTIA puede preguntar qué componente de gobernanza (política, estándar, procedimiento o directriz) aplica a un escenario dado. La clave es recordar la **jerarquía descendente**: Política → Estándar → Procedimiento/Directriz. Un distractor común es confundir "directriz" (flexible, recomendación) con "política" (obligatoria).
+
+## 14.1 — Políticas, Estándares y Procedimientos
+
+| Componente | Nivel | Obligatorio | Detalle |
+|---|---|---|---|
+| **Política** | Alto | ✅ Sí | Define el compromiso y reglas generales |
+| **Estándar** | Medio | ✅ Sí | Define métodos técnicos/procedimentales específicos |
+| **Procedimiento** | Bajo | ✅ Sí | Instrucciones paso a paso para tareas específicas |
+| **Directriz** | Bajo | ❌ No | Recomendaciones flexibles y mejores prácticas |
+
+> **Objetivo de Examen cubierto:** `5.1 — Resumir elementos de gobernanza efectiva de seguridad`
+
+> **Analogía del restaurante:**
+> - **Política** = "Todos los alimentos deben ser seguros para el consumo"
+> - **Estándar** = "La temperatura interna del pollo debe ser 74°C"
+> - **Procedimiento** = "Paso 1: Insertar termómetro. Paso 2: Esperar 30 segundos. Paso 3: Registrar temperatura."
+> - **Directriz** = "Se recomienda limpiar la superficie de trabajo entre cada preparación"
+
+### 14.1.1 — Políticas y Directrices
+
+#### ¿Qué son las Políticas?
+
+- Documentos de **alto nivel y autoridad**
+- Son el **resultado de la gobernanza**
+- Determinan reglas que enmarcan: toma de decisiones, mitigación de riesgos, equidad y transparencia
+- Establecen **expectativas de rendimiento** y alinean la organización
+- Previenen la **mala conducta** y eliminan ineficiencias
+
+#### Relación: Gobernanza → Políticas → Cumplimiento
+
+```
+GOBERNANZA (procesos de dirección y control)
+    ↓ produce
+POLÍTICAS (reglas y marcos de decisión)
+    ↓ garantizan
+CUMPLIMIENTO (adhesión a regulaciones, estándares y leyes)
+```
+
+**Cumplimiento** = grado de adhesión de una organización a regulaciones, políticas, estándares y leyes. Las políticas facilitan el cumplimiento mediante:
+- Integración de requisitos legales en operaciones diarias
+- Definición de consecuencias del incumplimiento
+- Facilitación de **auditorías** internas y externas
+
+#### Políticas Organizativas Comunes
+
+| Política | Sigla | Propósito Principal |
+|---|---|---|
+| **Política de Uso Aceptable** | **AUP** *(Acceptable Use Policy)* | Define comportamiento aceptable de usuarios en redes y sistemas |
+| **Políticas de Seguridad de la Información** | — | Garantizan cumplimiento de reglas de seguridad de la información |
+| **Continuidad del Negocio / Continuidad de Operaciones** | **BCP/COOP** *(Business Continuity Plan / Continuity of Operations Plan)* | Procesos críticos durante interrupciones (desastres, ciberataques) |
+| **Recuperación ante Desastres** | **DRP** *(Disaster Recovery Plan)* | Pasos para recuperarse de eventos catastróficos |
+| **Respuesta a Incidentes** | **IRP** *(Incident Response Plan)* | Procesos tras una violación de seguridad o ciberataque |
+| **Ciclo de Vida del Desarrollo de Software** | **SDLC** *(Software Development Life Cycle)* | Rige el desarrollo de software (análisis → mantenimiento) |
+| **Administración de Cambios** | — | Cómo se solicitan, revisan, aprueban e implementan cambios en TI |
+
+##### AUP — Detalles Clave
+
+- Aborda: navegación web, contenido apropiado, descargas de software, manejo de información confidencial
+- Debe detallar **consecuencias del incumplimiento**
+- Incluir detalles sobre **cómo se supervisa**
+- Requiere **firma** del empleado como reconocimiento
+
+#### Directrices (Guidelines)
+
+- Describen **recomendaciones** que orientan acciones en un puesto o departamento
+- **Más flexibles** que las políticas
+- Permiten mayor **discreción** a quienes las implementan
+- Proporcionan **mejores prácticas** y sugerencias
+
+**Ejemplo:** Directriz de mesa de ayuda para responder correos: recomienda lenguaje, tono y tiempos de respuesta, pero permite flexibilidad según las circunstancias.
+
+| Característica | Política | Directriz |
+|---|---|---|
+| Obligatoriedad | ✅ Obligatoria | ❌ Recomendación |
+| Flexibilidad | Baja | Alta |
+| Consecuencias por incumplimiento | Sí | Generalmente no |
+| Revisión periódica | Necesaria | Necesaria |
+
+> **Analogía:** Si las políticas son leyes de tráfico (obligatorias), las directrices son recomendaciones del GPS: puedes ignorarlas, pero seguirlas suele ser la mejor opción.
+
+> **👉 Enfoque de Examen SY0-701:** Pregunta típica: *"Un documento recomienda prácticas de seguridad pero permite que los equipos adapten su implementación. ¿Qué tipo de documento es?"* → **Directriz**. El distractor es "procedimiento" (que es obligatorio y detallado). Recuerda: **directriz = flexible = no obligatoria**.
+
+### 14.1.2 — Procedimientos
+
+Los procedimientos definen **instrucciones paso a paso y listas de verificación** para garantizar que una tarea se lleva a cabo en conformidad con la política.
+
+#### Administración de Personal (IAM — Identity and Access Management)
+
+La **IAM** *(Gestión de Identidades y Accesos)* implica tanto procedimientos técnicos de TI/seguridad como políticas de **RRHH** *(Recursos Humanos)*. Se aplica en tres fases:
+
+```
+RECLUTAMIENTO → OPERACIÓN → CESE/SEPARACIÓN
+(Contratación)   (Trabajo)   (Despido/Jubilación)
+```
+
+##### Fase 1: Reclutamiento (Contratación)
+
+- Filtrar candidatos
+- **Comprobaciones de antecedentes** (background checks):
+  - Verifican identidad, historial delictivo, quiebras, conexiones de riesgo
+  - Obligatorias para trabajos federales que requieren **autorización de seguridad**
+  - Pueden ser internas o realizadas por **terceros externos**
+  - Mayor supervisión para empleados con acceso a información altamente confidencial o transacciones de alto valor
+
+##### Fase 2: Operación (Trabajo) — Incorporación (Onboarding)
+
+Tareas clave de incorporación:
+
+| Tarea | Descripción |
+|---|---|
+| **Transmisión segura de credenciales** | Crear y enviar contraseña inicial o tarjeta inteligente de forma segura. Las cuentas con contraseñas simples/predeterminadas son puertas traseras explotables |
+| **Asignación de activos** | Suministrar computadoras/dispositivos móviles o gestionar **BYOD** *(Bring Your Own Device — Trae Tu Propio Dispositivo)* |
+| **Capacitación/Políticas** | Programar capacitación y certificación de concienciación en seguridad |
+
+⚠️ **Riesgo crítico:** Crear una cuenta de TI para un empleado que nunca fue contratado → vulnerabilidad de configuración accidental.
+
+**Automatización IAM en onboarding:**
+- Creación y configuración automatizada de cuentas
+- Asignación de privilegios según funciones y políticas
+- Integración con sistemas de RRHH para sincronización de datos
+- Reduce esfuerzo manual + garantiza coherencia + mejora seguridad
+
+> **Analogía:** El onboarding de seguridad es como dar las llaves de una casa nueva: hay que asegurarse de que solo el nuevo inquilino tenga acceso, que las cerraduras anteriores se hayan cambiado y que sepa las reglas de la casa.
+
+##### Fase 3: Cese/Separación — Desvinculación (Offboarding)
+
+Procesos de seguridad obligatorios al desvincularse:
+
+| Proceso | Detalle |
+|---|---|
+| **Administración de cuentas** | Desactivar cuenta y privilegios. Garantizar acceso a activos de información propiedad de la empresa (claves de cifrado, archivos protegidos) |
+| **Activos de la empresa** | Recuperar dispositivos móviles, llaves, tarjetas inteligentes, soportes USB |
+| **Activos personales** | Borrar datos/aplicaciones corporativas de dispositivos del empleado |
+
+⚠️ **Casos especiales:** Empleados con conocimiento de sistemas/procedimientos de seguridad o acceso a **credenciales compartidas/genéricas** → cambiar credenciales **inmediatamente**.
+
+#### Manuales de Estrategias (Playbooks)
+
+**Funciones clave de los Playbooks:**
+- **Repositorio central** de estrategias y tácticas estandarizadas
+- Garantizan **coherencia** en operaciones
+- Facilitan **intercambio de conocimientos** y continuidad
+- **Mitigan el riesgo** al documentar procedimientos críticos
+- Herramienta para **mejora continua** (supervisar uso y eficacia)
+- **Críticos en respuesta a incidentes:** detallan procedimientos de emergencia y planes de contingencia
+
+**Marcos de referencia para elaborar Playbooks:**
+- **MITRE ATT&CK** → `https://attack.mitre.org`
+- **NIST SP 800-61** *(Special Publication — Publicación Especial)* Rev. 2 → guía de manejo de incidentes
+
+> **Analogía:** Un playbook es como el manual de jugadas de un equipo de fútbol: cada situación tiene una respuesta predefinida, entrenada y coordinada, para que en el momento de presión no se improvise.
+
+#### Administración de Cambios (en contexto de procedimientos)
+
+Consideraciones clave para implementar cambios:
+- **Planificación cuidadosa** considerando componentes dependientes
+- **Implementación de prueba** antes de cambios significativos
+- **Plan de restauración/remediación** (rollback) obligatorio
+- Programar en **ventanas de mantenimiento** para minimizar tiempo de inactividad
+- **Evaluar, revisar y documentar** el impacto post-implementación
+
+> **👉 Enfoque de Examen SY0-701:** En escenarios de onboarding/offboarding, CompTIA suele preguntar qué acción de seguridad es MÁS IMPORTANTE o debe realizarse PRIMERO/INMEDIATAMENTE. Para offboarding: **desactivar la cuenta** es siempre la prioridad #1. Para empleados con acceso privilegiado: **cambiar credenciales compartidas inmediatamente**. El distractor típico es elegir "realizar entrevista de salida" como acción de seguridad prioritaria.
+
+### 14.1.3 — Estándares
+
+Los **estándares** definen el **resultado esperado** de una tarea (ej: estado de configuración específico de un servidor, línea base de desempeño de un servicio).
+
+> **Analogía:** Si las políticas dicen "los edificios deben ser seguros", los estándares son el **código de construcción**: especifican exactamente qué materiales usar, qué cargas soportar y qué normas técnicas cumplir.
+
+#### Factores que Impulsan la Adopción de Estándares
+
+| Factor | Descripción |
+|---|---|
+| **Requisitos regulatorios** | Principal impulsor. Diferentes industrias tienen diferentes requisitos (ej: HIPAA en salud de EE.UU.) |
+| **Necesidades específicas del negocio** | Dependencias tecnológicas y base de clientes (ej: PCI DSS para transacciones con tarjeta) |
+| **Estrategias de gestión de riesgos** | Los estándares ayudan a identificar, evaluar y gestionar riesgos (ej: ISO/IEC 27001 para SGSI) |
+| **Mejores prácticas de la industria** | Demuestran compromiso con altos niveles de seguridad |
+| **Expectativas de partes interesadas** | Clientes, socios, inversores, juntas ejecutivas |
+
+⚠️ **La elección de estándares es una decisión ESTRATÉGICA, no de procedimiento.**
+
+#### Estándares de la Industria (Internacionales/Nacionales)
+
+| Estándar | Organismo | Enfoque Principal |
+|---|---|---|
+| **ISO/IEC 27001** | ISO | Marco para **SGSI** *(Sistema de Gestión de Seguridad de la Información)* — controles de seguridad adecuados y proporcionados |
+| **ISO/IEC 27002** | ISO | Guía detallada de controles específicos para un SGSI (complementa ISO 27001) |
+| **ISO/IEC 27017** | ISO | Extensión de ISO 27001 para **servicios en la nube** |
+| **ISO/IEC 27018** | ISO | Extensión de ISO 27001 para proteger **PII** *(Personally Identifiable Information — Información de Identificación Personal)* en nubes públicas |
+| **NIST SP 800-63** | NIST *(National Institute of Standards and Technology)* | Pautas de **identidad digital**, requisitos de contraseña y control de acceso |
+| **PCI DSS** | PCI SSC | Organizaciones que manejan tarjetas de crédito. Protección del **CDE** *(Cardholder Data Environment — Entorno de Datos de Titulares de Tarjetas)* |
+| **FIPS** *(Federal Information Processing Standards)* | NIST | Estándares para sistemas informáticos federales de EE.UU. — requisitos de **criptografía** |
+
+#### Estándares Internos
+
+**Diferencia clave:**
+- **Políticas** → se centran en **prácticas empresariales**
+- **Estándares** → se centran en la **implementación técnica**
+
+##### Estándares de Contraseñas
+
+| Elemento | Descripción |
+|---|---|
+| **Algoritmos de hashing** | Requisitos para funciones hash en almacenamiento de contraseñas |
+| **Salting de contraseñas** | Métodos para proteger hashes de **ataques de tabla arcoíris** *(rainbow table attacks)* |
+| **Transmisión segura** | Métodos y suites de cifrado para transmitir contraseñas |
+| **Restablecimiento de contraseña** | Métodos de verificación de identidad para proteger solicitudes de reset |
+| **Administradores de contraseñas** | Requisitos para gestores de contraseñas corporativos |
+
+##### Estándares de Control de Acceso
+
+| Elemento | Descripción |
+|---|---|
+| **Modelos de control de acceso** | **RBAC** *(Role-Based Access Control)*, **DAC** *(Discretionary Access Control)*, **MAC** *(Mandatory Access Control)* |
+| **Verificación de identidad** | Contraseñas, tokens, biometría |
+| **Administración de privilegios** | Garantizar acceso mínimo requerido (mínimo privilegio) |
+| **Protocolos de autenticación** | `Kerberos`, `OAuth`, `SAML` |
+| **Administración de sesiones** | Tiempos de espera, cookies de sesión seguras |
+| **Registros de auditoría** | Capacidades de auditoría para identificar/investigar incidentes |
+
+##### Estándares de Seguridad Física
+
+| Elemento | Descripción |
+|---|---|
+| **Seguridad del edificio** | Sistemas de acceso con tarjeta, **CCTV** *(Closed-Circuit Television)*, personal de seguridad |
+| **Seguridad de estaciones de trabajo** | Seguridad física de laptops y dispositivos portátiles |
+| **Seguridad de centros de datos** | Acceso con tarjeta, escáneres biométricos, registros de acceso, acceso acompañado |
+| **Enajenación de equipos** | Eliminación/reutilización segura para garantizar que datos sean irrecuperables |
+| **Gestión de visitantes** | Procedimientos de registro, credenciales, acceso acompañado |
+
+##### Estándares de Cifrado
+
+| Elemento | Descripción |
+|---|---|
+| **Algoritmos de cifrado** | **AES** *(Advanced Encryption Standard)* para cifrado simétrico; **ECC** *(Elliptic Curve Cryptography)* para asimétrico |
+| **Longitud de clave** | Longitudes mínimas permitidas por tipo de cifrado |
+| **Gestión de claves** | Generación, distribución, almacenamiento, rotación y revocación de claves |
+
+> **👉 Enfoque de Examen SY0-701:** CompTIA distingue entre estándares INTERNOS e INDUSTRIA. Saber qué estándar aplica a qué industria es crítico:
+> - **Salud (EE.UU.)** → HIPAA
+> - **Tarjetas de pago** → PCI DSS
+> - **Nube** → ISO/IEC 27017
+> - **PII en nube pública** → ISO/IEC 27018
+> - **Gobierno federal EE.UU. / Criptografía** → FIPS
+> - **SGSI genérico** → ISO/IEC 27001
+> Distractor común: confundir ISO 27001 (marco SGSI) con ISO 27002 (guía de controles específicos).
+
+### 14.1.4 — Entorno Legal
+
+> **Analogía:** Los comités de gobernanza son como el departamento legal de una empresa: no hacen el trabajo operativo, pero deben asegurarse de que todo lo que se hace cumple con la ley en cada país donde opera la organización.
+
+#### Responsabilidades Legales de los Comités de Gobernanza
+
+Los comités deben gestionar:
+- Requisitos de **cumplimiento regulatorio**
+- **Obligaciones contractuales**
+- Leyes de **divulgación pública**
+- **Responsabilidad por incumplimiento**
+- Leyes de **privacidad**
+- Protección de la **propiedad intelectual**
+- **Acuerdos de licencia**
+
+**Diligencia debida** = término legal que significa que las personas responsables **no fueron negligentes**. La negligencia puede crear **responsabilidades penales y civiles**.
+
+#### 🇺🇸 Leyes Clave de EE.UU.
+
+| Ley | Sigla | Descripción |
+|---|---|---|
+| **Ley Sarbanes-Oxley** | **SOX** | Exige evaluaciones de riesgos, controles internos y procedimientos de auditoría |
+| **Ley de Seguridad Informática** | — *(1987)* | Agencias federales deben desarrollar políticas de seguridad para sistemas con información confidencial |
+| **Ley Federal de Gestión de Seguridad de la Información** | **FISMA** *(Federal Information Security Management Act — 2002)* | Rige la seguridad de datos en agencias del gobierno federal |
+| **Ley de Portabilidad y Responsabilidad de Seguros Médicos** | **HIPAA** *(Health Insurance Portability and Accountability Act)* | Sector salud: protección de datos de pacientes |
+| **Ley Gramm-Leach-Bliley** | **GLBA** *(Gramm-Leach-Bliley Act)* | Servicios financieros: protección de información de clientes |
+
+#### Derecho Global
+
+| Regulación | Jurisdicción | Enfoque |
+|---|---|---|
+| **RGPD** *(Reglamento General de Protección de Datos)* / **GDPR** *(General Data Protection Regulation)* | Unión Europea | Protección de datos personales, derecho al olvido, consentimiento informado |
+| **CCPA** *(California Consumer Privacy Act — Ley de Privacidad del Consumidor de California)* | California, EE.UU. | Derechos de residentes a saber, acceder, eliminar e impedir venta de sus datos |
+
+##### RGPD — Principios Clave
+
+- Datos personales **no pueden** recopilarse sin **consentimiento informado**
+- El propósito debe explicarse en **lenguaje sencillo** (no jerga legal)
+- Las personas tienen derecho a **retirar consentimiento, inspeccionar, modificar o borrar** sus datos
+- Incumplimiento → **multas elevadísimas**
+
+##### CCPA — Aplicabilidad
+
+Se aplica a cualquier organización que:
+- Proporcione bienes/servicios a residentes de California, **Y** cumpla al menos uno de:
+  - Ingresos brutos anuales **> $25 millones**
+  - Compre/venda información personal de **≥ 50,000** consumidores, hogares o dispositivos
+  - Obtenga **≥ 50%** de ingresos anuales de la venta de información personal
+
+#### Leyes por País
+
+| País/Región | Ley Principal |
+|---|---|
+| EE.UU. | HIPAA, GLBA, FISMA, SOX |
+| Reino Unido | Ley de Protección de Datos 2018, **NIS** *(Network and Information Systems — Reglamento de Seguridad de Redes y SI)* 2018 |
+| Canadá | **PIPEDA** *(Personal Information Protection and Electronic Documents Act — Ley de Protección de Información Personal y Documentos Electrónicos)* |
+| India | Ley de Tecnologías de la Información 2000 |
+| Australia | Ley de Privacidad 1988 |
+
+#### Regulaciones Locales/Regionales (EE.UU.)
+
+| Regulación | Ámbito |
+|---|---|
+| **DFS Parte 500** *(New York Department of Financial Services Cybersecurity Regulation)* | Nueva York — servicios financieros |
+| **201 CMR 17.00** | Massachusetts — protección de información personal |
+
+#### Regulaciones por Industria
+
+| Industria | Regulación | Jurisdicción |
+|---|---|---|
+| **Salud** | HIPAA | EE.UU. |
+| **Salud** | RGPD | UE |
+| **Servicios Financieros** | GLBA | EE.UU. |
+| **Servicios Financieros** | PCI DSS | Obligación contractual (global) |
+| **Telecomunicaciones** | **CALEA** *(Communications Assistance for Law Enforcement Act)* | EE.UU. |
+| **Energía** | **NERC** *(North American Electric Reliability Corporation)* | EE.UU., Canadá, Baja California Norte (MX) |
+| **Educación infantil** | **FERPA** *(Family Educational Rights and Privacy Act)* | EE.UU. |
+| **Educación infantil** | **CIPA** *(Children's Internet Protection Act)* | EE.UU. |
+| **Educación infantil** | **COPPA** *(Children's Online Privacy Protection Act)* | EE.UU. |
+| **Gobierno** | FISMA | EE.UU. |
+| **Gobierno** | **CJIS** *(Criminal Justice Information Services — Política de Seguridad de Servicios de Información de Justicia Criminal)* | EE.UU. |
+| **Gobierno** | **GSC** *(Government Security Classifications — Clasificaciones de Seguridad del Gobierno)* | Reino Unido |
+
+#### Regulaciones de Ciberseguridad Clave
+
+- `RGPD / GDPR`
+- `CCPA`
+- `HIPAA`
+- `FISMA`
+- **NIS** *(Network and Information Systems Directive — Directiva de Seguridad de Redes y Sistemas de Información)*
+- **CMMC** *(Cybersecurity Maturity Model Certification — Certificación del Modelo de Madurez de Ciberseguridad)*
+
+> **👉 Enfoque de Examen SY0-701:** Esta sección es MUY prolífica en preguntas. Estrategia:
+> 1. **Salud + EE.UU.** → siempre HIPAA
+> 2. **Tarjetas de pago** → siempre PCI DSS
+> 3. **Datos personales en Europa** → siempre RGPD/GDPR
+> 4. **Gobierno federal EE.UU.** → siempre FISMA
+> 5. **Niños en internet** → COPPA (privacidad), CIPA (protección internet), FERPA (educación)
+> Distractor clásico: mezclar GLBA (financiero) con HIPAA (salud). También confundir FISMA (gobierno federal) con SOX (empresas cotizadas).
+
+### 14.1.5 — Gobernanza y Responsabilidad
+
+#### Monitoreo y Revisión
+
+El panorama de ciberseguridad **evoluciona continuamente**. Las organizaciones deben:
+- **Supervisar, evaluar y actualizar** políticas, procedimientos y estándares periódicamente
+- Realizar **auditorías, inspecciones y evaluaciones** regulares
+- Impulsar revisiones por: informes de cumplimiento, cambios tecnológicos, nuevas leyes o riesgos
+- Realizar **sesiones de capacitación** periódicas para informar cambios
+
+#### Juntas de Gobernanza (Governance Boards)
+
+> **Analogía:** La junta de gobernanza es como el consejo de administración de una empresa: establece la dirección estratégica, pero necesita de comités especializados para tomar decisiones técnicas informadas.
+
+**Responsabilidades de las Governance Boards:**
+- Establecer **objetivos estratégicos, políticas y pautas** de seguridad
+- Supervisar la implementación de **controles de seguridad**
+- Colaborar con equipos de **gestión de riesgos**
+- Evaluar la eficacia del **programa de seguridad**
+- Reunir a **dirección ejecutiva, profesionales de seguridad y partes interesadas**
+- Garantizar que la seguridad sea **prioridad estratégica máxima**
+
+#### Centralizado vs. Descentralizado vs. Híbrido
+
+| Modelo | Toma de Decisiones | Asignación de Recursos | Ventaja Principal |
+|---|---|---|---|
+| **Centralizado** | Un único grupo/departamento | Controlada centralmente | Consistencia y estandarización |
+| **Descentralizado** | Distribuida entre varios grupos | Controlada localmente | Adaptabilidad y personalización |
+| **Híbrido** | Mix centralizado + descentralizado | Mix | Equilibrio entre supervisión y flexibilidad local |
+
+#### Juntas vs. Comités
+
+| Aspecto | Governance Board (Junta) | Governance Committee (Comité) |
+|---|---|---|
+| **Composición** | Ejecutivos de alto nivel + partes interesadas externas | Expertos en la materia + líderes operativos |
+| **Autoridad** | Máxima autoridad de decisión | Análisis y recomendaciones |
+| **Enfoque** | Dirección estratégica y políticas | Aspectos específicos (seguridad, auditoría, cumplimiento) |
+| **Función** | Decidir | Asesorar y proporcionar información |
+
+#### Entidades y Grupos Gubernamentales
+
+| Tipo de Organismo | Función |
+|---|---|
+| **Agencias reguladoras** | Establecen y aplican normas/regulaciones. Supervisan cumplimiento por sectores |
+| **Agencias de inteligencia** | Recopilan y analizan información sobre amenazas. Informan política nacional y estrategia militar |
+| **Fuerzas de seguridad** | Aplican leyes. Investigan ciberdelitos y actividades terroristas |
+| **Organizaciones militares y de defensa** | Salvaguardan seguridad nacional. Gestionan ciberseguridad de defensa |
+| **Autoridades de protección de datos** | Protegen datos personales y privacidad. Aplican normativa de protección de datos |
+| **Agencias nacionales de ciberseguridad** | Protegen infraestructura crítica y redes gubernamentales |
+
+#### Funciones de Gobernanza de Datos
+
+> **Analogía:** Piensa en datos valiosos como una obra de arte en un museo:
+> - **Propietario** = el millonario que la posee
+> - **Responsable** = el director del museo que decide cómo exhibirla
+> - **Encargado** = la empresa de transporte que la mueve
+> - **Custodio** = el personal de seguridad del museo que la protege día a día
+
+| Rol | Perfil Típico | Responsabilidad Principal | Relación con Gobernanza |
+|---|---|---|---|
+| **Propietario** *(Owner)* | Directivo de alto rango (director, VP) | Garantiza protección adecuada. Define clasificación, acceso y nivel de seguridad | Orientación estratégica — alinea políticas con objetivos empresariales |
+| **Responsable** *(Controller)* | Individuo, autoridad pública, agencia | Identifica fines, condiciones y medios para tratamiento de datos personales (relacionado con RGPD) | Mantiene cumplimiento legal y normativo |
+| **Encargado** *(Processor)* | CSP *(Cloud Service Provider)*, proveedores, socios comerciales | Procesa datos personales en nombre del Responsable. Mantiene registros, aplica medidas de seguridad | Maneja datos de forma segura según reglas del Propietario y Responsable |
+| **Custodio** *(Custodian/Steward)* | Departamento de TI | Custodia segura, transporte, almacenamiento e implementación de reglas de negocio | Implementa controles de seguridad. Reporta incidentes |
+
+⚠️ **La coordinación entre los cuatro roles es fundamental** para gestionar y proteger información de manera efectiva.
+
+> **👉 Enfoque de Examen SY0-701:** CompTIA suele presentar escenarios donde hay que identificar qué rol tiene qué responsabilidad. Clave:
+> - ¿Quién DECIDE el nivel de clasificación? → **Propietario**
+> - ¿Quién PROCESA datos por contrato? → **Encargado** (típicamente un CSP)
+> - ¿Quién IMPLEMENTA los controles técnicos? → **Custodio** (TI)
+> - ¿Quién cumple con el RGPD como entidad legal? → **Responsable**
+> Distractor común: confundir Encargado (processor externo) con Custodio (TI interno).
+
+## 14.2 — Administración de Cambios
+
+La **administración de cambios** es un **enfoque sistemático** para gestionar TODOS los cambios en una infraestructura de TI.
+
+**Objetivos principales:**
+- **Minimizar el riesgo** y la interrupción
+- **Maximizar el valor y la eficiencia** de los cambios
+
+**Elementos clave:**
+- Planificación, pruebas, aprobación e implementación efectivas
+- Considerar **impactos y dependencias** de todos los cambios
+- Desarrollar **planes de contingencia y reversión** (rollback)
+- **Documentación y comunicación** adecuadas a todas las partes interesadas
+
+> **Analogía:** La administración de cambios es como hacer una renovación en un edificio en funcionamiento: necesitas permisos, planos, plan de evacuación si algo sale mal, y programar el ruido para no molestar a los inquilinos en horario laboral.
+
+### 14.2.1 — Programas de Gestión de Cambios
+
+#### Tipos de Cambios Gestionados
+
+- Implementaciones de software
+- Actualizaciones del sistema
+- Aplicación de actualizaciones de software (parches)
+- Reemplazos o actualizaciones de hardware
+- Modificaciones de la red
+- Cambios en configuraciones del sistema
+- Implementaciones de nuevos productos
+- Nuevas integraciones de software
+- Cambios en entornos de soporte
+
+#### Requisitos de Cada Cambio
+
+Cada cambio debe incluir:
+1. **Documentación** (qué cambia, razones, impactos potenciales)
+2. **Plan de reversión** (rollback) si hay consecuencias imprevistas
+3. **Evaluación de riesgos** para identificar impactos en seguridad
+4. **Aprobación** del personal adecuado antes de implementar
+5. **Revisión y auditoría** post-implementación
+
+#### Proceso Estándar de Aprobación
+
+```
+RFC (Solicitud de Cambio)
+    ↓
+Revisión por gestor/administrador de cambios o CAB
+    ↓
+Evaluación: viabilidad, riesgos, alineación con objetivos, cumplimiento de políticas
+    ↓
+Aprobación formal (partes interesadas: gerencia, TI, departamentos involucrados)
+    ↓
+Documentación y comunicación continua
+    ↓
+Implementación
+    ↓
+Revisión y auditoría post-cambio
+```
+
+**RFC** *(Request for Change — Solicitud de Cambio):* documento que describe propósito, alcance e impacto potencial del cambio propuesto.
+
+**CAB** *(Change Advisory Board — Comité Asesor de Cambios):* equipo que evalúa y recomienda sobre solicitudes de cambio.
+
+#### Factores que Impulsan la Gestión de Cambios
+
+**Partes interesadas (Stakeholders):**
+- Toda persona con interés directo en el cambio
+- Incluye: empleados, gerentes, CAB, clientes, proveedores, socios
+- Su participación: identifica riesgos no evidentes, define planes de implementación efectivos, fomenta **aceptación y adopción**
+
+**Propiedad en gestión de cambios:**
+- Individuos o grupos **principales responsables** de implementar un cambio específico
+- Pueden ser: gerentes de proyectos, líderes de equipo
+- Garantizan implementación según lo planificado, gestión de riesgos y comunicación/capacitación
+
+#### Conceptos Clave de Administración de Cambios
+
+| Concepto | Descripción |
+|---|---|
+| **Análisis del impacto** | Identificar y evaluar posibles implicaciones del cambio en usuarios, procesos comerciales y sistemas interconectados |
+| **Resultados de la prueba** | Evaluar cambios en entorno de prueba ANTES de implementar. Identifica problemas sin afectar operaciones |
+| **Planes de retroceso** *(Rollback Plans)* | Plan de contingencia para revertir cambios y devolver sistemas a estado original si falla la implementación |
+| **Períodos de mantenimiento** | Marco de tiempo predefinido y recurrente para implementar cambios. Se programan en períodos de POCA actividad |
+| **Procedimientos Operativos Estándar** | **SOP** *(Standard Operating Procedures)* — instrucciones detalladas por escrito. Se desarrollan durante fases de prueba. Garantizan implementación consistente |
+
+> **👉 Enfoque de Examen SY0-701:** Preguntas típicas sobre gestión de cambios suelen incluir escenarios donde hay que identificar qué paso faltó o causó un problema. Clave:
+> - Sin **plan de rollback** → riesgo de interrupción prolongada
+> - Sin **evaluación de impacto** → cambios con efectos inesperados en sistemas dependientes
+> - Sin **período de mantenimiento** → interrupción en horario laboral
+> - Sin **documentación RFC** → falta de trazabilidad y responsabilidad
+> El CAB es un distractor frecuente: no aprueba unilateralmente, **recomienda** — la aprobación final es de las partes interesadas correspondientes.
+
+### 14.2.2 — Cambios Permitidos y Bloqueados
+
+> **Analogía:** La lista de permitidos es como la lista VIP de un club: entras sin hacer fila. La lista de denegados es el cartel de "Prohibida la entrada": no hay negociación.
+
+#### Lista de Permitidos (Allow List / Whitelist)
+
+En gestión de cambios, incluye:
+- **Software, hardware y tipos de cambios** específicos aprobados (rutinarios o de bajo riesgo) que **no requieren pasar por todo el proceso**
+- **Individuos** con autoridad de aprobación de gestión de cambios
+- **Beneficio:** optimiza el proceso reduciendo tiempo y esfuerzo para cambios de confianza
+
+#### Lista de Denegados (Deny List / Blocklist / Blacklist)
+
+Incluye:
+- Software/hardware con **problemas de seguridad o compatibilidad conocidos**
+- Cambios de **alto riesgo o alto impacto** que SIEMPRE deben pasar por el proceso completo
+- **Personas no autorizadas** para implementar o aprobar cambios
+- **Beneficio:** evita cambios no autorizados o riesgosos. Elimina margen de negociación o interpretación errónea
+  
+#### Impacto Técnico de las Listas en la Gestión de Cambios
+
+**Problema crítico con listas de permitidos basadas en hash:**
+- Si las listas de permitidos se basan en **valores hash** de archivos ejecutables...
+- Tras aplicar un **parche de software**, los ejecutables cambian → sus hashes cambian
+- El sistema NO reconocerá los ejecutables parcheados como permitidos
+- **Resultado:** sistemas completamente parcheados pero **inutilizables** para los empleados
+
+```
+Ejecutable original → Hash: a1b2c3 → En lista de permitidos ✅
+Ejecutable parcheado → Hash: x9y8z7 → NO en lista → BLOQUEADO ❌
+```
+
+⚠️ **Es fundamental incorporar el impacto de las listas en el plan de pruebas antes de aplicar cambios.**
+
+#### Actividades Restringidas
+
+Acciones o cambios que requieren:
+- Inspección adicional
+- Controles más rigurosos
+- Niveles más altos de aprobación
+
+Debido a su posible impacto en: sistemas críticos, datos sensibles o cumplimiento normativo.
+
+> **👉 Enfoque de Examen SY0-701:** El escenario del hash es un favorito de CompTIA. Si la pregunta menciona que después de aplicar parches los usuarios no pueden ejecutar aplicaciones, la causa probable es la **lista de permitidos basada en valores hash** que no fue actualizada. La solución: actualizar la lista de permitidos con los nuevos hashes post-parche.
+
+### 14.2.3 — Reinicios, Dependencias y Tiempo de Inactividad
+
+#### Impacto de los Reinicios
+
+Los reinicios de servicios/aplicaciones tienen **impacto directo en las operaciones comerciales**. Objetivo de la gestión de cambios: **minimizar interrupciones** programando en períodos de mantenimiento o menor actividad.
+
+#### Dependencias
+
+- Los servicios dependen de otros software, interfaces y servicios
+- Reiniciar un servicio puede afectar **significativamente** otros servicios dependientes
+- Un cambio aparentemente menor puede afectar **una amplia gama de operaciones**
+- Las dependencias también afectan el **tiempo necesario** para el cambio y los **planes de rollback**
+
+**Acción requerida:** análisis minucioso de dependencias antes de implementar cualquier cambio.
+
+> **Analogía:** Las dependencias son como el efecto dominó: reiniciar un servidor de base de datos puede tumbar todas las aplicaciones que dependen de él, igual que quitar una ficha de dominó puede tumbar toda la cadena.
+
+#### Tipos de Tiempo de Inactividad
+
+| Tipo | Descripción |
+|---|---|
+| **Tiempo de inactividad programado** | Tiempo planificado para implementar cambios (dentro de ventana de mantenimiento) |
+| **Tiempo de inactividad no programado** | Tiempo inesperado en que un servicio/aplicación está fuera de servicio |
+
+#### Cambios que Suelen Requerir Reinicio
+
+| Tipo de Cambio | Descripción |
+|---|---|
+| **Actualizaciones y parches de software** | Especialmente versiones mayores o parches importantes |
+| **Cambios en la configuración** | Ajustes en servidor, configuraciones de red, parámetros de BD |
+| **Cambios en la infraestructura** | Switches, enrutadores, cortafuegos, balanceadores de carga |
+| **Cambios de seguridad** | Actualizar protocolos de cifrado, activar/desactivar funciones de seguridad, modificar configuraciones de control de acceso |
+
+#### Aplicaciones y Sistemas Heredados (Legacy Systems)
+
+**Desafíos únicos:**
+| Desafío | Descripción |
+|---|---|
+| **Tecnología obsoleta** | Problemas de compatibilidad con actualizaciones modernas |
+| **Soluciones especializadas** | Virtualización, emulación, intérpretes, software "fit-gap" personalizado |
+| **Documentación incompleta** | Años o décadas de personalizaciones no documentadas |
+| **Sin soporte del proveedor** | Imposibilidad de solicitar ayuda oficial |
+| **Alta complejidad** | Requiere pruebas exhaustivas y planes meticulosos |
+| **Criticidad del negocio** | Son frecuentemente críticos para las operaciones |
+
+⚠️ **La combinación de: sin soporte + alta complejidad + documentación incompleta + criticidad de negocio = problema de seguridad significativo.**
+
+> **Analogía:** Gestionar cambios en sistemas heredados es como reformar una casa antigua sin planos: puedes derribar una pared que resultó ser estructural y tumbar todo el edificio.
+
+> **👉 Enfoque de Examen SY0-701:** En preguntas sobre sistemas heredados, la respuesta correcta siempre reconoce que son DIFÍCILES de gestionar y RIESGOSOS, no que deban reemplazarse inmediatamente (eso puede no ser posible). Las opciones de mitigación incluyen: aislamiento de red, controles compensatorios y monitoreo adicional.
+
+### 14.2.4 — Documentación y Control de Versiones
+
+#### Control de Versiones
+
+**Control de versiones** = seguimiento y control de cambios en documentos, código u otros datos importantes.
+
+**Beneficios:**
+- Mantener **registro histórico** de cambios
+- Garantizar que solo se implementen **modificaciones aprobadas**
+- **Revertir** rápidamente a versión anterior cuando sea necesario
+- Evitar confusión con documentos **desactualizados o inconsistentes**
+- Aplica también a: **diagramas, políticas y procedimientos**
+
+> **Analogía:** El control de versiones en documentos es como el historial de ediciones de un documento de Google Docs: puedes ver quién cambió qué, cuándo, y volver a cualquier versión anterior si algo salió mal.
+
+#### Documentación Afectada por la Administración de Cambios
+
+| Elemento | Descripción |
+|---|---|
+| **Solicitudes de cambio** *(RFC)* | Revisar y actualizar para reflejar detalles, estado y modificaciones del cambio |
+| **Políticas y procedimientos** | Revisar y actualizar para alinear con nuevos procesos, directrices o controles |
+| **Documentación del proceso/sistema** | Arquitectura, diagramas, flujos de procesos, SOP, manuales de usuario |
+| **Documentación de administración de configuración** | Elementos de configuración (servidores, redes, BD) en el sistema de gestión de configuración |
+| **Materiales de capacitación** | Presentaciones, manuales, módulos de e-learning |
+| **Planes de recuperación y respuesta a incidentes** | Actualizar para reflejar nuevas configuraciones, dependencias o procedimientos de recuperación |
+
+**Proceso de actualización:**
+1. Evaluar cómo el cambio afecta documentos existentes
+2. Actualizar como parte de la **implementación del cambio**
+3. Etiquetar claramente **nuevas versiones**
+4. **Archivar** versiones anteriores (mantenerlas disponibles para referencia)
+5. Capacitar a equipos sobre cambios significativos
+
+> 💡 **Las políticas y procedimientos deben cambiar con la misma frecuencia que la tecnología.**
+
+> **👉 Enfoque de Examen SY0-701:** CompTIA puede preguntar cuál documento debe actualizarse tras un cambio específico. Recuerda: todos los documentos listados en la tabla anterior son candidatos válidos. Si la pregunta menciona un **cambio en la arquitectura de red**, la respuesta correcta incluirá actualizar los **diagramas de red** y la **documentación de administración de configuración**. El distractor típico es olvidar actualizar los **planes de respuesta a incidentes** cuando cambia la infraestructura.
+
+## 14.3 — Automatización y Orquestación
+
+| Concepto | Definición | Enfoque |
+|---|---|---|
+| **Automatización** | Software que realiza tareas repetitivas basadas en reglas | Tareas individuales: monitoreo de amenazas, aplicación de parches, respuesta a incidentes |
+| **Orquestación** | Coordina y agiliza las interacciones entre procesos y sistemas automatizados | Flujos de trabajo integrados y continuos en entornos complejos con múltiples herramientas |
+
+**Beneficio adicional:** Ambas proporcionan **registros de auditoría claros** que respaldan el cumplimiento normativo y la investigación de incidentes.
+
+> **Analogía:**
+> - **Automatización** = un robot que realiza una tarea específica sin intervención humana (como una máquina de café que hace café solo)
+> - **Orquestación** = el director de orquesta que coordina a todos los robots para que trabajen juntos en armonía y en el orden correcto
+
+### 14.3.1 — Automatización y Scripting
+
+#### Doble Rol de la Automatización
+
+| Área | Beneficio |
+|---|---|
+| **Gobernanza de la seguridad** | Implementa políticas de seguridad de forma consistente. Supervisa y genera informes para equipos de liderazgo |
+| **Administración de cambios** | Reduce riesgo de errores humanos. Reduce tiempo de implementación. Proporciona registros de auditoría claros |
+
+#### Funciones Clave de Automatización y Scripting
+
+| Función | Descripción |
+|---|---|
+| **Aprovisionamiento** *(Provisioning)* | Automatiza creación/modificación/eliminación de cuentas de usuarios y asignación de recursos de TI (servidores, almacenamiento, redes). Implementación consistente y mejora del cumplimiento normativo |
+| **Barandillas y grupos de seguridad** *(Security Guardrails)* | Barandillas automatizadas aplican y supervisan políticas. Grupos de seguridad gestionados automáticamente → reduce permisos excesivos o acceso no autorizado |
+| **Emisión de tickets** *(Ticketing)* | Detecta incidentes y genera tickets automáticamente. Dirige según criterios predefinidos. Escalamiento automatizado para problemas críticos (alta severidad, ejecutivos, violaciones de SLA) |
+| **Administración de servicios** | Automatiza: activar/desactivar servicios, modificar derechos de acceso, mantener ciclo de vida de recursos TI. Libera analistas para tareas estratégicas |
+| **Integración continua y pruebas** *(CI — Continuous Integration)* | Desarrolladores integran cambios periódicamente → pruebas automáticas detectan/corrigen problemas. Mejora calidad del código y acelera ciclos de desarrollo |
+| **API** *(Application Programming Interface — Interfaz de Programación de Aplicaciones)* | Permite que sistemas de software se comuniquen e interactúen. La automatización orquesta estas interacciones → plataformas **SOAR** *(Security Orchestration, Automation and Response — Orquestación, Automatización y Respuesta de Seguridad)* |
+
+**SLA** *(Service Level Agreement — Acuerdo de Nivel de Servicio):* contrato que define el nivel de servicio esperado.
+
+> **👉 Enfoque de Examen SY0-701:** Las preguntas sobre automatización suelen centrarse en beneficios específicos. SOAR es un concepto clave: combina orquestación + automatización + respuesta para gestionar incidentes de forma coordinada. Si la pregunta menciona "reducir trabajo manual en respuesta a incidentes coordinando múltiples herramientas" → la respuesta es **SOAR**.
+
+### 14.3.2 — Implementación de Automatización y Orquestación
+
+#### Beneficios en Operaciones de Seguridad
+
+**Eficiencia:**
+- Tareas repetitivas realizadas rápida y consistentemente
+- Reduce la carga de los equipos de seguridad
+- Minimiza la probabilidad de errores humanos
+- A veces denominado: **"multiplicador de la fuerza laboral"**
+
+#### Fatiga del Operador (Operator Fatigue)
+
+**Definición:** Agotamiento mental que experimentan los profesionales de ciberseguridad por:
+- Monitorear múltiples sistemas constantemente
+- Administrar grandes volúmenes de alertas (incluyendo **falsos positivos**)
+- Responder a amenazas confirmadas lo más rápido posible
+- Jornadas extensas + ansiedad + estrés elevado
+
+**Consecuencias:**
+- Disminución del estado de alerta y función cognitiva
+- Omisión de alertas críticas
+- Retrasos en tiempos de respuesta
+- Mayor probabilidad de cometer errores
+- Cualquiera puede comprometer la seguridad
+
+**Cómo la automatización/orquestación combate la fatiga del operador:**
+- Automatiza tareas rutinarias: análisis de vulnerabilidades, aplicación de parches, supervisión de anomalías
+- Libera personal para tareas complejas que requieren **juicio humano y creatividad**
+- Reduce **tiempos de detección y respuesta**
+
+**Ejemplo de sistema orquestado ante amenaza detectada:**
+```
+Amenaza detectada
+    → Aislar subred afectada (automático)
+    → Realizar análisis básico (automático)
+    → Generar informe (automático)
+    → Notificar a equipos de seguridad (automático)
+    → Generar tickets (automático)
+    → Documentar incidente (automático)
+    [Sin intervención humana]
+```
+
+**Beneficio adicional:** Automatización aplica **líneas de base estandarizadas** mediante herramientas de administración de configuraciones → invalida automáticamente cambios no autorizados en endpoints.
+
+**Línea de base estándar** = conjunto bien definido de configuraciones y ajustes aprobados que sirven como punto de referencia para establecer y mantener el estado deseado de un sistema.
+
+> **Analogía:** La fatiga del operador es como trabajar como controlador de tráfico aéreo 24/7: la sobrecarga de alertas y la presión constante eventualmente degradan la capacidad de tomar decisiones críticas correctamente.
+
+#### Desafíos de la Automatización y Orquestación
+
+| Desafío | Descripción |
+|---|---|
+| **Complejidad** | Requiere comprensión profunda de sistemas, procesos e interdependencias. Estrategia mal planificada → complejidad adicional |
+| **Costo** | Costo inicial elevado (adquisición, desarrollo, integración, capacitación). Mantenimiento y actualizaciones también costosos |
+| **Punto único de falla** | Si un sistema automatizado crítico falla → puede afectar múltiples áreas simultáneamente |
+| **Deuda técnica** *(Technical Debt)* | Implementación apresurada → código poco documentado, integraciones inestables, deficientes prácticas de mantenimiento → inestabilidad e incremento de costos (similar a problemas de sistemas heredados) |
+| **Soporte continuo** | Requiere actualizaciones, parches, revisión de procesos y capacitación permanente. Sin soporte → beneficios se erosionan rápidamente |
+
+#### Beneficios de la Automatización de Gestión de Infraestructura
+
+La automatización y orquestación de configuraciones de infraestructura proporciona:
+
+| Beneficio | Descripción |
+|---|---|
+| **Consistencia y precisión** | Configuraciones estandarizadas aplicadas en toda la infraestructura |
+| **Ahorro de tiempo y recursos** | Agiliza el proceso de implementación |
+| **Escalabilidad y flexibilidad** | Simplifica implementación y configuración de nuevos recursos |
+| **Uniformidad** | Facilita auditoría y seguimiento de cambios |
+| **Control de desviaciones** *(Drift Control)* | Detecta y corrige desviaciones de configuraciones aprobadas |
+| **Seguridad y gobernanza** | Garantiza cumplimiento de controles de seguridad, aplica parches consistentemente |
+
+> 💡 **Nuevos dispositivos añadidos a la red** → configuraciones automatizadas los mantienen actualizados y seguros desde el primer momento.
+
+> **👉 Enfoque de Examen SY0-701:** Las preguntas sobre automatización/orquestación frecuentemente presentan escenarios donde hay que elegir entre ventajas. Puntos clave:
+> - **"Multiplicador de fuerza laboral"** → automatización reduce carga del equipo
+> - **"Fatiga del operador"** → se combate con automatización de tareas repetitivas
+> - **"Punto único de falla"** → es un RIESGO de la automatización (no una ventaja)
+> - **"Deuda técnica"** → resultado de implementar automatización de forma apresurada
+> - **SOAR** → orquestación + automatización + respuesta coordinada a incidentes
+> Distractor clásico: presentar la automatización como solución perfecta sin riesgos. Recuerda: **complejidad, costo, punto único de falla y deuda técnica** son desafíos REALES.
+
+## 14.4 RESUMEN MAESTRO — JERARQUÍA DE GOBERNANZA
+
+```
+GOBERNANZA
+├── POLÍTICAS (obligatorias, alto nivel)
+│   ├── AUP
+│   ├── Seguridad de la información
+│   ├── BCP/COOP
+│   ├── DRP
+│   ├── IRP
+│   ├── SDLC
+│   └── Administración de cambios
+│
+├── ESTÁNDARES (obligatorios, implementación técnica)
+│   ├── Internacionales: ISO 27001/27002/27017/27018, NIST SP 800-63, PCI DSS, FIPS
+│   └── Internos: Contraseñas, Control de acceso, Seguridad física, Cifrado
+│
+├── PROCEDIMIENTOS (obligatorios, instrucciones paso a paso)
+│   ├── Administración de personal (IAM)
+│   ├── Playbooks
+│   └── Administración de cambios
+│
+└── DIRECTRICES (recomendadas, flexibles)
+    └── Mejores prácticas por área/departamento
+```
+
+## 14.5 GLOSARIO
+
+| Acrónimo | Significado |
+|---|---|
+| `AUP` | Acceptable Use Policy — Política de Uso Aceptable |
+| `BCP` | Business Continuity Plan — Plan de Continuidad del Negocio |
+| `BYOD` | Bring Your Own Device — Trae Tu Propio Dispositivo |
+| `CAB` | Change Advisory Board — Comité Asesor de Cambios |
+| `CALEA` | Communications Assistance for Law Enforcement Act |
+| `CCPA` | California Consumer Privacy Act — Ley de Privacidad del Consumidor de California |
+| `CDE` | Cardholder Data Environment — Entorno de Datos de Titulares de Tarjetas |
+| `CI` | Continuous Integration — Integración Continua |
+| `CIPA` | Children's Internet Protection Act — Ley de Protección de la Infancia en Internet |
+| `CJIS` | Criminal Justice Information Services |
+| `CMMC` | Cybersecurity Maturity Model Certification — Certificación del Modelo de Madurez de Ciberseguridad |
+| `COOP` | Continuity of Operations Plan — Plan de Continuidad de las Operaciones |
+| `COPPA` | Children's Online Privacy Protection Act |
+| `CSP` | Cloud Service Provider — Proveedor de Servicios en la Nube |
+| `DAC` | Discretionary Access Control — Control de Acceso Discrecional |
+| `DRP` | Disaster Recovery Plan — Plan de Recuperación ante Desastres |
+| `ECC` | Elliptic Curve Cryptography — Criptografía de Curva Elíptica |
+| `FERPA` | Family Educational Rights and Privacy Act |
+| `FIPS` | Federal Information Processing Standards — Estándares Federales de Procesamiento de Información |
+| `FISMA` | Federal Information Security Management Act — Ley Federal de Gestión de Seguridad de la Información |
+| `GDPR/RGPD` | General Data Protection Regulation — Reglamento General de Protección de Datos |
+| `GLBA` | Gramm-Leach-Bliley Act |
+| `GSC` | Government Security Classifications |
+| `HIPAA` | Health Insurance Portability and Accountability Act |
+| `IAM` | Identity and Access Management — Gestión de Identidades y Accesos |
+| `IRP` | Incident Response Plan — Plan de Respuesta a Incidentes |
+| `ISO` | Interna Organization for Standardization |
+| `MAC` | Mandatory Access Control — Control de Acceso Obligatorio |
+| `NERC` | North American Electric Reliability Corporation |
+| `NIS` | Network and Information Systems Directive |
+| `NIST` | National Institute of Standards and Technology |
+| `PCI DSS` | Payment Card Industry Data Security Standard |
+| `PII` | Personally Identifiable Information — Información de Identificación Personal |
+| `PIPEDA` | Personal Information Protection and Electronic Documents Act |
+| `RBAC` | Role-Based Access Control — Control de Acceso Basado en Funciones |
+| `RFC` | Request for Change — Solicitud de Cambio |
+| `RRHH` | Recursos Humanos |
+| `SAML` | Security Assertion Markup Language |
+| `SDLC` | Software Development Life Cycle — Ciclo de Vida del Desarrollo de Software |
+| `SGSI` | Sistema de Gestión de Seguridad de la Información (equivalente a ISMS) |
+| `SLA` | Service Level Agreement — Acuerdo de Nivel de Servicio |
+| `SOAR` | Security Orchestration, Automation and Response |
+| `SOP` | Standard Operating Procedures — Procedimientos Operativos Estándar |
+| `SOX` | Sarbanes-Oxley Act — Ley Sarbanes-Oxley |
+| `VP` | Vice President — Vicepresidente |
 
 ---
